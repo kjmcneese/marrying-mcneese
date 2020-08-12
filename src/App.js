@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import love from './love.png';
+
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -35,11 +36,7 @@ function App() {
 
         <Carousel>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="images/love.png"
-              alt="First slide"
-            />
+            <img className="d-block w-100" src="{love}" alt="First slide"/>
             <Carousel.Caption>
               <h3>Marrying McNeese</h3>
               <p>August 13, 2021</p>
