@@ -36,10 +36,10 @@ function App() {
 
         <Carousel>
           <Carousel.Item>
-            <img className="d-block w-100" src="{love}" alt="First slide"/>
+            <img className="d-block w-100" src={love} alt="First slide"/>
             <Carousel.Caption>
               <h3>Marrying McNeese</h3>
-              <p>August 13, 2021</p>
+              <p className="carouselHeaders">August 13, 2021</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>

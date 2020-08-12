@@ -41,3 +41,8 @@ html {
   font-family: Brush Script MT, Brush Script Std, cursive;
   font-weight: bold;
 }
+
+.carousel-inner {
+  width: 50%;
+  margin: auto;
+}
