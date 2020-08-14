@@ -3,33 +3,14 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import love from './love.png';
 
-
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Navigationbar from './Navigationbar';
 import Carousel from 'react-bootstrap/Carousel';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-
-        <Navbar expand="md">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="#home">Ceremony</Nav.Link>
-              <Nav.Link href="#link">Reception</Nav.Link>
-              <Navbar.Brand href="#home">Kyle & Lauren</Navbar.Brand>
-              <Nav.Link href="#link">Registry</Nav.Link>
-              <NavDropdown title="Photos" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Proposal</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Engagement</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Wedding</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+        <Navigationbar />
       </header>
       <div className="App-body">
 
