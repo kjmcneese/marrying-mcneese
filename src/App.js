@@ -72,7 +72,7 @@ function App() {
   );
 }
 
-var getTimeUntilWedding = 0;
+var getTimeUntilWedding;
 var weddingDate = new Date("August 13, 2021 15:00:00").getTime();
 
 setInterval(function() {
