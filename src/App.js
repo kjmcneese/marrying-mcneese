@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
 import love from './love.png';
 
@@ -22,11 +23,9 @@ function App() {
               <Navbar.Brand href="#home">Kyle & Lauren</Navbar.Brand>
               <Nav.Link href="#link">Registry</Nav.Link>
               <NavDropdown title="Photos" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Proposal Photos</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Engagement Photos</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Wedding Photos</NavDropdown.Item>
-                {/* <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+                <NavDropdown.Item href="#action/3.1">Proposal</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Engagement</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Wedding</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
@@ -38,11 +37,13 @@ function App() {
           <Carousel.Item>
             <img className="d-block w-100" src={love} alt="First slide"/>
             <Carousel.Caption>
-              <h3>Marrying McNeese</h3>
-              <p className="carouselHeaders">August 13, 2021</p>
+              <h1>Marrying McNeese</h1>
+              {/* <p className="carouselHeaders">August 13, 2021</p> */}
+              <h3 id="timeUntilWedding">{getTimeUntilWedding}</h3>
+              <h5>until I Do</h5>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          {/* <Carousel.Item>
             <img
               className="d-block w-100"
               src="holder.js/800x400?text=Second slide&bg=282c34"
@@ -63,12 +64,32 @@ function App() {
               <h3>Spooky Wedding</h3>
               <p>We're not superstitious, but we are a little 'stitious.</p>
             </Carousel.Caption>
-          </Carousel.Item>
+          </Carousel.Item> */}
         </Carousel>
 
       </div>
     </div>
   );
 }
+
+var getTimeUntilWedding = 0;
+var weddingDate = new Date("August 13, 2021 15:00:00").getTime();
+
+setInterval(function() {
+  var now = new Date().getTime();
+  var difference = weddingDate - now;
+    
+  var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    
+  if (difference < 0) {
+    getTimeUntilWedding = "We said \"I DO\"!";
+  }
+
+  getTimeUntilWedding = days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes";
+  ReactDOM.render(getTimeUntilWedding, document.getElementById('timeUntilWedding'));
+}, 1000);
 
 export default App;
