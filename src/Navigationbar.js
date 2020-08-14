@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Navigationbar() {
+function NavigationBar() {
     return (
         <Navbar expand="md">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -25,4 +25,4 @@ function Navigationbar() {
     );
 }
 
-export default Navigationbar;
+export default NavigationBar;
