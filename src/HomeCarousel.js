@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import love from './love.png';
+import love from './images/love.png';
 
 import Carousel from 'react-bootstrap/Carousel';
 
