@@ -1,38 +1,48 @@
+/* 05668D
+028090
+00A896
+02C39A
+F0F3BD 
+EEF0F2 */
+
+html {
+  background-color: #EEF0F2;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background-color: #00A896;
+  border-bottom: 3px solid #F0F3BD;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 1.5rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-brand {
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-left: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mr-auto, .nav-link, .nav-item {
+  margin: auto;
+}
+
+.App-body {
+  background-color: #EEF0F2;
+}
+
+.homepageHeader {
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-weight: bold;
+}
+
+.carousel-inner {
+  width: 50%;
+  margin: auto;
 }
