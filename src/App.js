@@ -1,8 +1,11 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import NavigationBar from './NavigationBar';
-import HomeCarousel from './HomeCarousel';
+import Home from './Home';
+import Accommodations from './Accommodations';
+
 
 function App() {
   return (
@@ -11,7 +14,10 @@ function App() {
         <NavigationBar/>
       </header>
       <div className="App-body">
-        <HomeCarousel/>
+        <Switch>
+          <Route path='/' component={Home} exact />
+          <Route path='/Accommodations' component={Accommodations} />
+        </Switch>
       </div>
     </div>
   );
