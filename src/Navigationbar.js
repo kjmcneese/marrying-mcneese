@@ -11,8 +11,8 @@ function NavigationBar() {
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
                 <Nav.Link href="#festivities">Festivities</Nav.Link>
-                <Nav.Link href="#accommodations">Accommodations</Nav.Link>
-                <Navbar.Brand href="#home">Kyle & Lauren</Navbar.Brand>
+                <Nav.Link href="/Accommodations">Accommodations</Nav.Link>
+                <Navbar.Brand href="/">Kyle & Lauren</Navbar.Brand>
                 <Nav.Link href="#registry">Registry</Nav.Link>
                 <NavDropdown title="Photos" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#proposalPhotos">Proposal</NavDropdown.Item>
