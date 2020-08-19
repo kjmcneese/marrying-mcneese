@@ -8,7 +8,7 @@ var hotelIndigoBookingLink = "https://www.hotelindigo.com/redirect?path=asearch&
 function Accommodations() {
     return (
         <div className="hotels">
-            <h1>Hotel Accommodations</h1>
+            <h3>Hotel Accommodations</h3>
             <Card className="hotelCard">
                 <Card.Img variant="top" src={indigo} />
                 <Card.Body>

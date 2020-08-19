@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import love from './images/love.jpg';
 import Carousel from 'react-bootstrap/Carousel';
+import Schedule from './Schedule';
+
 import './css/Home.css';
 
 
@@ -10,33 +12,37 @@ var getTimeUntilWedding = 0;
 class Home extends React.Component {
   render() {
     return (
-      <Carousel>
-        <Carousel.Item>
-          <img className="d-block w-100" src={love} alt="First slide"/>
-          <Carousel.Caption>
-            <h4>Marrying McNeese</h4>
-            {/* <p className="carouselHeaders">August 13, 2021</p> */}
-            <p id="timeUntilWedding">{getTimeUntilWedding}</p>
-            <p>until I Do</p>
-          </Carousel.Caption>
-        </Carousel.Item>
+      <div>
+        <Carousel>
+          <Carousel.Item>
+            <img className="d-block w-100" src={love} alt="First slide"/>
+            <Carousel.Caption>
+              <h4>Marrying McNeese</h4>
+              {/* <p className="carouselHeaders">August 13, 2021</p> */}
+              <p id="timeUntilWedding">{getTimeUntilWedding}</p>
+              <p>until I Do</p>
+            </Carousel.Caption>
+          </Carousel.Item>
 
-        <Carousel.Item>
-          <img className="d-block w-100" src={love} alt="First slide"/>
-          <Carousel.Caption>
-            <h4>Our Love Story</h4>
-            <p>Check out how we met and how far we've come.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src={love} alt="First slide"/>
+            <Carousel.Caption>
+              <h4>Our Love Story</h4>
+              <p>Check out how we met and how far we've come.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
 
-        <Carousel.Item>
-          <img className="d-block w-100" src={love} alt="First slide"/>
-          <Carousel.Caption>
-            <h4>Spooky Wedding</h4>
-            <p>We're not superstitious, but we are a little 'stitious.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+          <Carousel.Item>
+            <img className="d-block w-100" src={love} alt="First slide"/>
+            <Carousel.Caption>
+              <h4>Spooky Wedding</h4>
+              <p>We're not superstitious, but we are a little 'stitious.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+
+        <Schedule />
+      </div>
     );
   }
 
