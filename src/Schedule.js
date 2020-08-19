@@ -1,28 +1,20 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form';
 import './css/Schedule.css';
 
 function Schedule() {
     return (
-        <div className="anchorSection">
-            <a name="Schedule">
-                <h3>Schedule</h3>
-            </a>
+        <a name="Schedule">
 
-            <Form>
-                <Form.Group controlId="scheduleForm">
-                    <Form.Text>Ceremony 3:30 pm</Form.Text>
-                    <Form.Text>Cocktail Hour 4:15 pm</Form.Text>
-                    <Form.Text>Dinner 5:30 pm</Form.Text>
-                    <Form.Text>First Dance 7 pm</Form.Text>
-                    <Form.Text className="smallFont">* all events take place at the <a href="#Tinsmith">Tinsmith</a></Form.Text>
-                </Form.Group>
-            </Form>
-        </div>
+            <div className="anchorSection scheduleSection">
+                <h3>Schedule</h3>
+                <p>Ceremony 3:30 pm</p>
+                <p>Cocktail Hour 4:15 pm</p>
+                <p>Dinner 5:30 pm</p>
+                <p>First Dance 7 pm</p>
+                <p className="smallFont">* all events take place at <a href="#Tinsmith">The Tinsmith</a></p>
+            </div>
+        </a>
     );
 }
 
 export default Schedule;
-
-
-        

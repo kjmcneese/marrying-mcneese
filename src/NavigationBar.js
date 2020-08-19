@@ -9,9 +9,9 @@ function NavigationBar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="navOptions">
-                <Nav.Link href="#Wedding" className="navigationBarText">Wedding</Nav.Link>
-                <Nav.Link href="#Tinsmith" className="navigationBarText">Tinsmith</Nav.Link>
-                <Nav.Link href="#Schedule" className="navigationBarText">Schedule</Nav.Link>
+                <Nav.Link href="/#Wedding" className="navigationBarText">Wedding</Nav.Link>
+                <Nav.Link href="/#Tinsmith" className="navigationBarText">Tinsmith</Nav.Link>
+                <Nav.Link href="/#Schedule" className="navigationBarText">Schedule</Nav.Link>
                 <Navbar.Brand href="/" className="navigationBarHeader">Kyle & Lauren</Navbar.Brand>
                 <Nav.Link href="/Accommodations" className="navigationBarText">Accommodations</Nav.Link>
                 <Nav.Link href="/Registry" className="navigationBarText">Registry</Nav.Link>
