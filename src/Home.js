@@ -6,6 +6,11 @@ import Tinsmith from './Tinsmith';
 import Schedule from './Schedule';
 import './css/Home.css';
 
+var carouselTitle = "Marrying McNeese";
+var weddingDate = "August 13, 2021";
+var notice = "All events take place at ";
+var venue = "The Tinsmith";
+
 function Home() {
   return (
     <div>
@@ -13,31 +18,31 @@ function Home() {
         <Carousel.Item>
           <img className="d-block w-100" src={love} alt="First slide"/>
           <Carousel.Caption>
-            <h4>Marrying McNeese</h4>
-            <h4>August 13, 2021</h4>
+            <h4>{carouselTitle}</h4>
+            <h4>{weddingDate}</h4>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img className="d-block w-100" src={love} alt="First slide"/>
           <Carousel.Caption>
-            <h4>Marrying McNeese</h4>
-            <h4>August 13, 2021</h4>
+            <h4>{carouselTitle}</h4>
+            <h4>{weddingDate}</h4>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img className="d-block w-100" src={love} alt="First slide"/>
           <Carousel.Caption>
-            <h4>Marrying McNeese</h4>
-            <h4>August 13, 2021</h4>
+            <h4>{carouselTitle}</h4>
+            <h4>{weddingDate}</h4>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
       
       <Wedding />
-      <Tinsmith /> 
-      <Schedule />
+      <Tinsmith notice={notice} venue={venue}/> 
+      <Schedule notice={notice} venue={venue}/>
     </div>
   );
 }
