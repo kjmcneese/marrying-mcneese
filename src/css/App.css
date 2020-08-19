@@ -13,3 +13,7 @@
 .App-body {
   background-color: #fffffffa;
 }
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}

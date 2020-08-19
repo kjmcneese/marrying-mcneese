@@ -13,7 +13,8 @@ function Accommodations() {
                 <Card.Img variant="top" src={indigo} />
                 <Card.Body>
                     <Card.Title>Hotel Indigo</Card.Title>
-                    <Card.Text>Stay right by The Tinsmith (wedding venue). Rooms at about $170 per night.</Card.Text>
+                    <Card.Text className="no-margin-bottom">901 E Washington Ave</Card.Text>
+                    <Card.Text>Madison, WI 53703</Card.Text>
                     <Card.Link href={hotelIndigoBookingLink}>Book Room</Card.Link>
                 </Card.Body>
             </Card>
@@ -22,7 +23,8 @@ function Accommodations() {
                 <Card.Img variant="top" src={indigo} />
                 <Card.Body>
                     <Card.Title>Hotel Something</Card.Title>
-                    <Card.Text>Stay about 6 miles from The Tinsmith (wedding venue). Rooms at about $125 per night.</Card.Text>
+                    <Card.Text className="no-margin-bottom">Address is something</Card.Text>
+                    <Card.Text>Madison, WI 53703</Card.Text>
                     <Card.Link href="#">Book Room</Card.Link>
                 </Card.Body>
             </Card>

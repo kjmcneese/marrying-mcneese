@@ -1,75 +1,45 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import love from './images/love.jpg';
 import Carousel from 'react-bootstrap/Carousel';
+import Wedding from './Wedding';
+import Tinsmith from './Tinsmith';
 import Schedule from './Schedule';
 import './css/Home.css';
 
+function Home() {
+  return (
+    <div>
+      <Carousel>
+        <Carousel.Item>
+          <img className="d-block w-100" src={love} alt="First slide"/>
+          <Carousel.Caption>
+            <h4>Marrying McNeese</h4>
+            <h4>August 13, 2021</h4>
+          </Carousel.Caption>
+        </Carousel.Item>
 
-var getTimeUntilWedding = 0;
+        <Carousel.Item>
+          <img className="d-block w-100" src={love} alt="First slide"/>
+          <Carousel.Caption>
+            <h4>Marrying McNeese</h4>
+            <h4>August 13, 2021</h4>
+          </Carousel.Caption>
+        </Carousel.Item>
 
-class Home extends React.Component {
-  render() {
-    return (
-      <div>
-        <Carousel>
-          <Carousel.Item>
-            <img className="d-block w-100" src={love} alt="First slide"/>
-            <Carousel.Caption>
-              <h4>Marrying McNeese</h4>
-              <p className="carouselText">August 13, 2021</p>
-              <p id="timeUntilWedding" className="carouselText">{getTimeUntilWedding}</p>
-              <p>until I Do</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-
-          <Carousel.Item>
-            <img className="d-block w-100" src={love} alt="First slide"/>
-            <Carousel.Caption>
-              <h4>Our Love Story</h4>
-              <p>Check out how we met and how far we've come.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-
-          <Carousel.Item>
-            <img className="d-block w-100" src={love} alt="First slide"/>
-            <Carousel.Caption>
-              <h4>Spooky Wedding</h4>
-              <p>We're not superstitious, but we are a little 'stitious.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-
-        <Schedule />
-      </div>
-    );
-  }
-
-
-  componentDidMount() {
-    var weddingDate = new Date("August 13, 2021 15:00:00").getTime();
-    
-    this.timer = setInterval(function() {
-      var now = new Date().getTime();
-      var difference = weddingDate - now;
-        
-      var days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((difference % (1000 * 60)) / 1000);
-        
-      if (difference < 0) {
-        getTimeUntilWedding = "We said \"I DO\"!";
-      }
-    
-      getTimeUntilWedding = days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes";
-      ReactDOM.render(getTimeUntilWedding, document.getElementById('timeUntilWedding'));
-    }, 300);  
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  };  
+        <Carousel.Item>
+          <img className="d-block w-100" src={love} alt="First slide"/>
+          <Carousel.Caption>
+            <h4>Marrying McNeese</h4>
+            <h4>August 13, 2021</h4>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+      
+      <Wedding />
+      <Tinsmith /> 
+      <Schedule />
+    </div>
+  );
 }
 
 export default Home;
