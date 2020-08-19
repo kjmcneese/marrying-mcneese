@@ -1,7 +1,3 @@
-html {
-  background-color: #EEF0F2;
-}
-
 .App {
   text-align: center;
 }
@@ -15,5 +11,5 @@ html {
 }
 
 .App-body {
-  background-color: #EEF0F2;
+  background-color: #fffffffa;
 }
