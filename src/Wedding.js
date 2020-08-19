@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import './css/Wedding.css';
 
 var getTimeUntilWedding = 0;
+var untilIDo = "until I Do";
 
 class Wedding extends React.Component {
     render() {
@@ -13,7 +14,7 @@ class Wedding extends React.Component {
                     <h3>Wedding</h3>
                     {/* <img className="homepageImage" src={wedding} /> */}
                     <p id="timeUntilWedding" className="no-margin-bottom">{getTimeUntilWedding}</p>
-                    <p>until I Do</p>
+                    <p id="untilIDo">{untilIDo}</p>
                 </div>
             </a>
         );
@@ -32,11 +33,14 @@ class Wedding extends React.Component {
           var seconds = Math.floor((difference % (1000 * 60)) / 1000);
             
           if (difference < 0) {
-            getTimeUntilWedding = "We said \"I DO\"!";
+            getTimeUntilWedding = "";
+            untilIDo = "We tied the knot!";
+          } else {
+            getTimeUntilWedding = days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes";
           }
         
-          getTimeUntilWedding = days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes";
           ReactDOM.render(getTimeUntilWedding, document.getElementById('timeUntilWedding'));
+          ReactDOM.render(untilIDo, document.getElementById('untilIDo'));
         }, 300);  
       }
     
