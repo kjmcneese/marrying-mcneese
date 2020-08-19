@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import love from './images/love.png';
-
+import love from './images/love.jpg';
 import Carousel from 'react-bootstrap/Carousel';
+import './css/Home.css';
+
 
 var getTimeUntilWedding = 0;
 
@@ -14,34 +14,28 @@ class Home extends React.Component {
         <Carousel.Item>
           <img className="d-block w-100" src={love} alt="First slide"/>
           <Carousel.Caption>
-            <h1>Marrying McNeese</h1>
+            <h4>Marrying McNeese</h4>
             {/* <p className="carouselHeaders">August 13, 2021</p> */}
-            <h3 id="timeUntilWedding">{getTimeUntilWedding}</h3>
-            <h5>until I Do</h5>
+            <p id="timeUntilWedding">{getTimeUntilWedding}</p>
+            <p>until I Do</p>
           </Carousel.Caption>
         </Carousel.Item>
-        {/* <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="holder.js/800x400?text=Second slide&bg=282c34"
-            alt="Third slide"
-          />
+
+        <Carousel.Item>
+          <img className="d-block w-100" src={love} alt="First slide"/>
           <Carousel.Caption>
-            <h3>Our Love Story</h3>
+            <h4>Our Love Story</h4>
             <p>Check out how we met and how far we've come.</p>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="holder.js/800x400?text=Third slide&bg=20232a"
-            alt="Third slide"
-          />
+          <img className="d-block w-100" src={love} alt="First slide"/>
           <Carousel.Caption>
-            <h3>Spooky Wedding</h3>
+            <h4>Spooky Wedding</h4>
             <p>We're not superstitious, but we are a little 'stitious.</p>
           </Carousel.Caption>
-        </Carousel.Item> */}
+        </Carousel.Item>
       </Carousel>
     );
   }
@@ -65,7 +59,7 @@ class Home extends React.Component {
     
       getTimeUntilWedding = days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes";
       ReactDOM.render(getTimeUntilWedding, document.getElementById('timeUntilWedding'));
-    }, 1000);  
+    }, 300);  
   }
 
   componentWillUnmount() {

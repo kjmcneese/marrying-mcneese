@@ -1,0 +1,10 @@
+.hotels {
+    margin: auto;
+    padding-top: 3rem;
+}
+  
+.hotelCard {
+    width: 18rem;
+    margin: 3rem;
+    display: inline-block;
+}
