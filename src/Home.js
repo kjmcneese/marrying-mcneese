@@ -40,7 +40,7 @@ function Home() {
         </Carousel.Item>
       </Carousel>
       
-      <Wedding />
+      <Wedding weddingDate={weddingDate}/>
       <Tinsmith notice={notice} venue={venue}/> 
       <Schedule notice={notice} venue={venue}/>
     </div>

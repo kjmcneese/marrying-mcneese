@@ -5,7 +5,9 @@ import './css/Wedding.css';
 
 var pageTitle = "Wedding";
 var getTimeUntilWedding = 0;
-var untilIDo = "until I Do";
+var weddingTime = " 15:30:00"
+var beforeWeddingText = "until I Do";
+var afterWeddingText = "We tied the knot!";
 
 class Wedding extends React.Component {
     render() {
@@ -15,14 +17,14 @@ class Wedding extends React.Component {
             <h3>{pageTitle}</h3>
             {/* <img className="homepageImage" src={wedding} /> */}
             <p id="timeUntilWedding" className="no-margin-bottom">{getTimeUntilWedding}</p>
-            <p id="untilIDo">{untilIDo}</p>
+            <p id="beforeWeddingText">{beforeWeddingText}</p>
           </div>
         </a>
       );
     }
 
     componentDidMount() {
-      var weddingDate = new Date("August 13, 2021 15:00:00").getTime();
+      var weddingDate = new Date(this.props.weddingDate + weddingTime).getTime();
       
       this.timer = setInterval(function() {
         var now = new Date().getTime();
@@ -35,13 +37,13 @@ class Wedding extends React.Component {
           
         if (difference < 0) {
           getTimeUntilWedding = "";
-          untilIDo = "We tied the knot!";
+          beforeWeddingText = afterWeddingText;
+          ReactDOM.render(beforeWeddingText, document.getElementById('beforeWeddingText'));
         } else {
           getTimeUntilWedding = days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes";
         }
       
         ReactDOM.render(getTimeUntilWedding, document.getElementById('timeUntilWedding'));
-        ReactDOM.render(untilIDo, document.getElementById('untilIDo'));
       }, 300);  
     }
     
