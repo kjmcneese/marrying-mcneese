@@ -17,3 +17,13 @@
 .no-margin-bottom {
   margin-bottom: 0;
 }
+
+.card {
+  width: 18rem;
+  margin: 2.5rem;
+  display: inline-block;
+}
+
+.card-body {
+  background-color: #eefaff;
+}

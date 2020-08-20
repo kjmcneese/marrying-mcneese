@@ -1,0 +1,6 @@
+/* the next css block is duplicated for the same thing in Accommodations.css */
+/* for some reason, it's not even needed here because Registry.js can see Accommodations.css somehow */
+.registry {
+    margin: auto;
+    padding-top: 2rem;
+}

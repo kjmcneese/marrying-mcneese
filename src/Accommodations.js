@@ -4,6 +4,7 @@ import indigo from './images/indigo.jpg';
 import './css/Accommodations.css';
 
 var pageTitle = "Hotel Accommodations";
+var pageNotice = "We've blocked rooms at each of these hotels.";
 var hotelIndigoTitle = "Hotel Indigo";
 var hotelIndigoAddress = "901 E Washington Ave";
 var hotelIndigoLink = "https://www.hotelindigo.com/redirect?path=asearch&brandCode=IN&localeCode=en&regionCode=1&hotelCode=MSNMS&checkInDate=12&checkInMonthYear=072021&checkOutDate=15&checkOutMonthYear=072021&rateCode=6CBARC&_PMID=99801505&GPC=VN7&cn=no&viewfullsite=true";
@@ -15,7 +16,8 @@ function Accommodations() {
     return (
         <div className="hotels">
             <h3>{pageTitle}</h3>
-            <Card className="hotelCard">
+            <p>{pageNotice}</p>
+            <Card>
                 <Card.Img variant="top" src={indigo} />
                 <Card.Body>
                     <Card.Title>{hotelIndigoTitle}</Card.Title>
@@ -25,7 +27,7 @@ function Accommodations() {
                 </Card.Body>
             </Card>
 
-            <Card className="hotelCard">
+            <Card>
                 <Card.Img variant="top" src={indigo} />
                 <Card.Body>
                     <Card.Title>Hotel Something</Card.Title>

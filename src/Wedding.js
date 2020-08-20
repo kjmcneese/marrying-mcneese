@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 // import wedding from './images/wedding.jpg';
 import './css/Wedding.css';
 
-var pageTitle = "Wedding";
+var sectionTitle = "Wedding";
 var getTimeUntilWedding = 0;
 var weddingTime = " 15:30:00"
 var beforeWeddingText = "until I Do";
@@ -12,14 +12,14 @@ var afterWeddingText = "We tied the knot!";
 class Wedding extends React.Component {
     render() {
       return (
-        <a name="Wedding">
+        <div id="Wedding">
           <div className="anchorSection weddingSection">
-            <h3>{pageTitle}</h3>
+            <h3>{sectionTitle}</h3>
             {/* <img className="homepageImage" src={wedding} /> */}
             <p id="timeUntilWedding" className="no-margin-bottom">{getTimeUntilWedding}</p>
             <p id="beforeWeddingText">{beforeWeddingText}</p>
           </div>
-        </a>
+        </div>
       );
     }
 
