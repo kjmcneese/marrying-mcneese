@@ -1,10 +1,5 @@
+/* the next css block is duplicated for the same thing in Registry.css */
 .hotels {
     margin: auto;
     padding-top: 2rem;
-}
-  
-.hotelCard {
-    width: 18rem;
-    margin: 2.5rem;
-    display: inline-block;
 }

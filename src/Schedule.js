@@ -11,7 +11,7 @@ var venueAnchor = "#Tinsmith";
 class Schedule extends React.Component {
     render() {
         return (
-            <a name="Schedule">
+            <div id="Schedule">
                 <div className="anchorSection scheduleSection">
                     <h3>{sectionTitle}</h3>
                     <p>{item1}</p>
@@ -20,7 +20,7 @@ class Schedule extends React.Component {
                     <p>{item4}</p>
                     <p className="smallFont">{this.props.notice}<a href={venueAnchor}>{this.props.venue}</a></p>
                 </div>
-            </a>
+            </div>
         );
     }
 }
