@@ -13,10 +13,10 @@ function Registry() {
         <div className="registry">
             <h3>{pageTitle}</h3>
             <Card>
-                <Card.Img variant="top" src={bedbathbeyond} />
+                <Card.Img variant="top" src={bedbathbeyond}/>
                 <Card.Body>
                     <Card.Title>{bedBathBeyondTitle}</Card.Title>
-                    <Card.Link href={bedBathBeyondLink}>{goToText}</Card.Link>
+                    <Card.Link href={bedBathBeyondLink} target="_blank">{goToText}</Card.Link>
                 </Card.Body>
             </Card>
         </div>

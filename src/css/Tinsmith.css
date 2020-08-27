@@ -2,3 +2,7 @@
     height: 30rem;
     background-color: #eefaff;
 }
+
+.smallFont {
+    font-size: .8rem;
+}
