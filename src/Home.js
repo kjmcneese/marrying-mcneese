@@ -42,7 +42,7 @@ function Home() {
       
       <Wedding weddingDate={weddingDate}/>
       <Tinsmith notice={notice} venue={venue}/> 
-      <Schedule notice={notice} venue={venue}/>
+      <Schedule />
     </div>
   );
 }
