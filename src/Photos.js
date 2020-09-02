@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import './css/Photos.css';
 
 var pageTitle = "Photos";
