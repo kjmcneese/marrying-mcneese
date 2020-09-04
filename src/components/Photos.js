@@ -2,7 +2,7 @@ import React from 'react';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
-import '../css/Photos.css';
+import '../css/Photos.scss';
 
 var pageTitle = "Photos";
 

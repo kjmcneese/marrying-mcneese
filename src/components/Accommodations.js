@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import indigo from '../images/indigo.jpg';
-import '../css/Accommodations.css';
+import '../css/Accommodations.scss';
 
 var pageTitle = "Hotel Accommodations";
 var pageNotice = "We've blocked rooms at each of these hotels.";

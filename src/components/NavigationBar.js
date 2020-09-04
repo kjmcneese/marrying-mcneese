@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import '../css/Navigation.css';
+import '../css/Navigation.scss';
 
 var homeLink = "/";
 var homeLinkAnchorPrefix = homeLink + "#";

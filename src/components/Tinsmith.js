@@ -1,6 +1,6 @@
 import React from 'react';
 import tinsmith from '../images/tinsmith.jpg';
-import '../css/Tinsmith.css';
+import '../css/Tinsmith.scss';
 
 var venueAddressLink = "https://www.google.com/maps/place/The+Tinsmith/@43.0811635,-89.375517,17z/data=!3m1!4b1!4m5!3m4!1s0x880653bdfed64551:0xa643744813c9e53d!8m2!3d43.0811635!4d-89.3733283";
 var venueAddress = "828 E Main St, Madison, WI 53703";
