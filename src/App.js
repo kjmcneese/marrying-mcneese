@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './css/App.css';
-import NavigationBar from './NavigationBar';
-import Home from './Home';
-import Accommodations from './Accommodations';
-import Registry from './Registry';
-import Photos from './Photos';
+import NavigationBar from './components/NavigationBar';
+import Home from './components/Home';
+import Accommodations from './components/Accommodations';
+import Registry from './components/Registry';
+import Photos from './components/Photos';
 
 var homeRoute = "/";
 var route1 = homeRoute + "Accommodations";

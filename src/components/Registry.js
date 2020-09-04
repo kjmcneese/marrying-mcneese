@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import bedbathbeyond from './images/bedbathbeyond.jpg';
-import './css/Registry.css';
+import bedbathbeyond from '../images/bedbathbeyond.jpg';
+import '../css/Registry.css';
 
 var pageTitle = "Registries";
 var bedBathBeyondTitle = "Bed, Bath, & Beyond";

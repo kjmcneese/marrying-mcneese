@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Schedule.css';
+import '../css/Schedule.css';
 
 var sectionTitle = "Schedule";
 var item1 = "Ceremony 3:30 pm";

@@ -1,10 +1,10 @@
 import React from 'react';
-import love from './images/love.jpg';
+import love from '../images/love.jpg';
 import Carousel from 'react-bootstrap/Carousel';
 import Wedding from './Wedding';
 import Tinsmith from './Tinsmith';
 import Schedule from './Schedule';
-import './css/Home.css';
+import '../css/Home.css';
 
 var carouselTitle = "Marrying McNeese";
 var weddingDate = "August 13, 2021";

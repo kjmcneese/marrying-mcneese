@@ -2,7 +2,7 @@ import React from 'react';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
-import './css/Photos.css';
+import '../css/Photos.css';
 
 var pageTitle = "Photos";
 
@@ -10,7 +10,7 @@ class Photos extends React.Component {
     render() {
         const array = ["IMG_1526", "IMG_1527", "IMG_1529", "IMG_1535", "IMG_7695"];
         const images = array.map(image => {
-            return <Image key={image} src={require(`./images/proposal/${image}.JPEG`)} className="photo" rounded />
+            return <Image key={image} src={require(`../images/proposal/${image}.JPEG`)} className="photo" rounded />
         });
 
         return (
