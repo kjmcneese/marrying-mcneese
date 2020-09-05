@@ -1,14 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import bedbathbeyond from '../images/bedbathbeyond.jpg';
-import '../css/Registry.scss';
+import '../css/RouteSection2.scss';
 
 var pageTitle = "Registries";
 var bedBathBeyondTitle = "Bed, Bath, & Beyond";
 var bedBathBeyondLink = "https://www.bedbathandbeyond.com/store/giftregistry/registry-search-guest";
 var goToText = "Go to registry";
 
-function Registry() {
+function RouteSection2() {
     return (
         <div className="registry">
             <h3>{pageTitle}</h3>
@@ -23,4 +23,4 @@ function Registry() {
     );
 }
 
-export default Registry;
+export default RouteSection2;

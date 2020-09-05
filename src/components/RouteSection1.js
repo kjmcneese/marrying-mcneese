@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import indigo from '../images/indigo.jpg';
-import '../css/Accommodations.scss';
+import '../css/RouteSection1.scss';
 
 var pageTitle = "Hotel Accommodations";
 var pageNotice = "We've blocked rooms at each of these hotels.";
@@ -12,7 +12,7 @@ var hotelIndigoLink = "https://www.hotelindigo.com/redirect?path=asearch&brandCo
 var madison = "Madison, WI 53703";
 var bookRoom = "Book Room";
 
-function Accommodations() {
+function RouteSection1() {
     return (
         <div className="hotels">
             <h3>{pageTitle}</h3>
@@ -33,4 +33,4 @@ function Accommodations() {
     );
 }
 
-export default Accommodations;
+export default RouteSection1;

@@ -5,14 +5,14 @@ import '../css/AppBody.scss';
 
 import Home from './Home';
 // These route components should be named generically for better project reuse
-import Accommodations from './Accommodations';
-import Registry from './Registry';
-import Photos from './Photos';
+import RouteSection1 from './RouteSection1';
+import RouteSection2 from './RouteSection2';
+import RouteSection3 from './RouteSection3';
 
 
 class AppBody extends React.Component {
     render() {
-        const routeComponentList = [Accommodations, Registry, Photos];
+        const routeComponentList = [RouteSection1, RouteSection2, RouteSection3];
         const routeSections = [];
         for (var i = 0; i < this.props.appData.routeTitles.length; i++) {
             var routeTitle = this.props.appData.routeTitles[i];

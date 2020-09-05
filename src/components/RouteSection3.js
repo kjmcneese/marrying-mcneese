@@ -2,11 +2,11 @@ import React from 'react';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
-import '../css/Photos.scss';
+import '../css/RouteSection3.scss';
 
 var pageTitle = "Photos";
 
-class Photos extends React.Component {
+class RouteSection3 extends React.Component {
     render() {
         const array = ["IMG_1526", "IMG_1527", "IMG_1529", "IMG_1535", "IMG_7695"];
         const images = array.map(image => {
@@ -34,4 +34,4 @@ class Photos extends React.Component {
     }
 }
 
-export default Photos;
+export default RouteSection3;
