@@ -1,15 +1,23 @@
+@import "variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.appHeader {
+    background-color: $header-color;
+    align-items: center;
+    justify-content: center;
+    font-size: $header-font-size;
+}
 
 .navigationBar {
     height: 3rem;
 }
 
 .navigationBarHeader, .navigationBarText:hover {
-    color: #696969 !important;
+    color: $base-font-color-hover !important;
 }
 
 .navigationBarText {
-    color: #808080 !important;
+    color: $base-font-color !important;
 }
 
 .navbar-brand {
@@ -18,7 +26,7 @@
     font-weight: bold;
     margin-left: 1rem;
 }
-  
+
 .navOptions, .navigationBarText {
     margin: auto;
     padding-left: 3rem;
