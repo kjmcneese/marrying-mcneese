@@ -8,22 +8,23 @@ import Accommodations from './Accommodations';
 import Registry from './Registry';
 import Photos from './Photos';
 
-var homeRoute = "/";
-var route1 = homeRoute + "Accommodations";
-var route2 = homeRoute + "Registry";
-var route3 = homeRoute + "Photos";
+var route1 = "/Accommodations";
+var route2 = "/Registry";
+var route3 = "/Photos";
 
-function AppBody() {
-    return (
-        <div className="appBody">
-            <Switch>
-                <Route path={homeRoute} component={Home} exact />
-                <Route path={route1} component={Accommodations} />
-                <Route path={route2} component={Registry} />
-                <Route path={route3} component={Photos} />
-            </Switch>
-        </div>
-    );
+class AppBody extends React.Component {
+    render() {
+        return (
+            <div className="appBody">
+                <Switch>
+                    <Route path="/" component={Home} exact />
+                    <Route path={route1} component={Accommodations} />
+                    <Route path={route2} component={Registry} />
+                    <Route path={route3} component={Photos} />
+                </Switch>
+            </div>
+        );
+    }
 }
 
 export default AppBody;
