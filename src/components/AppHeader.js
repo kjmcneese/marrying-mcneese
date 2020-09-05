@@ -7,12 +7,12 @@ class AppHeader extends React.Component {
     render() {
         const anchorLinks = [];
         for (var anchorTitle of this.props.appData.anchorTitles) {
-            anchorLinks.push(<Nav.Link href={ "/#" + anchorTitle } className="navigationBarText">{ anchorTitle }</Nav.Link>);
+            anchorLinks.push(<Nav.Link href={ "/#" + anchorTitle } className="navigationBarText" key={ anchorTitle }>{ anchorTitle }</Nav.Link>);
         }
 
         const routeLinks = [];
         for (var routeTitle of this.props.appData.routeTitles) {
-            routeLinks.push(<Nav.Link href={ "/" + routeTitle } className="navigationBarText">{ routeTitle }</Nav.Link>);
+            routeLinks.push(<Nav.Link href={ "/" + routeTitle } className="navigationBarText" key={ routeTitle }>{ routeTitle }</Nav.Link>);
         }
 
         return (

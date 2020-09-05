@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <AppHeader appData={ appData }/>
-      <AppBody />
+      <AppBody appData={ appData }/>
     </div>
   );
 }

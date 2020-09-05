@@ -8,19 +8,22 @@ import Accommodations from './Accommodations';
 import Registry from './Registry';
 import Photos from './Photos';
 
-var route1 = "/Accommodations";
-var route2 = "/Registry";
-var route3 = "/Photos";
-
 class AppBody extends React.Component {
     render() {
+        // How to use this loop generically when component names are different?
+        // Can rename components as generic names (ex. RouteSection1, RouteSection2, etc.), but names are still different.
+        // const routeSections = [];
+        // for (var routeTitle of this.props.appData.routeTitles) {
+        //     routeSections.push(<Route path={ "/" + routeTitle } component={Accommodations} />);
+        // }
+
         return (
             <div className="appBody">
                 <Switch>
                     <Route path="/" component={Home} exact />
-                    <Route path={route1} component={Accommodations} />
-                    <Route path={route2} component={Registry} />
-                    <Route path={route3} component={Photos} />
+                    <Route path={ "/" + this.props.appData.routeTitles[0] } component={Accommodations} />
+                    <Route path={ "/" + this.props.appData.routeTitles[1] } component={Registry} />
+                    <Route path={ "/" + this.props.appData.routeTitles[2] } component={Photos} />
                 </Switch>
             </div>
         );
