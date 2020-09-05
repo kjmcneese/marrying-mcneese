@@ -5,7 +5,7 @@ import '../css/Wedding.scss';
 
 var sectionTitle = "Wedding";
 var getTimeUntilWedding = 0;
-var weddingTime = " 15:30:00"
+var weddingTime = " 15:30:00";
 var beforeWeddingText = "until I Do";
 var afterWeddingText = "We tied the knot!";
 

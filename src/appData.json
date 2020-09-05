@@ -1,5 +1,20 @@
 {
     "siteTitle": "Kyle & Lauren",
+    "weddingDate": "August 13, 2021",
+    "weddingTime": "15:30:00",
+    "city": "Madison, WI 53703",
     "anchorTitles": ["Wedding", "Tinsmith", "Schedule"],
-    "routeTitles": ["Accommodations", "Registry", "Photos"]
+    "routeTitles": ["Accommodations", "Registry", "Photos"],
+    "hotels": [
+        {
+            "name": "test",
+            "link": "test",
+            "bookingLink": "test"
+        },
+        {
+            "name": "test",
+            "link": "test",
+            "bookingLink": "test"
+        }
+    ]
 }
