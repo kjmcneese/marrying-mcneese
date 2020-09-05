@@ -9,11 +9,13 @@
         {
             "name": "test",
             "link": "test",
+            "address": "test",
             "bookingLink": "test"
         },
         {
             "name": "test",
             "link": "test",
+            "address": "test",
             "bookingLink": "test"
         }
     ]
