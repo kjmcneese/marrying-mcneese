@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 import '../css/AppBody.scss';
 
 import Home from './Home';
-// These route components should be named generically for better project reuse
 import RouteSection1 from './RouteSection1';
 import RouteSection2 from './RouteSection2';
 import RouteSection3 from './RouteSection3';
@@ -16,7 +15,7 @@ class AppBody extends React.Component {
         const routeSections = [];
         for (var i = 0; i < this.props.appData.routeTitles.length; i++) {
             var routeTitle = this.props.appData.routeTitles[i];
-            routeSections.push(<Route path={ "/" + routeTitle } component={ routeComponentList[i] } key={ routeTitle }/>);
+            routeSections.push(<Route path={ "/" + routeTitle } component={ routeComponentList[i] } key={ routeTitle } />);
         }
 
         return (
