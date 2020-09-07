@@ -6,8 +6,8 @@ import '../css/AppHeader.scss';
 class AppHeader extends React.Component {
     render() {
         const anchorLinks = [];
-        for (var anchorTitle of this.props.appData.anchorTitles) {
-            anchorLinks.push(<Nav.Link href={ "/#" + anchorTitle } className="navigationBarText" key={ anchorTitle }>{ anchorTitle }</Nav.Link>);
+        for (var homeSectionTitle of this.props.appData.homeSectionTitles) {
+            anchorLinks.push(<Nav.Link href={ "/#" + homeSectionTitle } className="navigationBarText" key={ homeSectionTitle }>{ homeSectionTitle }</Nav.Link>);
         }
 
         const routeLinks = [];

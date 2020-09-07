@@ -5,6 +5,6 @@
     "weddingTime" : "15:30:00",
     "venue": "The Tinsmith",
     "city": "Madison, WI 53703",
-    "anchorTitles": [ "Wedding", "Tinsmith", "Schedule" ],
+    "homeSectionTitles": [ "Wedding", "Tinsmith", "Schedule" ],
     "routeTitles": [ "Accommodations", "Registry", "Photos" ]
 }

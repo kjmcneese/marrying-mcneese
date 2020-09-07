@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import wedding from './images/wedding.jpg';
-import '../css/Wedding.scss';
+import '../../css/Wedding.scss';
 
 var sectionTitle = "Wedding";
 var getTimeUntilWedding = 0;

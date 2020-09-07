@@ -1,4 +1,7 @@
+@import "variables.scss";
+
 .App {
+  color: $base-font-color;
   text-align: center;
 }
 
