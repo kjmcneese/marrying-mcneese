@@ -2,15 +2,15 @@ import React from 'react';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
-import '../css/RouteSection3.scss';
+import '../../css/Photos.scss';
 
 var pageTitle = "Photos";
 
-class RouteSection3 extends React.Component {
+class Photos extends React.Component {
     render() {
         const array = ["IMG_1526", "IMG_1527", "IMG_1529", "IMG_1535", "IMG_7695"];
         const images = array.map(image => {
-            return <Image key={image} src={require(`../images/proposal/${image}.JPEG`)} className="photo" rounded />
+            return <Image key={image} src={require(`../../images/proposal/${image}.JPEG`)} className="photo" rounded />
         });
 
         return (
@@ -34,4 +34,4 @@ class RouteSection3 extends React.Component {
     }
 }
 
-export default RouteSection3;
+export default Photos;

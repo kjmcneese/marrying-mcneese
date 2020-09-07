@@ -1,10 +1,9 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import indigo from '../images/indigo.jpg';
-import '../css/RouteSection1.scss';
+import indigo from '../../images/indigo.jpg';
+import '../../css/Accommodations.scss';
 
-
-class RouteSection1 extends React.Component {
+class Accommodations extends React.Component {
     render() {
         var pageTitle = "Accommodations";
         var pageNotice = "We've blocked rooms at each of these hotels.";
@@ -16,7 +15,7 @@ class RouteSection1 extends React.Component {
         var bookRoom = "Book Room";
 
         return (
-            <div className="routeSection1">
+            <div className="accommodations">
                 <h3>{ pageTitle }</h3>
                 <p>{ pageNotice }</p>
                 <Card>
@@ -36,4 +35,4 @@ class RouteSection1 extends React.Component {
     }
 }
 
-export default RouteSection1;
+export default Accommodations;

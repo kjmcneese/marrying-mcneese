@@ -5,7 +5,7 @@ import './css/App.scss';
 import AppHeader from './components/AppHeader';
 import AppBody from './components/AppBody';
 
-var appData = require('./appData.json');
+var appData = require('./json/appData.json');
 
 function App() {
   return (
