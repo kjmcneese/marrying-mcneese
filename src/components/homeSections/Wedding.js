@@ -1,40 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import wedding from './images/wedding.jpg';
+import Image from 'react-bootstrap/Image';
+import weddingSectionImage from '../../images/proposal/IMG_1526.JPEG';
 import '../../css/Wedding.scss';
 
-var sectionTitle = "Wedding";
-var getTimeUntilWedding = 0;
-var weddingTime = " 15:30:00";
-var beforeWeddingText = "until I Do";
-var afterWeddingText = "We tied the knot!";
+let getTimeUntilWedding = 0;
+let beforeWeddingText = "until I Do";
 
 class Wedding extends React.Component {
     render() {
       return (
         <div id="Wedding">
-          <div className="anchorSection weddingSection">
-            <h3>{sectionTitle}</h3>
-            {/* <img className="homepageImage" src={wedding} /> */}
-            <p id="timeUntilWedding" className="no-margin-bottom">{getTimeUntilWedding}</p>
-            <p id="beforeWeddingText">{beforeWeddingText}</p>
-          </div>
+            <Image className="homepageImage" src={ weddingSectionImage } roundedCircle />
+            <p id="timeUntilWedding" className="no-margin-bottom">{ getTimeUntilWedding }</p>
+            <p id="beforeWeddingText">{ beforeWeddingText }</p>
         </div>
       );
     }
 
     componentDidMount() {
-      var weddingDate = new Date(this.props.weddingDate + weddingTime).getTime();
+      let weddingDate = new Date(this.props.weddingDate + " " + this.props.weddingTime).getTime();
       
       this.timer = setInterval(function() {
-        var now = new Date().getTime();
-        var difference = weddingDate - now;
+        let now = new Date().getTime();
+        let difference = weddingDate - now;
           
-        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
-          
+        let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        
+        let afterWeddingText = "We tied the knot!";
+
         if (difference < 0) {
           getTimeUntilWedding = "";
           beforeWeddingText = afterWeddingText;
