@@ -11,9 +11,9 @@ class Wedding extends React.Component {
     render() {
       return (
         <div id="Wedding">
-            <Image className="homepageImage" src={ weddingSectionImage } roundedCircle />
             <p id="timeUntilWedding" className="no-margin-bottom">{ getTimeUntilWedding }</p>
             <p id="beforeWeddingText">{ beforeWeddingText }</p>
+            <Image className="homepageImage" src={ weddingSectionImage } roundedCircle />
         </div>
       );
     }
