@@ -20,7 +20,7 @@ class AppBody extends React.Component {
         return (
             <div className="appBody">
                 <Switch>
-                    <Route path='/' render={ (props) => ( <Home { ...this.props } isAuthed={ true } /> ) } />
+                    <Route path='/' render={(props) => ( <Home { ...this.props } isAuthed={ true } /> )} exact />
                     { routeSections }
                 </Switch>
             </div>
