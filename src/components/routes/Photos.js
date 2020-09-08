@@ -30,7 +30,7 @@ class Photos extends React.Component {
             <div>
                 <RouteTop pageTitle={ Object.keys(photos)[0] } pageNotice={ pageNotice } />
 
-                <Tabs className="photos" defaultActiveKey="proposal">
+                <Tabs className="photos" defaultActiveKey="engagement">
                     <Tab className="photos" eventKey="proposal" title="Proposal">
                         { proposalImages }
                     </Tab>

@@ -23,7 +23,7 @@ class HomeSection extends React.Component {
 
         return (
             <div id={ this.props.sectionTitle } className={ classNames }>
-                <h3 className="sectionTitle">{ this.props.sectionTitle }</h3>
+                <h4 className="sectionTitle">{ this.props.sectionTitle }</h4>
                 <Image className="homepageImage" src={ this.props.sectionImage } roundedCircle />
                 <div className="homeSectionContent">{ section }</div>
             </div>

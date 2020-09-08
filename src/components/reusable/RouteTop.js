@@ -6,7 +6,7 @@ class RouteTop extends React.Component {
     render() {
         return (
             <div className="routeTop">
-                <h3>{ this.props.pageTitle }</h3>
+                <h4>{ this.props.pageTitle }</h4>
                 <SmallText regularText={ this.props.pageNotice } />
             </div>
         );
