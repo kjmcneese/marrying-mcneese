@@ -1,0 +1,20 @@
+@import "variables.scss";
+
+.homeSection {
+    height: auto;
+    margin: auto;
+    padding: 3rem 0;
+}
+
+.colorBackground {
+    background-color: $lighter-blue;
+}
+
+.sectionTitle {
+    margin-bottom: 1rem;
+}
+
+.homepageImage {
+    width: 25rem;
+    margin: 2rem 0;
+}
