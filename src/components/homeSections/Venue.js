@@ -1,6 +1,5 @@
 import React from 'react';
 import SmallText from '../reusable/SmallText';
-import '../../css/Venue.scss';
 
 let venue = require('../../json/venue.json');
 let notice = "All events take place at ";

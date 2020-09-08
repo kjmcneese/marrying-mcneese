@@ -5,8 +5,6 @@ import weddingSectionImage from '../../images/proposal/IMG_1526.JPEG';
 import venueSectionImage from '../../images/tinsmith.jpg';
 import scheduleSectionImage from '../../images/proposal/IMG_1535.JPEG';
 
-import '../../css/Home.scss';
-
 class Home extends React.Component {
   render() {
     const sectionImages = [weddingSectionImage, venueSectionImage, scheduleSectionImage];

@@ -1,6 +1,5 @@
 import React from 'react';
 import SmallText from '../reusable/SmallText';
-import '../../css/Schedule.scss';
 
 let schedule = require('../../json/schedule.json');
 

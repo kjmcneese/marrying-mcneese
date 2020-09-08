@@ -2,7 +2,6 @@ import React from 'react';
 import RouteTop from '../reusable/RouteTop';
 import CustomCard from '../reusable/CustomCard';
 import indigo from '../../images/indigo.jpg';
-import '../../css/Accommodations.scss';
 
 let accommodations = require('../../json/accommodations.json');
 

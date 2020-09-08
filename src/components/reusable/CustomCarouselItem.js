@@ -1,8 +1,6 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-import '../../css/CustomCarouselItem.scss';
-
 class CustomCarouselItem extends React.Component {
     render() {
         return (

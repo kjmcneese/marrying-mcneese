@@ -2,7 +2,6 @@ import React from 'react';
 import RouteTop from '../reusable/RouteTop';
 import CustomCard from '../reusable/CustomCard';
 import bedbathbeyond from '../../images/bedbathbeyond.jpg';
-import '../../css/Registry.scss';
 
 let registries = require('../../json/registries.json');
 
