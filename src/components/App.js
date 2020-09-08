@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './css/App.scss';
+import '../css/App.scss';
 
-import AppHeader from './components/AppHeader';
-import AppBody from './components/AppBody';
+import AppHeader from './AppHeader';
+import AppBody from './AppBody';
 
-var appData = require('./json/appData.json');
+var appData = require('../json/appData.json');
 
 function App() {
   return (
