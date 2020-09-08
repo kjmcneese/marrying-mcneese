@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Image from 'react-bootstrap/Image';
-import weddingSectionImage from '../../images/proposal/IMG_1526.JPEG';
 import '../../css/Wedding.scss';
 
 let getTimeUntilWedding = 0;
@@ -11,9 +9,8 @@ class Wedding extends React.Component {
     render() {
       return (
         <div id="Wedding">
-            <p id="timeUntilWedding" className="no-margin-bottom">{ getTimeUntilWedding }</p>
-            <p id="beforeWeddingText">{ beforeWeddingText }</p>
-            <Image className="homepageImage" src={ weddingSectionImage } roundedCircle />
+          <p id="timeUntilWedding" className="smallFont">{ getTimeUntilWedding }</p>
+          <p id="beforeWeddingText" className="smallFont">{ beforeWeddingText }</p>
         </div>
       );
     }

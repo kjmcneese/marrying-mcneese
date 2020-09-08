@@ -1,4 +1,5 @@
 import React from 'react';
+import RouteTop from '../reusable/RouteTop';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
@@ -15,7 +16,8 @@ class Photos extends React.Component {
 
         return (
             <div className="photos">
-                <h3>{pageTitle}</h3>
+                <RouteTop pageTitle={ pageTitle } />
+
                 <Tabs defaultActiveKey="proposal">
                     <Tab eventKey="proposal" title="Proposal">
                         <div>

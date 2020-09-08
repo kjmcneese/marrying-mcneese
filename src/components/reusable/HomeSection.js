@@ -1,7 +1,8 @@
 import React from 'react';
+import Image from 'react-bootstrap/Image';
 import Wedding from '../homeSections/Wedding';
-import Tinsmith from '../homeSections/Tinsmith';
-import Schedule from '../Schedule';
+import Venue from '../homeSections/Venue';
+import Schedule from '../homeSections/Schedule';
 import '../../css/HomeSection.scss';
 
 class HomeSection extends React.Component {
@@ -15,7 +16,7 @@ class HomeSection extends React.Component {
         if (this.props.sectionTitle === "Wedding") {
             section = <Wedding weddingDate={ this.props.appData.weddingDate } weddingTime={ this.props.appData.weddingTime } />;
         } else if (this.props.sectionTitle === "Tinsmith") {
-            section = <Tinsmith city={ this.props.appData.city } />;
+            section = <Venue city={ this.props.appData.city } />;
         } else if (this.props.sectionTitle === "Schedule") {
             section = <Schedule />;
         }
@@ -23,6 +24,7 @@ class HomeSection extends React.Component {
         return (
             <div id={ this.props.sectionTitle } className={ classNames }>
                 <h3 className="sectionTitle">{ this.props.sectionTitle }</h3>
+                <Image className="homepageImage" src={ this.props.sectionImage } roundedCircle />
                 <div className="homeSectionContent">{ section }</div>
             </div>
         );
