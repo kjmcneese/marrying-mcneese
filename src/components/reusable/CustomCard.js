@@ -2,26 +2,23 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import '../../css/CustomCard.scss';
 
-let appData = require('../../json/appData.json');
+let city = require('../../json/appData.json').city;
 
 class CustomCard extends React.Component {
     render() {
-        const bookRoom = "Book Room";
         return (
-            <div className="accommodations">
-                <Card>
-                    <Card.Img variant="top" src={ this.props.accommodationImage } />
-                    <Card.Body>
-                        <Card.Title>{ this.props.accommodation.name }</Card.Title>
-                        <Card.Link href={ this.props.accommodation.addressLink } className="addressLinkText" target="_blank">
-                            { this.props.accommodation.address }
-                            <br/>
-                            { appData.city }
-                        </Card.Link>
-                        <Card.Link href={ this.props.accommodation.bookingLink } className="test" target="_blank">{ bookRoom }</Card.Link>
-                    </Card.Body>
-                </Card>
-            </div>
+            <Card>
+                <Card.Img variant="top" src={ this.props.cardImage } />
+                <Card.Body>
+                    <Card.Title>{ this.props.cardObject.name }</Card.Title>
+                    <Card.Link href={ this.props.cardObject.addressLink } className={ this.props.cardObject.address ? "addressLinkText" : "hideCity" } target="_blank">
+                        { this.props.cardObject.address }
+                        <br/>
+                        { city }
+                    </Card.Link>
+                    <Card.Link href={ this.props.cardObject.websiteLink } className="test" target="_blank">{ this.props.cardLinkText }</Card.Link>
+                </Card.Body>
+            </Card>
         );
     }
 }

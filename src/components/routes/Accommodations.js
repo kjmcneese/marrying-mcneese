@@ -6,24 +6,23 @@ import '../../css/Accommodations.scss';
 
 let accommodations = require('../../json/accommodations.json');
 
-class Accommodations extends React.Component {
-    render() {
-        const pageNotice = "We've blocked rooms at each of these hotels.";
+const pageNotice = "We've blocked rooms at each of these hotels.";
+const cardLinkText = "Book Room";
 
-        const accommodationImages = [indigo, indigo];
-        const accommodationCards = [];        
-        for (var i = 0; i < accommodations[Object.keys(accommodations)[0]].length; i++) {
-            var accommodation = accommodations[Object.keys(accommodations)[0]][i];
-            accommodationCards.push(<CustomCard accommodation={ accommodation } accommodationImage={ accommodationImages[i] } key={ accommodation.name } />);
-        }
+const accommodationImages = [indigo, indigo];
+const accommodationCards = [];        
+for (var i = 0; i < accommodations[Object.keys(accommodations)[0]].length; i++) {
+    var accommodation = accommodations[Object.keys(accommodations)[0]][i];
+    accommodationCards.push(<CustomCard cardObject={ accommodation } cardImage={ accommodationImages[i] } cardLinkText={ cardLinkText } key={ accommodation.name } />);
+}
 
-        return (
-            <div className="accommodations">
-                <RouteTop pageTitle={ Object.keys(accommodations)[0] } pageNotice={ pageNotice } />
-                { accommodationCards }
-            </div>
-        );
-    }
+function Accommodations() {
+    return (
+        <div>
+            <RouteTop pageTitle={ Object.keys(accommodations)[0] } pageNotice={ pageNotice } />
+            { accommodationCards }
+        </div>
+    );
 }
 
 export default Accommodations;

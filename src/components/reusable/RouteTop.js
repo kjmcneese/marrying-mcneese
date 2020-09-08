@@ -5,7 +5,7 @@ import '../../css/RouteTop.scss';
 class RouteTop extends React.Component {
     render() {
         return (
-            <div>
+            <div className="routeTop">
                 <h3>{ this.props.pageTitle }</h3>
                 <SmallText regularText={ this.props.pageNotice } />
             </div>

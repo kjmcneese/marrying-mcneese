@@ -1,27 +1,26 @@
 import React from 'react';
 import RouteTop from '../reusable/RouteTop';
-import Card from 'react-bootstrap/Card';
+import CustomCard from '../reusable/CustomCard';
 import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 import '../../css/Registry.scss';
 
-var pageTitle = "Registries";
-var pageNotice = "We have created registries at each of these places."
-var bedBathBeyondTitle = "Bed, Bath, & Beyond";
-var bedBathBeyondLink = "https://www.bedbathandbeyond.com/store/giftregistry/registry-search-guest";
-var goToText = "Go to registry";
+let registries = require('../../json/registries.json');
+
+const pageNotice = "We set up registries at each of these places.";
+const cardLinkText = "Go to Registry";
+
+const registryImages = [bedbathbeyond, bedbathbeyond];
+const registryCards = [];        
+for (var i = 0; i < registries[Object.keys(registries)[0]].length; i++) {
+    var registry = registries[Object.keys(registries)[0]][i];
+    registryCards.push(<CustomCard cardObject={ registry } cardImage={ registryImages[i] } cardLinkText={ cardLinkText } key={ registry.name } />);
+}
 
 function Registry() {
     return (
-        <div className="registry">
-            <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
-
-            <Card>
-                <Card.Img variant="top" src={bedbathbeyond}/>
-                <Card.Body>
-                    <Card.Title>{bedBathBeyondTitle}</Card.Title>
-                    <Card.Link href={bedBathBeyondLink} target="_blank">{goToText}</Card.Link>
-                </Card.Body>
-            </Card>
+        <div>
+            <RouteTop pageTitle={ Object.keys(registries)[0] } pageNotice={ pageNotice } />
+            { registryCards }
         </div>
     );
 }
