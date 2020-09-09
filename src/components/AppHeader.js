@@ -6,12 +6,20 @@ class AppHeader extends React.Component {
     render() {
         const anchorLinks = [];
         for (var homeSectionTitle of this.props.appData.homeSectionTitles) {
-            anchorLinks.push(<Nav.Link href={ "/#" + homeSectionTitle } className="navigationBarText" key={ homeSectionTitle }>{ homeSectionTitle }</Nav.Link>);
+            anchorLinks.push(
+                <Nav.Link href={ "/#" + homeSectionTitle } key={ homeSectionTitle }>
+                    <div className="headerText">{ homeSectionTitle }</div>
+                </Nav.Link>
+            );
         }
 
         const routeLinks = [];
         for (var routeTitle of this.props.appData.routeTitles) {
-            routeLinks.push(<Nav.Link href={ "/" + routeTitle } className="navigationBarText" key={ routeTitle }>{ routeTitle }</Nav.Link>);
+            routeLinks.push(
+                <Nav.Link href={ "/" + routeTitle } key={ routeTitle }>
+                    <div className="headerText">{ routeTitle }</div>
+                </Nav.Link>
+            );
         }
 
         return (
@@ -21,7 +29,9 @@ class AppHeader extends React.Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="navOptions">
                         { anchorLinks }
-                        <Navbar.Brand href={ "/" } className="navigationBarHeader">{ this.props.appData.siteTitle }</Navbar.Brand>
+                        <Navbar.Brand href={ "/" }>
+                            <div className="navBrand">{ this.props.appData.siteTitle }</div>
+                        </Navbar.Brand>
                         { routeLinks }
                     </Nav>
                     </Navbar.Collapse>
