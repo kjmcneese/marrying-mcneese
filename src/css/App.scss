@@ -6,6 +6,7 @@ $body-color: #fffffffa;
 $base-font-color: #ccc3aa;
 $base-font-color-hover: #ffefc4;
 $lighter-blue: #eefaff;
+$disabled: lightgray;
 
 // App.js
 .App {
@@ -22,6 +23,22 @@ $lighter-blue: #eefaff;
 
 .card-body {
   background-color: #eefaff;
+}
+
+.nav-link {
+  color: $header-color;
+}
+
+.nav-link:hover {
+  color: $base-font-color !important;
+}
+
+.nav-link.active {
+  color: $base-font-color !important;
+}
+
+.nav-link.disabled {
+  color: $disabled !important;
 }
 
 // AppHeader.js
