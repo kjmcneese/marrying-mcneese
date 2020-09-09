@@ -7,7 +7,7 @@ class AppHeader extends React.Component {
         const anchorLinks = [];
         for (var homeSectionTitle of this.props.appData.homeSectionTitles) {
             anchorLinks.push(
-                <Nav.Link href={ "/#" + homeSectionTitle } key={ homeSectionTitle }>
+                <Nav.Link href={ "/#" + homeSectionTitle } className="navLink" key={ homeSectionTitle }>
                     <div className="headerText">{ homeSectionTitle }</div>
                 </Nav.Link>
             );
@@ -16,7 +16,7 @@ class AppHeader extends React.Component {
         const routeLinks = [];
         for (var routeTitle of this.props.appData.routeTitles) {
             routeLinks.push(
-                <Nav.Link href={ "/" + routeTitle } key={ routeTitle }>
+                <Nav.Link href={ "/" + routeTitle } className="navLink" key={ routeTitle }>
                     <div className="headerText">{ routeTitle }</div>
                 </Nav.Link>
             );
