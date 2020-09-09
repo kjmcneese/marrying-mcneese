@@ -1,6 +1,5 @@
 import React from 'react';
 import SmallText from './SmallText';
-import '../../css/RouteTop.scss';
 
 class RouteTop extends React.Component {
     render() {

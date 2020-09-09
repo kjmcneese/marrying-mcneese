@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import '../../css/CustomCard.scss';
 
 let city = require('../../json/appData.json').city;
 

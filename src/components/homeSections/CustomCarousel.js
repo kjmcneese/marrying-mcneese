@@ -3,8 +3,6 @@ import love from '../../images/love.jpg';
 import Carousel from 'react-bootstrap/Carousel';
 import CustomCarouselItem from '../reusable/CustomCarouselItem';
 
-import '../../css/CustomCarousel.scss';
-
 class CustomCarousel extends React.Component {
     render() {
         const imageList = [love, love, love];
