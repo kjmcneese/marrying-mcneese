@@ -15,7 +15,7 @@ class CustomCard extends React.Component {
                         <br/>
                         { city }
                     </Card.Link>
-                    <Card.Link href={ this.props.cardObject.websiteLink } className="test" target="_blank">{ this.props.cardLinkText }</Card.Link>
+                    <Card.Link href={ this.props.cardObject.websiteLink } target="_blank">{ this.props.cardLinkText }</Card.Link>
                 </Card.Body>
             </Card>
         );

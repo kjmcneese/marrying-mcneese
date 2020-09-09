@@ -1,12 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Qwigley&display=swap');
-
-$header-color: #7b7464;
-$header-font-size: 1.5rem;
-$body-color: #fffffffa;
-$base-font-color: #ccc3aa;
-$base-font-color-hover: #ffefc4;
-$lighter-blue: #eefaff;
-$disabled: lightgray;
+@import './variables.scss';
 
 // App.js
 .App {
@@ -19,10 +11,11 @@ $disabled: lightgray;
   width: 18rem;
   margin: 2.5rem;
   display: inline-block;
+  background-color: $body-color-secondary;
 }
 
-.card-body {
-  background-color: #eefaff;
+.nav-tabs {
+  border-bottom: 1px solid #cfdfd3;
 }
 
 .nav-link {
@@ -30,11 +23,13 @@ $disabled: lightgray;
 }
 
 .nav-link:hover {
-  color: $base-font-color !important;
+  color: $header-color-hover !important;
 }
 
-.nav-link.active {
-  color: $base-font-color !important;
+.nav-item.active {
+  color: $header-color-hover !important;
+  background-color: $body-color-primary !important;
+  border-color: $body-color-secondary $body-color-secondary $body-color-primary !important;
 }
 
 .nav-link.disabled {
@@ -63,9 +58,7 @@ $disabled: lightgray;
 }
 
 .navbar-brand {
-  // font-family: 'Allura', cursive;
-  // font-family: 'Great Vibes', cursive;
-  font-family: 'Qwigley', cursive;
+  font-family: $import-font;
   font-size: 2.2rem;
   margin-left: 1rem;
   letter-spacing: 4px;
@@ -80,12 +73,7 @@ $disabled: lightgray;
 }
 
 .navLink {
-  font-size: .7rem;
-}
-
-// AppBody.js
-.appBody {
-  background-color: $body-color;
+  font-size: $header-font-size;
 }
 
 // CustomCarousel.js
@@ -96,7 +84,7 @@ $disabled: lightgray;
 
 // CustomCarouselItem.js
 .carouselCaption {
-  font-family: 'Qwigley', cursive;
+  font-family: $import-font;
   font-size: 2.2rem;
   letter-spacing: 4px;
   color: $base-font-color-hover;
@@ -110,7 +98,7 @@ $disabled: lightgray;
 }
 
 .colorBackground {
-  background-color: $lighter-blue;
+  background-color: $body-color-secondary;
 }
 
 .sectionTitle {
@@ -142,10 +130,21 @@ $disabled: lightgray;
   display: block;
   margin-left: 0 !important;
   font-size: .9rem;
+  color: $header-color-hover;
+}
+
+.card-link:hover {
+  color: $header-color;
+  text-decoration: underline;
 }
 
 .addressLinkText {
   margin-bottom: 1rem;
+  color: $header-color-hover;
+}
+
+.addressLinkText:hover {
+  color: $header-color;
 }
 
 .hideCity {
@@ -155,4 +154,12 @@ $disabled: lightgray;
 // Wedding.js, SmallText.js
 .smallText {
   font-size: .9rem;
+}
+
+.regularLinkText {
+  color: $header-color-hover;
+}
+
+.regularLinkText:hover {
+  color: $header-color;
 }
