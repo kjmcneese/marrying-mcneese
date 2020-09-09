@@ -7,8 +7,7 @@ class CustomCarouselItem extends React.Component {
             <div>
                 <img className="d-block w-100" src={ this.props.image } alt="First slide"/>
                 <Carousel.Caption>
-                    <h4>{ this.props.hashtag }</h4>
-                    <h4>{ this.props.weddingDate }</h4>
+                    <h4 className="carouselCaption">{ this.props.hashtag } - { this.props.weddingDate }</h4>
                 </Carousel.Caption>
             </div>
         );

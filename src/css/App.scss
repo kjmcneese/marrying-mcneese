@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Qwigley&display=swap');
 
-$header-color: #caebf7;
+$header-color: #7b7464;
 $header-font-size: 1.5rem;
 $body-color: #fffffffa;
-$base-font-color: #929292;
-$base-font-color-hover: #696969;
+$base-font-color: #ccc3aa;
+$base-font-color-hover: #ffefc4;
 $lighter-blue: #eefaff;
 
 // App.js
 .App {
-  color: $base-font-color;
+  color: $header-color;
   text-align: center;
+  font-family: "Gill Sans", sans-serif;
 }
 
 .card {
@@ -37,6 +38,7 @@ $lighter-blue: #eefaff;
 
 .headerText {
   color: $base-font-color;
+  letter-spacing: 2px;
 }
 
 .navBrand, .headerText:hover {
@@ -44,10 +46,12 @@ $lighter-blue: #eefaff;
 }
 
 .navbar-brand {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.7rem;
-  font-weight: bold;
+  // font-family: 'Allura', cursive;
+  // font-family: 'Great Vibes', cursive;
+  font-family: 'Qwigley', cursive;
+  font-size: 2.2rem;
   margin-left: 1rem;
+  letter-spacing: 4px;
 }
 
 .navOptions, .navLink {
@@ -59,7 +63,7 @@ $lighter-blue: #eefaff;
 }
 
 .navLink {
-  font-size: 1rem;
+  font-size: .7rem;
 }
 
 // AppBody.js
@@ -71,6 +75,14 @@ $lighter-blue: #eefaff;
 .carousel-inner {
   width: 100%;
   margin: auto;
+}
+
+// CustomCarouselItem.js
+.carouselCaption {
+  font-family: 'Qwigley', cursive;
+  font-size: 2.2rem;
+  letter-spacing: 4px;
+  color: $base-font-color-hover;
 }
 
 // HomeSection
