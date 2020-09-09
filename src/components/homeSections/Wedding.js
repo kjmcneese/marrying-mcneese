@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../../css/Wedding.scss';
 
 let getTimeUntilWedding = 0;
 let beforeWeddingText = "until I Do";
@@ -8,9 +7,9 @@ let beforeWeddingText = "until I Do";
 class Wedding extends React.Component {
     render() {
       return (
-        <div id="Wedding">
-          <p id="timeUntilWedding" className="smallFont">{ getTimeUntilWedding }</p>
-          <p id="beforeWeddingText" className="smallFont">{ beforeWeddingText }</p>
+        <div id="Wedding" className="smallText">
+          <p id="timeUntilWedding">{ getTimeUntilWedding }</p>
+          <p id="beforeWeddingText">{ beforeWeddingText }</p>
         </div>
       );
     }

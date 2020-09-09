@@ -1,12 +1,16 @@
-@import "variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
+$header-color: #caebf7;
+$header-font-size: 1.5rem;
+$body-color: #fffffffa;
+$base-font-color: #808080;
+$base-font-color-hover: #696969;
+$lighter-blue: #eefaff;
+
+// App.js
 .App {
   color: $base-font-color;
   text-align: center;
-}
-
-.no-margin-bottom {
-  margin-bottom: 0;
 }
 
 .card {
@@ -17,4 +21,106 @@
 
 .card-body {
   background-color: #eefaff;
+}
+
+// AppHeader.js
+.appHeader {
+  background-color: $header-color;
+  align-items: center;
+  justify-content: center;
+  font-size: $header-font-size;
+}
+
+.navigationBar {
+  height: 3rem;
+}
+
+.navigationBarHeader, .navigationBarText:hover {
+  color: $base-font-color-hover !important;
+}
+
+.navigationBarText {
+  color: $base-font-color !important;
+}
+
+.navbar-brand {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.navOptions, .navigationBarText {
+  margin: auto;
+  padding-left: 3rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+}
+
+// AppBody.js
+.appBody {
+  background-color: $body-color;
+}
+
+// CustomCarousel.js
+.carousel-inner {
+  width: 100%;
+  margin: auto;
+}
+
+// HomeSection
+.homeSection {
+  height: auto;
+  margin: auto;
+  padding: 3rem 0;
+}
+
+.colorBackground {
+  background-color: $lighter-blue;
+}
+
+.sectionTitle {
+  margin-bottom: 1rem;
+}
+
+.homepageImage {
+  width: 25rem;
+  margin: 2rem 0;
+}
+
+// Photos.js
+.photos {
+  margin: auto 5rem;
+}
+
+.photo {
+  width: 12rem;
+  margin: 2rem;
+}
+
+// RouteTop.js
+.routeTop {
+  padding-top: 2rem;
+}
+
+// CustomCard.js
+.card-link {
+  display: block;
+  margin-left: 0 !important;
+  font-size: .9rem;
+}
+
+.addressLinkText {
+  margin-bottom: 1rem;
+}
+
+.hideCity {
+  display: none;
+}
+
+// Wedding.js, SmallText.js
+.smallText {
+  font-size: .9rem;
 }

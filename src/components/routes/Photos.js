@@ -3,7 +3,6 @@ import RouteTop from '../reusable/RouteTop';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
-import '../../css/Photos.scss';
 
 let photos = require('../../json/photos.json');
 

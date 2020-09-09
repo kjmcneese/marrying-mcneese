@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import '../css/AppBody.scss';
-
 import Home from './routes/Home';
 import Accommodations from './routes/Accommodations';
 import Registry from './routes/Registry';

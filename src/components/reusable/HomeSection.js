@@ -3,7 +3,6 @@ import Image from 'react-bootstrap/Image';
 import Wedding from '../homeSections/Wedding';
 import Venue from '../homeSections/Venue';
 import Schedule from '../homeSections/Schedule';
-import '../../css/HomeSection.scss';
 
 class HomeSection extends React.Component {
     render() {
