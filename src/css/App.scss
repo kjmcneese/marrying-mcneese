@@ -82,6 +82,14 @@
   margin: auto;
 }
 
+.carousel-indicators li {
+  background-color: $base-font-color;
+}
+
+.carousel-indicators li.active {
+  background-color: $base-font-color-hover;
+}
+
 // CustomCarouselItem.js
 .carouselCaption {
   font-family: $import-font;
