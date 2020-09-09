@@ -3,7 +3,7 @@
 $header-color: #caebf7;
 $header-font-size: 1.5rem;
 $body-color: #fffffffa;
-$base-font-color: #808080;
+$base-font-color: #929292;
 $base-font-color-hover: #696969;
 $lighter-blue: #eefaff;
 
@@ -35,12 +35,12 @@ $lighter-blue: #eefaff;
   height: 3rem;
 }
 
-.navigationBarHeader, .navigationBarText:hover {
-  color: $base-font-color-hover !important;
+.headerText {
+  color: $base-font-color;
 }
 
-.navigationBarText {
-  color: $base-font-color !important;
+.navBrand, .headerText:hover {
+  color: $base-font-color-hover;
 }
 
 .navbar-brand {
@@ -50,8 +50,11 @@ $lighter-blue: #eefaff;
   margin-left: 1rem;
 }
 
-.navOptions, .navigationBarText {
+.navOptions, .nav-link {
   margin: auto;
+}
+
+.navOptions {
   padding-left: 3rem;
 }
 
