@@ -1,9 +1,9 @@
 import React from 'react';
 import CustomCarousel from '../homeSections/CustomCarousel';
 import HomeSection from '../reusable/HomeSection';
-import weddingSectionImage from '../../images/proposal/IMG_1526.JPEG';
+import weddingSectionImage from '../../images/proposal/IMG_1526.JPG';
 import venueSectionImage from '../../images/tinsmith.jpg';
-import scheduleSectionImage from '../../images/proposal/IMG_1535.JPEG';
+import scheduleSectionImage from '../../images/proposal/IMG_1535.JPG';
 
 class Home extends React.Component {
   render() {

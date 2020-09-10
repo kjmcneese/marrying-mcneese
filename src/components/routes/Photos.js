@@ -12,7 +12,7 @@ class Photos extends React.Component {
 
         const proposalImageNames = photos[Object.keys(photos)[0]].Proposal;
         const proposalImages = proposalImageNames.map(proposalImageName => {
-            return <Image key={ proposalImageName } src={require(`../../images/proposal/${ proposalImageName }.JPEG`)} className="photo" rounded />
+            return <Image key={ proposalImageName } src={require(`../../images/proposal/${ proposalImageName }.JPG`)} className="photo" rounded />
         });
 
         const engagementImageNames = photos[Object.keys(photos)[0]].Engagement;
