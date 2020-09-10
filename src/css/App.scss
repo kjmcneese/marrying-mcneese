@@ -24,7 +24,13 @@
 
 .nav-link:hover {
   color: $header-color-hover !important;
+  border-color: $body-color-secondary $body-color-secondary $body-color-primary !important;
 }
+
+.nav-link:focus {
+  border-color: $header-color !important;
+}
+
 
 .nav-item.active {
   color: $header-color-hover !important;
