@@ -181,7 +181,26 @@
 // FormRSVP.js
 form {
   text-align: left;
-  margin: 3rem 50rem auto 50rem;
+  width: 40rem;
+  margin: 3rem auto;
+}
+
+.form-check-input:hover {
+  cursor: pointer;
+}
+
+.formMealCheck {
+  margin-bottom: 1rem;
+}
+
+.mealDescriptionSides {
+  margin-left: 1.25rem;
+  font-style: italic;
+  opacity: .7;
+}
+
+.mealDescription {
+  margin-bottom: 0;
 }
 
 .rsvpSubmitButton {

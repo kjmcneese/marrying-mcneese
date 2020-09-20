@@ -13,6 +13,10 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 
+function getMealOptions() {
+    return db.collection("meals").orderBy("Order", "asc").get();
+}
+
 function addRSVP(formObject) {
     db.collection("rsvps").add(formObject).then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -21,4 +25,4 @@ function addRSVP(formObject) {
     });
 }
 
-export default addRSVP;
+export {getMealOptions, addRSVP};
