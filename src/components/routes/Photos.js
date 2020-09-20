@@ -20,13 +20,13 @@ class Photos extends React.Component {
             return <Image key={ engagementImageName } src={require(`../../images/engagement/${ engagementImageName }.jpg`)} className="photo" rounded />
         });
 
-        const weddingImageNames = photos[Object.keys(photos)[0]].Wedding;
-        let weddingImages = null;
-        if (weddingImageNames.length > 0) {
-            weddingImages = weddingImageNames.map(weddingImageName => {
-                return <Image key={ weddingImageName } src={require(`../../images/wedding/${ weddingImageName }.JPEG`)} className="photo" rounded />
-            });
-        }
+        // const weddingImageNames = photos[Object.keys(photos)[0]].Wedding;
+        // let weddingImages = null;
+        // if (weddingImageNames.length > 0) {
+        //     weddingImages = weddingImageNames.map(weddingImageName => {
+        //         return <Image key={ weddingImageName } src={require(`../../images/wedding/${ weddingImageName }.JPEG`)} className="photo" rounded />
+        //     });
+        // }
 
         return (
             <div>
@@ -39,9 +39,9 @@ class Photos extends React.Component {
                     <Tab className="photos" eventKey="engagement" title="Engagement">
                         { engagementImages }
                     </Tab>
-                    <Tab className="photos" eventKey="wedding" title="Wedding" disabled>
+                    {/* <Tab className="photos" eventKey="wedding" title="Wedding" disabled>
                         { weddingImages }
-                    </Tab>
+                    </Tab> */}
                 </Tabs>
             </div>
         );
