@@ -1,6 +1,8 @@
 # build environment
 FROM node:8-alpine as react-build
 WORKDIR /app
+COPY package*.json ./
+RUN npm install
 COPY . ./
 RUN npm run build
 
