@@ -1,3 +1,3 @@
 FROM alpine
 COPY index.html /
-CMD ["/public/index.html"]
+CMD ["/build/index.html"]
