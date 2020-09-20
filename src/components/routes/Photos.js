@@ -21,9 +21,12 @@ class Photos extends React.Component {
         });
 
         const weddingImageNames = photos[Object.keys(photos)[0]].Wedding;
-        const weddingImages = weddingImageNames.map(weddingImageName => {
-            return <Image key={ weddingImageName } src={require(`../../images/wedding/${ weddingImageName }.JPEG`)} className="photo" rounded />
-        });
+        let weddingImages = null;
+        if (weddingImageNames.length > 0) {
+            weddingImages = weddingImageNames.map(weddingImageName => {
+                return <Image key={ weddingImageName } src={require(`../../images/wedding/${ weddingImageName }.JPEG`)} className="photo" rounded />
+            });
+        }
 
         return (
             <div>
