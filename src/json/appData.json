@@ -5,5 +5,5 @@
     "weddingTime" : "15:30:00",
     "city": "Madison, WI 53703",
     "homeSectionTitles": [ "Wedding", "Tinsmith", "Schedule" ],
-    "routeTitles": [ "Accommodations", "RSVP", "Registry", "Photos" ]
+    "routeTitles": [ "Accommodations", "Registry", "Photos" ]
 }
