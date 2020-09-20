@@ -1,7 +1,10 @@
 FROM gcr.io/cloud-builders/docker
 
 # add app
-COPY . .
+COPY . /app
+
+# build app
+RUN make /app
 
 # start app
 CMD ["npm", "start"]
