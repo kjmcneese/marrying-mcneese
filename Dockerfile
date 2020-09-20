@@ -1,10 +1,12 @@
 FROM node:alpine
 
-# add app
-COPY . /app
+WORKDIR /app
 
-# build app
-RUN make /app
+COPY package*.json ./
+RUN npm install
 
-# start app
+COPY . .
+
+RUN make .
+
 CMD ["npm", "start"]
