@@ -9,4 +9,5 @@ COPY . .
 
 RUN make .
 
+EXPOSE 80
 CMD ["npm", "start"]
