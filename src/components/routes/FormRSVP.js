@@ -15,6 +15,7 @@ class FormRSVP extends React.Component {
 
         this.updateName = this.updateName.bind(this);
         this.updateAttending = this.updateAttending.bind(this);
+        this.updateMeal = this.updateMeal.bind(this);
         this.submitRSVP = this.submitRSVP.bind(this);
     }
 
@@ -24,6 +25,10 @@ class FormRSVP extends React.Component {
 
     updateAttending(e) {
         this.setState({Attending: !this.state.Attending});
+    }
+
+    updateMeal(e) {
+        this.setState({Meal: e.target.value});
     }
 
     submitRSVP() {
@@ -39,7 +44,7 @@ class FormRSVP extends React.Component {
             <Form>
                 <Form.Group controlId="formPersonName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control placeholder="Enter name" value={ this.state.Name } onChange={ this.updateName }/>
+                    <Form.Control placeholder="Who are you?" value={ this.state.Name } onChange={ this.updateName }/>
                 </Form.Group>
     
                 <Form.Group controlId="formAttending">
@@ -47,17 +52,15 @@ class FormRSVP extends React.Component {
                     <Form.Check type="radio" id="attendingYes" name="attending" label="Yes" value={ this.state.Attending } onChange={ this.updateAttending } />
                     <Form.Check type="radio" id="attendingNo" name="attending" label="No" value={ this.state.Attending } onChange={ this.updateAttending } />
                 </Form.Group>
-    
-    
-                {/* <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+
+                <Form.Group controlId="formMeal">
+                    <Form.Label>Dinner Meal</Form.Label>
+                    <Form.Check type="radio" id="mealChicken" name="meal" label="Chicken" value="Chicken" onChange={ this.updateMeal } />
+                    <Form.Check type="radio" id="mealSalmon" name="meal" label="Salmon" value="Salmon" onChange={ this.updateMeal } />
+                    <Form.Check type="radio" id="mealPepper" name="meal" label="Stuffed Pepper" value="Stuffed Pepper" onChange={ this.updateMeal } />
+                    <Form.Check type="radio" id="mealKids" name="meal" label="Kid's Meal" value="Kid's Meal" onChange={ this.updateMeal } />
                 </Form.Group>
-    
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group> */}
-    
+        
                 <Button className="rsvpSubmitButton" onClick={ this.submitRSVP }>Submit</Button>
             </Form>
         );
