@@ -1,3 +1,7 @@
-FROM alpine
-COPY index.html /
-CMD ["/build/index.html"]
+FROM gcr.io/cloud-builders/docker
+
+# add app
+COPY ./build /
+
+# start app
+CMD ["npm", "start"]
