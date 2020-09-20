@@ -9,6 +9,6 @@ COPY . .
 CMD ["npm", "run", "build"]
 COPY ./build .
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["npm", "start"]
