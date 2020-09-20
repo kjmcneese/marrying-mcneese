@@ -1,4 +1,4 @@
-FROM gcr.io/cloud-builders/docker
+FROM node:alpine
 
 # add app
 COPY . /app
