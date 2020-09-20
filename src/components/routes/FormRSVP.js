@@ -71,7 +71,6 @@ class FormRSVP extends React.Component {
                             <Form.Check type="radio" id="mealKids" name="meal" label="Kid's Meal" value="Kid's Meal" onChange={ this.updateMeal } />
                         </ListGroup.Item>
                     </ListGroup>
-
                     
                 </Form.Group>
         
