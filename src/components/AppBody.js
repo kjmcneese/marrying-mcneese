@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './routes/Home';
 import Accommodations from './routes/Accommodations';
 import Registry from './routes/Registry';
+// import RSVP from './routes/RSVP';
 import Photos from './routes/Photos';
 
 class AppBody extends React.Component {

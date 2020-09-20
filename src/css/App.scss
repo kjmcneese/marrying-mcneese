@@ -177,3 +177,23 @@
 .regularLinkText:hover {
   color: $header-color;
 }
+
+// FormRSVP.js
+form {
+  text-align: left;
+  margin: 3rem 50rem auto 50rem;
+}
+
+.rsvpSubmitButton {
+  background-color: $header-color !important;
+  border-color: $header-color-hover !important;
+  color: $base-font-color-hover !important;
+}
+
+.rsvpSubmitButton:hover {
+  background-color: $header-color-hover !important;
+}
+
+.rsvpSubmitButton:disabled:hover {
+  background-color: $header-color !important;
+}
