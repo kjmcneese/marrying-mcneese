@@ -14,7 +14,8 @@ class FormRSVP extends React.Component {
             Name: "",
             Attending: false,
             Meal: "",
-            mealListGroupItems: []
+            mealListGroupItems: [],
+            validated: false
         }
 
         this.updateName = this.updateName.bind(this);
@@ -30,7 +31,7 @@ class FormRSVP extends React.Component {
                 this.state.mealListGroupItems.push(
                     <ListGroup.Item key={ docData.ShortName }>
                         <div className="formMealCheck">
-                            <Form.Check type="radio" id={ docData.ShortName } name="meal" label={ docData.Name } value={ docData.ShortName } onChange={ this.updateMeal } />
+                            <Form.Check type="radio" id={ docData.ShortName } name="meal" label={ docData.Name } value={ docData.ShortName } onChange={ this.updateMeal } required />
                         </div>
                         <div className="mealDescriptionSides">
                             <p className="mealDescription smallText">{ docData.Description }</p>
@@ -47,7 +48,7 @@ class FormRSVP extends React.Component {
         this.setState({Name: e.target.value});
     }
 
-    updateAttending(e) {
+    updateAttending() {
         this.setState({Attending: !this.state.Attending});
     }
 
@@ -55,26 +56,45 @@ class FormRSVP extends React.Component {
         this.setState({Meal: e.target.value});
     }
 
-    submitRSVP() {
-        // addRSVP({
-        //     Name: this.state.Name,
-        //     Attending: this.state.Attending,
-        //     Meal: this.state.Meal
-        // });
+    submitRSVP(e) {
+        const form = document.getElementById("rsvpForm");
+        e.preventDefault();
+        if (form.checkValidity() === false) {
+            e.stopPropagation();
+            this.setState({validated: true});
+        }
+        
+        if (form.checkValidity() === true) {
+            this.setState({validated: false});
+
+            addRSVP({
+                Name: this.state.Name,
+                Attending: this.state.Attending,
+                Meal: this.state.Meal
+            }).then(function(docRef) {
+                form.reset();
+                document.getElementById('formPersonName').value = "";
+                // TODO: show Success alert
+            }).catch(function(error) {
+                // TODO: show Failure alert
+            });
+        }
     }
 
     render() {
         return (
-            <Form>
+            <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
                 <Form.Group controlId="formPersonName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control placeholder="Who are you?" value={ this.state.Name } onChange={ this.updateName }/>
+                    <Form.Control placeholder="Who are you?" value={ this.state.Name } onChange={ this.updateName } required />
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Don't forget who you are!</Form.Control.Feedback>
                 </Form.Group>
     
                 <Form.Group controlId="formAttending">
                     <Form.Label>Attending</Form.Label>
-                    <Form.Check type="radio" id="attendingYes" name="attending" label="Yes" value={ this.state.Attending } onChange={ this.updateAttending } />
-                    <Form.Check type="radio" id="attendingNo" name="attending" label="No" value={ this.state.Attending } onChange={ this.updateAttending } />
+                    <Form.Check type="radio" id="attendingYes" name="attending" label="Yes" value={ this.state.Attending } onChange={ this.updateAttending } required />
+                    <Form.Check type="radio" id="attendingNo" name="attending" label="No" value={ this.state.Attending } onChange={ this.updateAttending } required />
                 </Form.Group>
 
                 <Form.Group controlId="formMeal">
@@ -84,7 +104,7 @@ class FormRSVP extends React.Component {
                     </ListGroup>
                 </Form.Group>
         
-                <Button className="rsvpSubmitButton" onClick={ this.submitRSVP }>Submit</Button>
+                <Button className="rsvpSubmitButton" type="submit">Submit</Button>
             </Form>
         );
     }
