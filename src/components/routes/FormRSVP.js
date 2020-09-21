@@ -4,6 +4,7 @@ import SmallText from '../reusable/SmallText';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
 
 import { getMealOptions, addRSVP } from '../../services/firebaseConfig';
 
@@ -15,13 +16,15 @@ class FormRSVP extends React.Component {
             Attending: false,
             Meal: "",
             mealListGroupItems: [],
-            validated: false
+            validated: false,
+            submitSuccess: ""
         }
 
         this.updateName = this.updateName.bind(this);
         this.updateAttending = this.updateAttending.bind(this);
         this.updateMeal = this.updateMeal.bind(this);
         this.submitRSVP = this.submitRSVP.bind(this);
+        this.dismissAlert = this.dismissAlert.bind(this);
     }
 
     componentDidMount() {
@@ -34,7 +37,7 @@ class FormRSVP extends React.Component {
                             <Form.Check type="radio" id={ docData.ShortName } name="meal" label={ docData.Name } value={ docData.ShortName } onChange={ this.updateMeal } required />
                         </div>
                         <div className="mealDescriptionSides">
-                            <p className="mealDescription smallText">{ docData.Description }</p>
+                            <p className="noMarginBottom smallText">{ docData.Description }</p>
                             <SmallText regularText={ "Sides: " + docData.Sides } />
                         </div>
                     </ListGroup.Item>
@@ -48,8 +51,8 @@ class FormRSVP extends React.Component {
         this.setState({Name: e.target.value});
     }
 
-    updateAttending() {
-        this.setState({Attending: !this.state.Attending});
+    updateAttending(e) {
+        this.setState({Attending: e.target.checked});
     }
 
     updateMeal(e) {
@@ -67,22 +70,39 @@ class FormRSVP extends React.Component {
         if (form.checkValidity() === true) {
             this.setState({validated: false});
 
+            let self = this;
             addRSVP({
                 Name: this.state.Name,
                 Attending: this.state.Attending,
                 Meal: this.state.Meal
-            }).then(function(docRef) {
+            }).then(function() {
                 form.reset();
-                document.getElementById('formPersonName').value = "";
-            }).catch(function(error) {
-
+                self.setState({Name: ""});
+                self.setState({submitSuccess: "success"});
+            }).catch(function() {
+                self.setState({submitSuccess: "failure"});
             });
         }
+    }
+
+    dismissAlert() {
+        this.setState({submitSuccess: ""});
     }
 
     render() {
         return (
             <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
+                { this.state.submitSuccess === "success" && (
+                    <Alert variant="success" onClose={ this.dismissAlert } dismissible>
+                        <p className="noMarginBottom">Your RSVP has been saved!</p>
+                    </Alert>
+                )}
+                { this.state.submitSuccess === "failure" && (
+                    <Alert variant="danger" onClose={ this.dismissAlert } dismissible>
+                        <p className="noMarginBottom">Uh oh! There was an issue saving your RSVP.</p>
+                    </Alert>
+                )}
+
                 <Form.Group controlId="formPersonName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control placeholder="Who are you?" value={ this.state.Name } onChange={ this.updateName } required />
@@ -91,9 +111,7 @@ class FormRSVP extends React.Component {
                 </Form.Group>
     
                 <Form.Group controlId="formAttending">
-                    <Form.Label>Attending</Form.Label>
-                    <Form.Check type="radio" id="attendingYes" name="attending" label="Yes" value={ this.state.Attending } onChange={ this.updateAttending } required />
-                    <Form.Check type="radio" id="attendingNo" name="attending" label="No" value={ this.state.Attending } onChange={ this.updateAttending } required />
+                    <Form.Check label="Attending" feedback="Check if attending." onChange={ this.updateAttending } />
                 </Form.Group>
 
                 { this.state.Attending && (
