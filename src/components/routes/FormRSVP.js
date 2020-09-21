@@ -74,9 +74,8 @@ class FormRSVP extends React.Component {
             }).then(function(docRef) {
                 form.reset();
                 document.getElementById('formPersonName').value = "";
-                // TODO: show Success alert
             }).catch(function(error) {
-                // TODO: show Failure alert
+
             });
         }
     }
@@ -97,12 +96,14 @@ class FormRSVP extends React.Component {
                     <Form.Check type="radio" id="attendingNo" name="attending" label="No" value={ this.state.Attending } onChange={ this.updateAttending } required />
                 </Form.Group>
 
-                <Form.Group controlId="formMeal">
-                    <Form.Label>Dinner Meal</Form.Label>
-                    <ListGroup>
-                        { this.state.mealListGroupItems }
-                    </ListGroup>
-                </Form.Group>
+                { this.state.Attending && (
+                    <Form.Group controlId="formMeal" >
+                        <Form.Label>Dinner Meal</Form.Label>
+                        <ListGroup>
+                            { this.state.mealListGroupItems }
+                        </ListGroup>
+                    </Form.Group>
+                )}
         
                 <Button className="rsvpSubmitButton" type="submit">Submit</Button>
             </Form>
