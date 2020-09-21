@@ -57,7 +57,7 @@ class FormRSVP extends React.Component {
     }
 
     submitRSVP(e) {
-        const form = document.getElementById("rsvpForm");
+        const form = e.currentTarget;
         e.preventDefault();
         if (form.checkValidity() === false) {
             e.stopPropagation();
