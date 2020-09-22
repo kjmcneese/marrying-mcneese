@@ -288,9 +288,9 @@ form {
 }
 
 @media screen and (max-width: 767px) {
-    .regularNavBrand {
-      display: none;
-    }
+  .hideNavOption {
+    display: none;
+  }
 
   .navBrandDuringToggle {
     display: inline-block;
