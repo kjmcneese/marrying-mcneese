@@ -24,16 +24,16 @@ class AppHeader extends React.Component {
 
         return (
             <header className="appHeader">
-                <Navbar className="navigationBar" expand="md">
+                <Navbar className="navigationBar mr-auto" expand="md">
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="navOptions">
-                        { anchorLinks }
-                        <Navbar.Brand href={ "/" }>
-                            <div className="navBrand">{ this.props.appData.siteTitle }</div>
-                        </Navbar.Brand>
-                        { routeLinks }
-                    </Nav>
+                        <Nav className="navOptions">
+                            { anchorLinks }
+                            <Navbar.Brand href={ "/" }>
+                                <div className="navBrand">{ this.props.appData.siteTitle }</div>
+                            </Navbar.Brand>
+                            { routeLinks }
+                        </Nav>
                     </Navbar.Collapse>
                 </Navbar>
             </header>
