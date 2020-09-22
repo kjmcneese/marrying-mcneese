@@ -33,13 +33,13 @@ class Photos extends React.Component {
                 <RouteTop pageTitle={ Object.keys(photos)[0] } pageNotice={ pageNotice } />
 
                 <Tabs className="photos" defaultActiveKey="engagement">
-                    <Tab className="photos" eventKey="proposal" title="Proposal">
+                    <Tab eventKey="proposal" title="Proposal">
                         { proposalImages }
                     </Tab>
-                    <Tab className="photos" eventKey="engagement" title="Engagement">
+                    <Tab eventKey="engagement" title="Engagement">
                         { engagementImages }
                     </Tab>
-                    {/* <Tab className="photos" eventKey="wedding" title="Wedding" disabled>
+                    {/* <Tab eventKey="wedding" title="Wedding" disabled>
                         { weddingImages }
                     </Tab> */}
                 </Tabs>

@@ -140,18 +140,19 @@
 }
 
 .homepageImage {
-  width: 25rem;
+  width: 40%;
   margin: 2rem 0;
 }
 
 // Photos.js
-.photos {
-  margin: auto 5rem;
+.photos, .tab-content {
+  width: 80%;
+  margin: auto;
 }
 
 .photo {
-  width: 12rem;
-  margin: 2rem;
+  width: 15rem;
+  margin: 2rem 1rem 0 1rem;
 }
 
 // RouteTop.js
@@ -201,8 +202,8 @@
 // FormRSVP.js
 form {
   text-align: left;
-  width: 40rem;
-  margin: 3rem auto;
+  width: 40%;
+  margin: 2.5rem auto;
 }
 
 .form-check-input:hover {
@@ -215,6 +216,7 @@ form {
 
 .mealDescriptionSides {
   margin-left: 1.25rem;
+  margin-right: 1.25rem;
   font-style: italic;
   opacity: .7;
 }
@@ -237,9 +239,34 @@ form {
 }
 
 // media queries for responsiveness and mobile experience
+@media screen and (max-width: 1200px) {
+  form {
+    width: 60%;
+  }  
+}
+
+@media screen and (max-width: 1050px) {  
+  .photo {
+    width: 13rem;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .carouselCaption {
     font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 920px) {  
+  .photo {
+    width: 11rem;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .homepageImage {
+    width: 50%;
   }
 }
 
@@ -247,6 +274,16 @@ form {
   .carouselCaption {
     font-size: 1.75rem;
     letter-spacing: 3px;
+  }
+
+  form {
+    width: 75%;
+  }  
+}
+
+@media screen and (max-width: 800px) {  
+  .photo {
+    width: 15rem;
   }
 }
 
@@ -283,6 +320,20 @@ form {
 
   .headerText:hover {
     color: $header-color-hover;
+  }
+
+  .card {
+    margin: 1.8rem;
+  }
+
+  form {
+    margin: 1.8rem auto;
+  }  
+}
+
+@media screen and (max-width: 700px) {  
+  .photos, .tab-content {
+    width: 90%;
   }
 }
 
@@ -330,11 +381,30 @@ form {
   }
 }
 
+@media screen and (max-width: 625px) {  
+  .photo {
+    width: 13rem;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .navbar-collapse {
     margin-left: 65%;
   }
 
+  .homepageImage {
+    width: 60%;
+  }
+
+  form {
+    width: 85%;
+  }  
+}
+
+@media screen and (max-width: 555px) {  
+  .photo {
+    width: 11rem;
+  }
 }
 
 @media screen and (max-width: 515px) {
@@ -351,7 +421,7 @@ form {
   }
 
   .form-label, .form-check-label, .btn, .photos {
-    font-size: .9rem;
+    font-size: .7rem;
   }
 
   .form-control {
@@ -364,6 +434,22 @@ form {
 
   .smallText {
     font-size: .7rem;
+  }
+
+  .card {
+    margin: 1.8rem 0;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .photos, .tab-content {
+    width: 70%;
+  }
+
+  .photo {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -408,6 +494,14 @@ form {
     height: 1.5px;
     width: 12px;
   }
+
+  .homepageImage {
+    width: 75%;
+  }
+
+  .list-group-item {
+    padding: .75rem .75rem;
+  }
 }
 
 @media screen and (max-width: 380px) {
@@ -423,16 +517,44 @@ form {
     width: 10px;
     height: 10px;
   }
+
+  form {
+    width: 90%;
+  }  
+
+  .formMealCheck {
+    margin-bottom: .5rem;
+  }
+
+  .photos, .tab-content {
+    width: 85%;
+  }
 }
 
 @media screen and (max-width: 330px) {
   .navbar-collapse {
     margin-left: 40%;
   }
+
+  .homepageImage {
+    width: 80%;
+  }
+
+  .card {
+    width: 15rem;
+  }
+
+  .photos, .tab-content {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 300px) {
   .navbar-collapse {
     margin-left: 30%;
+  }
+
+  .card {
+    width: 13rem;
   }
 }

@@ -7,7 +7,7 @@ let beforeWeddingText = "until I Do";
 class Wedding extends React.Component {
     render() {
       return (
-        <div id="Wedding" className="smallText">
+        <div className="smallText">
           <p id="timeUntilWedding">{ getTimeUntilWedding }</p>
           <p id="beforeWeddingText">{ beforeWeddingText }</p>
         </div>
