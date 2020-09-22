@@ -288,24 +288,15 @@ form {
 
 @media screen and (max-width: 675px) {
   .navigationBar {
-    height: 2rem;
+    height: 2.5rem;
   }
 
   .navbar-brand {
-    font-size: 1.25rem;
-  }
-
-  .navbar-toggler-icon {
-    width: 10px;
-    height: 10px;
+    font-size: 1.75rem;
   }
 
   .nav-link {
     padding: .25rem 1rem;
-  }
-
-  .navLink {
-    font-size: 0.65rem;
   }
 
   .headerText {
@@ -341,7 +332,7 @@ form {
 
 @media screen and (max-width: 600px) {
   .navbar-collapse {
-    margin-left: 70%;
+    margin-left: 65%;
   }
 
 }
@@ -357,19 +348,18 @@ form {
     padding: .25rem .75rem;
   }
 
-  .navigationBar {
-    height: 1.5rem;
-  }
-
   .navbar-collapse {
     margin-right: 0;
-    margin-left: 65%;
+    margin-left: 55%;
   }
 
   .navbar-brand {
     margin-left: 0;
-    font-size: .75rem;
     letter-spacing: 3px;
+  }
+
+  .navLink {
+    font-size: 1rem;
   }
 
   .navbar-toggler {
@@ -398,7 +388,11 @@ form {
 
 @media screen and (max-width: 380px) {
   .navbar-collapse {
-    margin-left: 60%;
+    margin-left: 50%;
+  }
+
+  .nav-link {
+    padding: .15rem 1rem;
   }
 
   .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -409,12 +403,12 @@ form {
 
 @media screen and (max-width: 330px) {
   .navbar-collapse {
-    margin-left: 55%;
+    margin-left: 40%;
   }
 }
 
 @media screen and (max-width: 300px) {
   .navbar-collapse {
-    margin-left: 50%;
+    margin-left: 30%;
   }
 }
