@@ -341,6 +341,30 @@ form {
   .carouselCaption {
     font-size: 1rem;
   }
+
+  .h4, h4 {
+    font-size: 1rem;
+  }
+
+  .h5, h5 {
+    font-size: .9rem;
+  }
+
+  .form-label, .form-check-label, .btn, .photos {
+    font-size: .9rem;
+  }
+
+  .form-control {
+    font-size: .7rem;
+  }
+
+  .card-link {
+    font-size: .7rem;
+  }
+
+  .smallText {
+    font-size: .7rem;
+  }
 }
 
 @media screen and (max-width: 425px) {
