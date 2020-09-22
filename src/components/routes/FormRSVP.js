@@ -69,18 +69,34 @@ class FormRSVP extends React.Component {
         
         if (form.checkValidity() === true) {
             this.setState({validated: false});
-
             let self = this;
+
             addRSVP({
                 Name: this.state.Name,
                 Attending: this.state.Attending,
                 Meal: this.state.Meal
             }).then(function() {
                 form.reset();
-                self.setState({Name: ""});
-                self.setState({submitSuccess: "success"});
+
+                self.setState({
+                    Name: "",
+                    Attending: false,
+                    submitSuccess: "success"
+                });
+
+                self.closeAlertTimer = setInterval(function() {
+                    self.setState({submitSuccess: ""});
+                    clearInterval(self.closeAlertTimer);
+                }, 10000);
             }).catch(function() {
-                self.setState({submitSuccess: "failure"});
+                self.setState({
+                    submitSuccess: "failure"
+                });
+                
+                self.closeAlertTimer = setInterval(function() {
+                    self.setState({submitSuccess: ""});
+                    clearInterval(self.closeAlertTimer);
+                }, 10000);
             });
         }
     }
