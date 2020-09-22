@@ -54,6 +54,18 @@
   height: 3rem;
 }
 
+.navbar-toggler {
+  padding: 0;
+  height: 100%;
+  display: flex;
+}
+
+.navbar-toggler-icon {
+  width: 15px;
+  height: 15px;
+  margin: auto 5px;
+}
+
 .headerText {
   color: $base-font-color;
   letter-spacing: 2px;
@@ -72,10 +84,6 @@
 
 .navOptions, .navLink {
   margin: auto;
-}
-
-.navOptions {
-  padding-left: 3rem;
 }
 
 .navLink {
@@ -103,85 +111,6 @@
   letter-spacing: 4px;
   color: $base-font-color-hover;
 }
-
-@media screen and (max-width: 1000px) {
-  .carouselCaption {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .carouselCaption {
-    font-size: 1.75rem;
-    letter-spacing: 3px;
-  }
-}
-
-@media screen and (max-width: 675px) {
-  .carouselCaption {
-    font-size: 1.25rem;
-    margin-bottom: 0;
-  }
-
-  .carousel-caption {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  .carousel-indicators li {
-    height: 2px;
-    width: 20px;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-  }
-
-  .carousel-control-prev, .carousel-control-next {
-    width: 10%;
-  }
-
-  .carousel-control-next-icon, .carousel-control-prev-icon {
-    width: 15px;
-    height: 15px;
-  }
-}
-
-@media screen and (max-width: 515px) {
-  .carouselCaption {
-    font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .carousel-caption {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .carouselCaption {
-    font-size: .75rem;
-    letter-spacing: 2px;
-  }
-
-  .carousel-indicators {
-    margin-bottom: .4rem;
-  }
-
-  .carousel-indicators li {
-    height: 1.5px;
-    width: 12px;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .carousel-control-next-icon, .carousel-control-prev-icon {
-    width: 10px;
-    height: 10px;
-  }
-}
-
-
-
-
 
 // HomeSection
 .homeSection {
@@ -293,4 +222,97 @@ form {
 
 .rsvpSubmitButton:disabled:hover {
   background-color: $header-color !important;
+}
+
+// media queries for responsiveness and mobile experience
+@media screen and (max-width: 1000px) {
+  .carouselCaption {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .carouselCaption {
+    font-size: 1.75rem;
+    letter-spacing: 3px;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .navigationBar {
+    height: 2rem;
+  }
+
+  .navbar-toggler-icon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .carouselCaption {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .carousel-caption {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .carousel-indicators li {
+    height: 2px;
+    width: 20px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  }
+
+  .carousel-control-prev, .carousel-control-next {
+    width: 10%;
+  }
+
+  .carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .carouselCaption {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .navbar {
+    padding: .25rem .75rem;
+  }
+
+  .navigationBar {
+    height: 1.5rem;
+  }
+
+  .carousel-caption {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .carouselCaption {
+    font-size: .75rem;
+    letter-spacing: 2px;
+  }
+
+  .carousel-indicators {
+    margin-bottom: .4rem;
+  }
+
+  .carousel-indicators li {
+    height: 1.5px;
+    width: 12px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 10px;
+    height: 10px;
+  }
 }
