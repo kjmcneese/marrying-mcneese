@@ -1,5 +1,7 @@
 import React from 'react';
 import RouteTop from '../reusable/RouteTop';
+import SmallText from '../reusable/SmallText';
+
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
@@ -8,7 +10,9 @@ let photos = require('../../json/photos.json');
 
 class Photos extends React.Component {
     render() {
-        const pageNotice = "Professional photography by the lovely Mo Speer";
+        const pageNotice = "Professional photography by the lovely ";
+        const photographerName = "Mo Speer";
+        const photographerLink = "https://www.mspeerphoto.com";
 
         const proposalImageNames = photos[Object.keys(photos)[0]].Proposal;
         const proposalImages = proposalImageNames.map(proposalImageName => {
@@ -30,7 +34,8 @@ class Photos extends React.Component {
 
         return (
             <div>
-                <RouteTop pageTitle={ Object.keys(photos)[0] } pageNotice={ pageNotice } />
+                <RouteTop pageTitle={ Object.keys(photos)[0] } />
+                <SmallText regularText={ pageNotice } linkText={ photographerName } webLink={ photographerLink } />
 
                 <Tabs className="photos" defaultActiveKey="engagement">
                     <Tab eventKey="proposal" title="Proposal">

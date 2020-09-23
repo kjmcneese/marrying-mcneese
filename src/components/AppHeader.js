@@ -7,7 +7,7 @@ class AppHeader extends React.Component {
         const anchorLinks = [];
         for (var homeSectionTitle of this.props.appData.homeSectionTitles) {
             anchorLinks.push(
-                <Nav.Link href={ "/#" + homeSectionTitle } className="navLink hideNavOption" key={ homeSectionTitle }>
+                <Nav.Link href={ "/#" + homeSectionTitle } className="navLink" key={ homeSectionTitle }>
                     <div className="headerText">{ homeSectionTitle }</div>
                 </Nav.Link>
             );
