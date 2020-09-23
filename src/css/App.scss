@@ -47,6 +47,9 @@
   align-items: center;
   justify-content: center;
   font-size: $header-font-size;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navigationBar {
@@ -101,6 +104,11 @@
   margin-right: 1rem;
 }
 
+// appBody.js
+.appBody {
+  padding-top: 48px;
+}
+
 // CustomCarousel.js
 .carousel-inner {
   width: 100%;
@@ -141,6 +149,7 @@
 .homepageImage {
   width: 40%;
   margin: 2rem 0;
+  filter: grayscale(100%);
 }
 
 // Photos.js
