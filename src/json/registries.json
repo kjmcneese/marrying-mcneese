@@ -3,10 +3,6 @@
         {
             "name" : "Bed, Bath, & Beyond",
             "websiteLink" : "https://www.bedbathandbeyond.com/store/giftregistry/registry-search-guest"
-        },
-        {
-            "name": "test",
-            "websiteLink": "test"
         }
     ]
 }
