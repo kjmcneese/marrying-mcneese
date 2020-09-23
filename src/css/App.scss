@@ -10,8 +10,13 @@
 .card {
   width: 18rem;
   margin: 2.5rem;
+  padding: 20px;
   display: inline-block;
   background-color: $body-color-secondary;
+}
+
+.card-img-top {
+  border-radius: .25rem;
 }
 
 .nav-tabs {
@@ -147,12 +152,16 @@
 }
 
 .homepageImage {
-  width: 40%;
+  width: 30%;
   margin: 2rem 0;
   filter: grayscale(100%);
 }
 
 // Photos.js
+.tab-pane {
+  margin-bottom: 10rem;
+}
+
 .photos, .tab-content {
   width: 80%;
   margin: auto;
@@ -257,6 +266,10 @@ form {
   .photo {
     width: 13rem;
   }
+
+  .homepageImage {
+    width: 35%;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -274,7 +287,7 @@ form {
 
 @media screen and (max-width: 900px) {
   .homepageImage {
-    width: 50%;
+    width: 42%;
   }
 }
 
@@ -343,6 +356,10 @@ form {
   .photos, .tab-content {
     width: 90%;
   }
+
+  .homepageImage {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 675px) {
@@ -405,7 +422,7 @@ form {
   }
 
   .homepageImage {
-    width: 60%;
+    width: 55%;
   }
 
   form {
@@ -494,7 +511,7 @@ form {
   }
 
   .carouselCaption {
-    font-size: .75rem;
+    font-size: .8rem;
     letter-spacing: 2px;
   }
 
