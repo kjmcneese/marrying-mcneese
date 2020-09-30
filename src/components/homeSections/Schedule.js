@@ -11,7 +11,7 @@ class Schedule extends React.Component {
         }
 
         return (
-            <div id="Schedule">
+            <div>
                 { scheduleItems }
             </div>
         );

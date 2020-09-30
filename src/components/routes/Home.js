@@ -7,7 +7,7 @@ import scheduleSectionImage from '../../images/homepage/Lauren and Kyle _ Madiso
 
 class Home extends React.Component {
   render() {
-    const sectionImages = [weddingSectionImage, venueSectionImage, scheduleSectionImage];
+    const sectionImages = [weddingSectionImage, venueSectionImage, scheduleSectionImage, scheduleSectionImage];
     const homeSections = [];
     for (var i = 0; i < this.props.appData.homeSectionTitles.length; i++) {
         var homeSectionTitle = this.props.appData.homeSectionTitles[i];

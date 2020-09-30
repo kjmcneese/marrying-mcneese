@@ -140,7 +140,7 @@
 .homeSection {
   height: auto;
   margin: auto;
-  padding: 3rem 0;
+  padding-bottom: 3rem;
 }
 
 .colorBackground {
@@ -148,6 +148,7 @@
 }
 
 .sectionTitle {
+  padding-top: 3rem;
   margin-bottom: 1rem;
 }
 
@@ -278,37 +279,7 @@ form {
   }
 }
 
-@media screen and (max-width: 920px) {  
-  .photo {
-    width: 11rem;
-  }
-}
-
-
-@media screen and (max-width: 900px) {
-  .homepageImage {
-    width: 42%;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .carouselCaption {
-    font-size: 1.75rem;
-    letter-spacing: 3px;
-  }
-
-  form {
-    width: 75%;
-  }  
-}
-
-@media screen and (max-width: 800px) {  
-  .photo {
-    width: 15rem;
-  }
-}
-
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .hideNavOption {
     display: none;
   }
@@ -342,7 +313,39 @@ form {
   .headerText:hover {
     color: $header-color-hover;
   }
+}
 
+@media screen and (max-width: 920px) {  
+  .photo {
+    width: 11rem;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .homepageImage {
+    width: 42%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .carouselCaption {
+    font-size: 1.75rem;
+    letter-spacing: 3px;
+  }
+
+  form {
+    width: 75%;
+  }  
+}
+
+@media screen and (max-width: 800px) {  
+  .photo {
+    width: 15rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .card {
     margin: 1.8rem;
   }
