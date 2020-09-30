@@ -1,5 +1,9 @@
 Kyle McNeese & Lauren Hughes Wedding Website
 
+The majority of this documentation was automatically generated. Other resources and information need to be added by the developer.
+
+https://serve-marrying-mcneese-5ttukua3xa-uc.a.run.app/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
