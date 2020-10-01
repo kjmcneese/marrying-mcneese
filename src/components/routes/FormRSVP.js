@@ -86,7 +86,6 @@ class FormRSVP extends React.Component {
                 self.setState({
                     Name: "",
                     Attending: false,
-                    // Comments: "",
                     submitSuccess: "success"
                 });
 
