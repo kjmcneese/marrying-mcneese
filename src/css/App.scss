@@ -46,6 +46,10 @@
   color: $disabled !important;
 }
 
+.placeholderInput::placeholder {
+  opacity: .65;
+}
+
 // AppHeader.js
 .appHeader {
   background-color: $header-color;
