@@ -5,7 +5,7 @@ import indigo from '../../images/indigo.jpg';
 
 let accommodations = require('../../json/accommodations.json');
 
-const pageNotice = "We've blocked rooms at each of these hotels.";
+const pageNotice = "We've blocked rooms at these hotels. More Coming Soon!";
 const cardLinkText = "Book Room";
 
 const accommodationImages = [indigo, indigo];
