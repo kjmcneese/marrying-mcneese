@@ -5,6 +5,8 @@ let vendors = require('../../json/vendors.json');
 
 class Vendors extends React.Component {
     render() {
+        let notice = "More Coming Soon!";
+
         const vendorItems = [];
         for (var vendor of vendors["Vendors"]) {
             vendorItems.push(<SmallText linkText={ vendor.name } webLink={ vendor.link } key={ vendor.name } />);
@@ -13,6 +15,7 @@ class Vendors extends React.Component {
         return (
             <div>
                 { vendorItems }
+                <SmallText regularText={ notice } />
             </div>
         );
     }
