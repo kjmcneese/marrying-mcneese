@@ -14,6 +14,7 @@ class FormRSVP extends React.Component {
             Attending: false,
             Meal: "",
             mealListGroupItems: [],
+            Comments: "",
             validated: false,
             submitSuccess: ""
         }
@@ -21,6 +22,7 @@ class FormRSVP extends React.Component {
         this.updateName = this.updateName.bind(this);
         this.updateAttending = this.updateAttending.bind(this);
         this.updateMeal = this.updateMeal.bind(this);
+        this.updateComments = this.updateComments.bind(this);
         this.submitRSVP = this.submitRSVP.bind(this);
         this.dismissAlert = this.dismissAlert.bind(this);
     }
@@ -57,6 +59,10 @@ class FormRSVP extends React.Component {
         this.setState({Meal: e.target.value});
     }
 
+    updateComments(e) {
+        this.setState({Comments: e.target.value});
+    }
+
     submitRSVP(e) {
         const form = e.currentTarget;
         e.preventDefault();
@@ -72,13 +78,15 @@ class FormRSVP extends React.Component {
             addRSVP({
                 Name: this.state.Name,
                 Attending: this.state.Attending,
-                Meal: this.state.Meal
+                Meal: this.state.Meal,
+                Comments: this.state.Comments
             }).then(function() {
                 form.reset();
 
                 self.setState({
                     Name: "",
                     Attending: false,
+                    // Comments: "",
                     submitSuccess: "success"
                 });
 
@@ -119,7 +127,7 @@ class FormRSVP extends React.Component {
 
                 <Form.Group controlId="formPersonName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control placeholder="Who are you?" value={ this.state.Name } onChange={ this.updateName } required />
+                    <Form.Control placeholder="Who are you?" value={ this.state.Name } className="placeholderInput" onChange={ this.updateName } required />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     <Form.Control.Feedback type="invalid">Don't forget who you are!</Form.Control.Feedback>
                 </Form.Group>
@@ -136,6 +144,11 @@ class FormRSVP extends React.Component {
                         </ListGroup>
                     </Form.Group>
                 )}
+
+                <Form.Group controlId="formComments">
+                    <Form.Label>Comments</Form.Label>
+                    <Form.Control as="textarea" rows="3" placeholder="Anything else we need to know?!" value={ this.state.Comment } className="placeholderInput" onChange={ this.updateComments } />
+                </Form.Group>
         
                 <Button className="rsvpSubmitButton" type="submit">Submit</Button>
             </Form>
