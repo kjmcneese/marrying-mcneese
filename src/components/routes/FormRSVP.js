@@ -1,6 +1,4 @@
 import React from 'react';
-import SmallText from '../reusable/SmallText';
-
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
@@ -36,9 +34,9 @@ class FormRSVP extends React.Component {
                         <div className="formMealCheck">
                             <Form.Check type="radio" id={ docData.ShortName } name="meal" label={ docData.Name } value={ docData.ShortName } onChange={ this.updateMeal } required />
                         </div>
-                        <div className="mealDescriptionSides">
-                            <p className="noMarginBottom smallText">{ docData.Description }</p>
-                            <SmallText regularText={ "Sides: " + docData.Sides } />
+                        <div className="mealDescriptionSides smallText">
+                            <p className="noMarginBottom">{ docData.Description }</p>
+                            { docData.Sides && ( <p className="noMarginBottom">Sides: { docData.Sides }</p> ) }
                         </div>
                     </ListGroup.Item>
                 )
