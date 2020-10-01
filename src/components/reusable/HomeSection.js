@@ -3,6 +3,7 @@ import Image from 'react-bootstrap/Image';
 import Wedding from '../homeSections/Wedding';
 import Venue from '../homeSections/Venue';
 import Schedule from '../homeSections/Schedule';
+import Vendors from '../homeSections/Vendors';
 
 class HomeSection extends React.Component {
     render() {
@@ -18,6 +19,8 @@ class HomeSection extends React.Component {
             section = <Venue city={ this.props.appData.city } />;
         } else if (this.props.sectionTitle === "Schedule") {
             section = <Schedule />;
+        } else if (this.props.sectionTitle === "Vendors") {
+            section = <Vendors />
         }
 
         return (

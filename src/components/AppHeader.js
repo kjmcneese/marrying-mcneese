@@ -24,7 +24,7 @@ class AppHeader extends React.Component {
 
         return (
             <header className="appHeader">
-                <Navbar className="navigationBar mr-auto" expand="md">
+                <Navbar className="navigationBar mr-auto" expand="lg">
                     <div className="navBrandDuringToggle">
                         <Navbar.Brand href={ "/" }>
                             <div className="navBrand">{ this.props.appData.siteTitle }</div>
