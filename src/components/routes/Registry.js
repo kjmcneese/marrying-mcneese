@@ -5,7 +5,7 @@ import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 
 let registries = require('../../json/registries.json');
 
-const pageNotice = "We set up registries at each of these places.";
+const pageNotice = "We set up registries at these places.";
 const cardLinkText = "Go to Registry";
 
 const registryImages = [bedbathbeyond, bedbathbeyond];
