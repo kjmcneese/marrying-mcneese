@@ -14,10 +14,10 @@ class Photos extends React.Component {
         const photographerName = "Mo Speer";
         const photographerLink = "https://www.mspeerphoto.com";
 
-        const proposalImageNames = photos[Object.keys(photos)[0]].Proposal;
-        const proposalImages = proposalImageNames.map(proposalImageName => {
-            return <Image key={ proposalImageName } src={require(`../../images/proposal/${ proposalImageName }.JPG`)} className="photo" rounded />
-        });
+        // const proposalImageNames = photos[Object.keys(photos)[0]].Proposal;
+        // const proposalImages = proposalImageNames.map(proposalImageName => {
+        //     return <Image key={ proposalImageName } src={require(`../../images/proposal/${ proposalImageName }.JPG`)} className="photo" rounded />
+        // });
 
         const engagementImageNames = photos[Object.keys(photos)[0]].Engagement;
         const engagementImages = engagementImageNames.map(engagementImageName => {
@@ -38,9 +38,9 @@ class Photos extends React.Component {
                 <SmallText regularText={ pageNotice } linkText={ photographerName } webLink={ photographerLink } />
 
                 <Tabs className="photos" defaultActiveKey="engagement">
-                    <Tab eventKey="proposal" title="Proposal">
+                    {/* <Tab eventKey="proposal" title="Proposal">
                         { proposalImages }
-                    </Tab>
+                    </Tab> */}
                     <Tab eventKey="engagement" title="Engagement">
                         { engagementImages }
                     </Tab>
