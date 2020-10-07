@@ -8,7 +8,7 @@ class Vendors extends React.Component {
         let notice = "More Coming Soon!";
 
         const vendorItems = [];
-        for (var vendor of vendors["Vendors"]) {
+        for (var vendor of vendors) {
             vendorItems.push(<SmallText linkText={ vendor.name } webLink={ vendor.link } key={ vendor.name } />);
         }
 

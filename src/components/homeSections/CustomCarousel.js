@@ -12,11 +12,12 @@ import CustomCarouselItem from '../reusable/CustomCarouselItem';
 class CustomCarousel extends React.Component {
     render() {
         const imageList = [image1, image2, image3, image4, image5, image6];
-        const carouselItems = [];
-        for (var i = 0; i < imageList.length; i++) {
+        let carouselItems = [];
+        
+        for (let image of imageList.entries()) {
             carouselItems.push(
-                <Carousel.Item key={ "carouselItem" + i }>
-                    <CustomCarouselItem hashtag={ this.props.hashtag } weddingDate={ this.props.weddingDate } image={ imageList[i] } />
+                <Carousel.Item key={ "carouselItem" + image[0] }>
+                    <CustomCarouselItem hashtag={ this.props.hashtag } weddingDate={ this.props.weddingDate } image={ image[1] } />
                 </Carousel.Item>
             );
         }

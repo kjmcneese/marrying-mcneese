@@ -10,10 +10,9 @@ import Photos from './routes/Photos';
 class AppBody extends React.Component {
     render() {
         const routeComponentList = [Accommodations, RSVP, Registry, Photos];
-        const routeSections = [];
-        for (var i = 0; i < this.props.appData.routeTitles.length; i++) {
-            var routeTitle = this.props.appData.routeTitles[i];
-            routeSections.push(<Route path={ "/" + routeTitle } component={ routeComponentList[i] } key={ routeTitle } />);
+        let routeSections = [];
+        for (let routeTitle of this.props.appData.routeTitles.entries()) {
+            routeSections.push(<Route path={ "/" + routeTitle[1] } component={ routeComponentList[routeTitle[0]] } key={ routeTitle[1] } />);
         }
 
         return (

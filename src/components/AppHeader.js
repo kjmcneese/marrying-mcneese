@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 
 class AppHeader extends React.Component {
     render() {
-        const anchorLinks = [];
+        let anchorLinks = [];
         for (var homeSectionTitle of this.props.appData.homeSectionTitles) {
             anchorLinks.push(
                 <Nav.Link href={ "/#" + homeSectionTitle } className="navLink" key={ homeSectionTitle }>
@@ -13,7 +13,7 @@ class AppHeader extends React.Component {
             );
         }
 
-        const routeLinks = [];
+        let routeLinks = [];
         for (var routeTitle of this.props.appData.routeTitles) {
             routeLinks.push(
                 <Nav.Link href={ "/" + routeTitle } className="navLink" key={ routeTitle }>

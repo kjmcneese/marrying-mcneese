@@ -5,20 +5,20 @@ import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 
 let registries = require('../../json/registries.json');
 
+const pageTitle = "Registries";
 const pageNotice = "We set up registries at these places.";
 const cardLinkText = "Go to Registry";
 
-const registryImages = [bedbathbeyond, bedbathbeyond];
-const registryCards = [];        
-for (var i = 0; i < registries[Object.keys(registries)[0]].length; i++) {
-    var registry = registries[Object.keys(registries)[0]][i];
-    registryCards.push(<CustomCard cardObject={ registry } cardImage={ registryImages[i] } cardLinkText={ cardLinkText } key={ registry.name } />);
+const registryImages = [bedbathbeyond];
+let registryCards = [];
+for (let registry of registries.entries()) {
+    registryCards.push(<CustomCard cardObject={ registry[1] } cardImage={ registryImages[registry[0]] } cardLinkText={ cardLinkText } key={ registry[1].name } />);
 }
 
 function Registry() {
     return (
         <div>
-            <RouteTop pageTitle={ Object.keys(registries)[0] } pageNotice={ pageNotice } />
+            <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
             { registryCards }
         </div>
     );
