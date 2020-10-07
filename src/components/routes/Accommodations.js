@@ -3,22 +3,22 @@ import RouteTop from '../reusable/RouteTop';
 import CustomCard from '../reusable/CustomCard';
 import indigo from '../../images/indigo.jpg';
 
-let accommodations = require('../../json/accommodations.json');
+const accommodations = require('../../json/accommodations.json');
 
+const pageTitle = "Accommodations";
 const pageNotice = "We've blocked rooms at these hotels. More Coming Soon!";
 const cardLinkText = "Book Room";
 
-const accommodationImages = [indigo, indigo];
-const accommodationCards = [];        
-for (var i = 0; i < accommodations[Object.keys(accommodations)[0]].length; i++) {
-    var accommodation = accommodations[Object.keys(accommodations)[0]][i];
-    accommodationCards.push(<CustomCard cardObject={ accommodation } cardImage={ accommodationImages[i] } cardLinkText={ cardLinkText } key={ accommodation.name } />);
+const accommodationImages = [indigo];
+let accommodationCards = [];
+for (let accommodation of accommodations.entries()) {
+    accommodationCards.push(<CustomCard cardObject={ accommodation[1] } cardImage={ accommodationImages[accommodation[0]] } cardLinkText={ cardLinkText } key={ accommodation[1].name } />);
 }
 
 function Accommodations() {
     return (
         <div>
-            <RouteTop pageTitle={ Object.keys(accommodations)[0] } pageNotice={ pageNotice } />
+            <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
             { accommodationCards }
         </div>
     );

@@ -10,11 +10,13 @@ class Home extends React.Component {
   render() {
     const sectionImages = [weddingSectionImage, venueSectionImage, scheduleSectionImage, vendorsSectionImage];
     const homeSections = [];
-    for (var i = 0; i < this.props.appData.homeSectionTitles.length; i++) {
-        var homeSectionTitle = this.props.appData.homeSectionTitles[i];
-        homeSections.push(<HomeSection appData={ this.props.appData } sectionTitle={ homeSectionTitle } sectionImage={ sectionImages[i] } sectionIndex={ i } key={ homeSectionTitle } />);
+
+    for (let homeSection of this.props.appData.homeSectionTitles.entries()) {
+        homeSections.push(
+          <HomeSection appData={ this.props.appData } sectionTitle={ homeSection[1] } sectionImage = { sectionImages[homeSection[0]]} sectionIndex={ homeSection[0] } key={ homeSection[1] } />
+        );
     }
-    
+
     return (
       <div>
         <CustomCarousel hashtag={ this.props.appData.hashtag } weddingDate={ this.props.appData.weddingDate }/>

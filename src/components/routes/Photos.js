@@ -14,22 +14,19 @@ class Photos extends React.Component {
         const photographerName = "Mo Speer";
         const photographerLink = "https://www.mspeerphoto.com";
 
-        // const proposalImageNames = photos[Object.keys(photos)[0]].Proposal;
-        // const proposalImages = proposalImageNames.map(proposalImageName => {
-        //     return <Image key={ proposalImageName } src={require(`../../images/proposal/${ proposalImageName }.JPG`)} className="photo" rounded />
-        // });
+        // let proposalImages = [];
+        // for (let proposalImageName of photos.Proposal) {
+        //     proposalImages.push(<Image src={require(`../../images/proposal/${ proposalImageName }.JPG`)} className="photo" key={ proposalImageName } rounded />);
+        // }
 
-        const engagementImageNames = photos[Object.keys(photos)[0]].Engagement;
-        const engagementImages = engagementImageNames.map(engagementImageName => {
-            return <Image key={ engagementImageName } src={require(`../../images/engagement/${ engagementImageName }.jpg`)} className="photo" rounded />
-        });
+        let engagementImages = [];
+        for (let engagementImageName of photos.Engagement) {
+            engagementImages.push(<Image src={require(`../../images/engagement/${ engagementImageName }.jpg`)} className="photo" key={ engagementImageName } rounded />);
+        }
 
-        // const weddingImageNames = photos[Object.keys(photos)[0]].Wedding;
-        // let weddingImages = null;
-        // if (weddingImageNames.length > 0) {
-        //     weddingImages = weddingImageNames.map(weddingImageName => {
-        //         return <Image key={ weddingImageName } src={require(`../../images/wedding/${ weddingImageName }.JPEG`)} className="photo" rounded />
-        //     });
+        // let weddingImages = [];
+        // for (let weddingImageName of photos.Wedding) {
+        //     weddingImages.push(<Image src={require(`../../images/wedding/${ weddingImageName }.jpg`)} className="photo" key={ weddingImageName } rounded />);
         // }
 
         return (
