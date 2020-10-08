@@ -1,8 +1,8 @@
 [
-    {
-        "name" : "Hotel Indigo",
-        "websiteLink" : "https://www.hotelindigo.com/redirect?path=asearch&brandCode=IN&localeCode=en&regionCode=1&hotelCode=MSNMS&checkInDate=12&checkInMonthYear=072021&checkOutDate=15&checkOutMonthYear=072021&rateCode=6CBARC&_PMID=99801505&GPC=VN7&cn=no&viewfullsite=true",
-        "address" : "901 E Washington Ave",
-        "addressLink" : "https://www.google.com/maps/place/Hotel+Indigo+Madison+Downtown/@43.0811185,-89.3739437,17.99z/data=!4m8!3m7!1s0x88065371efc3958f:0x9fad468f46bdeb58!5m2!4m1!1i2!8m2!3d43.0822134!4d-89.3727458"
-    }
+  {
+    "name" : "Hotel Indigo",
+    "websiteLink" : "https://www.hotelindigo.com/redirect?path=asearch&brandCode=IN&localeCode=en&regionCode=1&hotelCode=MSNMS&checkInDate=12&checkInMonthYear=072021&checkOutDate=15&checkOutMonthYear=072021&rateCode=6CBARC&_PMID=99801505&GPC=VN7&cn=no&viewfullsite=true",
+    "address" : "901 E Washington Ave",
+    "addressLink" : "https://www.google.com/maps/place/Hotel+Indigo+Madison+Downtown/@43.0811185,-89.3739437,17.99z/data=!4m8!3m7!1s0x88065371efc3958f:0x9fad468f46bdeb58!5m2!4m1!1i2!8m2!3d43.0822134!4d-89.3727458"
+  }
 ]

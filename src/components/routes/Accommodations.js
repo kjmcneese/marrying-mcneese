@@ -11,17 +11,18 @@ const cardLinkText = "Book Room";
 
 const accommodationImages = [indigo];
 let accommodationCards = [];
-for (let accommodation of accommodations.entries()) {
-    accommodationCards.push(<CustomCard cardObject={ accommodation[1] } cardImage={ accommodationImages[accommodation[0]] } cardLinkText={ cardLinkText } key={ accommodation[1].name } />);
+let accommodation = {};
+for (accommodation of accommodations.entries()) {
+  accommodationCards.push(<CustomCard cardObject={ accommodation[1] } cardImage={ accommodationImages[accommodation[0]] } cardLinkText={ cardLinkText } key={ accommodation[1].name } />);
 }
 
 function Accommodations() {
-    return (
-        <div>
-            <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
-            { accommodationCards }
-        </div>
-    );
+  return (
+    <div>
+      <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
+      { accommodationCards }
+    </div>
+  );
 }
 
 export default Accommodations;

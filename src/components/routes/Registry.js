@@ -11,17 +11,18 @@ const cardLinkText = "Go to Registry";
 
 const registryImages = [bedbathbeyond];
 let registryCards = [];
-for (let registry of registries.entries()) {
-    registryCards.push(<CustomCard cardObject={ registry[1] } cardImage={ registryImages[registry[0]] } cardLinkText={ cardLinkText } key={ registry[1].name } />);
+let registry = [];
+for (registry of registries.entries()) {
+  registryCards.push(<CustomCard cardObject={ registry[1] } cardImage={ registryImages[registry[0]] } cardLinkText={ cardLinkText } key={ registry[1].name } />);
 }
 
 function Registry() {
-    return (
-        <div>
-            <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
-            { registryCards }
-        </div>
-    );
+  return (
+    <div>
+      <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
+      { registryCards }
+    </div>
+  );
 }
 
 export default Registry;

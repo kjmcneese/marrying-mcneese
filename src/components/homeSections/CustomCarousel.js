@@ -10,24 +10,25 @@ import Carousel from 'react-bootstrap/Carousel';
 import CustomCarouselItem from '../reusable/CustomCarouselItem';
 
 class CustomCarousel extends React.Component {
-    render() {
-        const imageList = [image1, image2, image3, image4, image5, image6];
-        let carouselItems = [];
-        
-        for (let image of imageList.entries()) {
-            carouselItems.push(
-                <Carousel.Item key={ "carouselItem" + image[0] }>
-                    <CustomCarouselItem hashtag={ this.props.hashtag } weddingDate={ this.props.weddingDate } image={ image[1] } />
-                </Carousel.Item>
-            );
-        }
-
-        return (
-            <Carousel>
-                { carouselItems }
-            </Carousel>
-        );
+  render() {
+    const imageList = [image1, image2, image3, image4, image5, image6];
+    let carouselItems = [];
+    
+    let image = "";
+    for (image of imageList.entries()) {
+      carouselItems.push(
+        <Carousel.Item key={ "carouselItem" + image[0] }>
+          <CustomCarouselItem hashtag={ this.props.hashtag } weddingDate={ this.props.weddingDate } image={ image[1] } />
+        </Carousel.Item>
+      );
     }
+
+    return (
+      <Carousel>
+        { carouselItems }
+      </Carousel>
+    );
+  }
 }
 
 export default CustomCarousel;
