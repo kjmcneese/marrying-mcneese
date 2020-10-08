@@ -11,10 +11,11 @@ class Home extends React.Component {
     const sectionImages = [weddingSectionImage, venueSectionImage, scheduleSectionImage, vendorsSectionImage];
     const homeSections = [];
 
-    for (let homeSectionEntry of this.props.appData.homeSectionTitles.entries()) {
-        homeSections.push(
-          <HomeSection appData={ this.props.appData } sectionEntry={ homeSectionEntry } sectionImage = { sectionImages[homeSectionEntry[0]] } key={ homeSectionEntry[1] } />
-        );
+    let homeSectionEntry = [];
+    for (homeSectionEntry of this.props.appData.homeSectionTitles.entries()) {
+      homeSections.push(
+        <HomeSection appData={ this.props.appData } sectionEntry={ homeSectionEntry } sectionImage = { sectionImages[homeSectionEntry[0]] } key={ homeSectionEntry[1] } />
+      );
     }
 
     return (
