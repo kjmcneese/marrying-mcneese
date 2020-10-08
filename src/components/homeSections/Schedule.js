@@ -8,7 +8,7 @@ class Schedule extends React.Component {
         let notice = "Coming Soon!";
 
         // const scheduleItems = [];
-        // for (var scheduleItem of Object.keys(schedule)) {
+        // for (var scheduleItem in schedule) {
         //     scheduleItems.push(<SmallText regularText={ scheduleItem + " " + schedule[scheduleItem]} key={ scheduleItem } />);
         // }
 
