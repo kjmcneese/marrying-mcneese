@@ -3,26 +3,49 @@ import RouteTop from '../reusable/RouteTop';
 import CustomCard from '../reusable/CustomCard';
 import indigo from '../../images/indigo.jpg';
 
-const accommodations = require('../../json/accommodations.json');
+import { getAccommodations } from '../../services/firebaseConfig';
 
-const pageTitle = "Accommodations";
-const pageNotice = "We've blocked rooms at these hotels. More Coming Soon!";
-const cardLinkText = "Book Room";
+class Accommodations extends React.Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      pageTitle : "Accommodations",
+      pageNotice : "We've blocked rooms at these hotels. More Coming Soon!",
+      cardLinkText : "Book Room",
+      accommodations : [],
+      accommodationImages : [ indigo ]
+    }
+  }
 
-const accommodationImages = [indigo];
-let accommodationCards = [];
-let accommodation = {};
-for (accommodation of accommodations.entries()) {
-  accommodationCards.push(<CustomCard cardObject={ accommodation[1] } cardImage={ accommodationImages[accommodation[0]] } cardLinkText={ cardLinkText } key={ accommodation[1].name } />);
-}
+  componentDidMount() {
+    getAccommodations().then( (results) => {
+      let counter = 0;
+      // needed this variable or else the state change wouldn't display the accommodations. 
+      // see FormRSVP and state variable mealListGroupItems for a contrasting example that also works.
+      let accommodationList = [];
+      results.forEach( (doc) => {
+        let docData = doc.data();
+        
+        accommodationList.push(
+          <CustomCard cardObject={ docData } cardImage={ this.state.accommodationImages[counter] } cardLinkText={ this.state.cardLinkText } key={ docData.name } />
+        );
 
-function Accommodations() {
-  return (
-    <div>
-      <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
-      { accommodationCards }
-    </div>
-  );
+        counter++;
+      })
+
+      this.setState( { accommodations : accommodationList } );
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <RouteTop pageTitle={ this.state.pageTitle } pageNotice={ this.state.pageNotice } />
+        { this.state.accommodations }
+      </div>
+    );
+  }
 }
 
 export default Accommodations;

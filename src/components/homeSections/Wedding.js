@@ -18,7 +18,7 @@ class Wedding extends React.Component {
     let weddingDate = new Date(this.props.weddingDate + " " + this.props.weddingTime).getTime();
     
     this.timer = setInterval(function() {
-      let now = new Date().getTime();
+      let now = Date.now();
       let difference = weddingDate - now;
         
       let days = Math.floor(difference / (1000 * 60 * 60 * 24));
