@@ -21,6 +21,8 @@ class Accommodations extends React.Component {
   componentDidMount() {
     getAccommodations().then( (results) => {
       let counter = 0;
+      // needed this variable or else the state change wouldn't display the accommodations. 
+      // see FormRSVP and state variable mealListGroupItems for a contrasting example that also works.
       let accommodationList = [];
       results.forEach( (doc) => {
         let docData = doc.data();
