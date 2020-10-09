@@ -14,7 +14,7 @@ class CustomCarousel extends React.Component {
     const imageList = [image1, image2, image3, image4, image5, image6];
     let carouselItems = [];
     
-    let image = "";
+    let image = {};
     for (image of imageList.entries()) {
       carouselItems.push(
         <Carousel.Item key={ "carouselItem" + image[0] }>

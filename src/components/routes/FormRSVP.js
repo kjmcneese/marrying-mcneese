@@ -9,6 +9,7 @@ import { getMealOptions, addRSVP } from '../../services/firebaseConfig';
 class FormRSVP extends React.Component {
   constructor() {
     super();
+
     this.state = {
       Name : "",
       Attending : false,
@@ -28,9 +29,9 @@ class FormRSVP extends React.Component {
   }
 
   componentDidMount() {
-    getMealOptions().then((results) => {
+    getMealOptions().then( (results) => {
       let docData = {};
-      results.forEach((doc) => {
+      results.forEach( (doc) => {
         docData = doc.data();
         this.state.mealListGroupItems.push(
           <ListGroup.Item key={ docData.ShortName }>
@@ -44,7 +45,8 @@ class FormRSVP extends React.Component {
           </ListGroup.Item>
         )
       })
-      this.setState({mealListGroupItems: this.state.mealListGroupItems});
+
+      this.setState( { mealListGroupItems : this.state.mealListGroupItems } );
     });
   }
 
