@@ -5,6 +5,8 @@ import CustomCard from '../reusable/CustomCard';
 
 import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 
+import Constants from '../../Constants';
+
 import { getRegistries } from '../../services/firebaseConfig';
 
 class Registry extends React.Component {
@@ -19,7 +21,6 @@ class Registry extends React.Component {
   componentDidMount() {
     getRegistries().then( (results) => {
       let registryList = [];
-      const cardLinkText = Registry.cardLinkText();
       let counter = 0;
 
       let docData = {};
@@ -27,7 +28,7 @@ class Registry extends React.Component {
         docData = doc.data();
 
         registryList.push(
-          <CustomCard cardObject={ docData } cardImage={ Registry.registryImages()[counter] } cardLinkText={ cardLinkText } key={ docData.name } />
+          <CustomCard cardObject={ docData } cardImage={ Registry.registryImages()[counter] } key={ docData.name } />
         )
 
         counter++;
@@ -41,22 +42,10 @@ class Registry extends React.Component {
     return [ bedbathbeyond ];
   }
 
-  static pageTitle() {
-    return "Registries";
-  }
-
-  static pageNotice() {
-    return "We set up registries at these places.";
-  }
-
-  static cardLinkText() {
-    return "Go to Registry";
-  }
-
   render() {
     return (
       <div>
-        <RouteTop pageTitle={ Registry.pageTitle() } pageNotice={ Registry.pageNotice() } />
+        <RouteTop pageTitle={ Constants.registriesPageTitle() } pageNotice={ Constants.registriesPageNotice() } />
         { this.state.registries }
       </div>
     );

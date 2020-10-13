@@ -1,4 +1,5 @@
 import React from 'react';
+
 import SmallText from './SmallText';
 
 class RouteTop extends React.Component {

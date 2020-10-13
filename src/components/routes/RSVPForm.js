@@ -1,8 +1,11 @@
 import React from 'react';
+
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
+
+import Constants from '../../Constants';
 
 import { getMealOptions, addRSVP } from '../../services/firebaseConfig';
 
@@ -17,7 +20,7 @@ class RSVPForm extends React.Component {
       mealListGroupItems : [],
       comments : "",
       validated : false,
-      submitSuccess : ""
+      submitSuccess : null
     }
 
     this.updateName = this.updateName.bind(this);
@@ -90,15 +93,15 @@ class RSVPForm extends React.Component {
           name : "",
           attending : false,
           comments : "",
-          submitSuccess : "success"
+          submitSuccess : true
         });
       }).catch(function() {
         self.setState({
-          submitSuccess : "failure"
+          submitSuccess : false
         });
       }).then(function() {
         self.closeAlertTimer = setInterval(function() {
-          self.setState({submitSuccess : ""});
+          self.setState( { submitSuccess : null } );
           clearInterval(self.closeAlertTimer);
         }, 10000);
       });
@@ -106,37 +109,37 @@ class RSVPForm extends React.Component {
   }
 
   dismissAlert() {
-    this.setState({submitSuccess : ""});
+    this.setState( { submitSuccess : false } );
   }
 
   render() {
     return (
       <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
-        { this.state.submitSuccess === "success" && (
+        { this.state.submitSuccess === true && (
           <Alert variant="success" onClose={ this.dismissAlert } dismissible>
-            <p className="noMarginBottom">Your RSVP has been saved!</p>
+            <p className="noMarginBottom">{ Constants.success() }</p>
           </Alert>
         )}
-        { this.state.submitSuccess === "failure" && (
+        { this.state.submitSuccess === false && (
           <Alert variant="danger" onClose={ this.dismissAlert } dismissible>
-            <p className="noMarginBottom">Uh oh! There was an issue saving your RSVP.</p>
+            <p className="noMarginBottom">{ Constants.actionFailure() }</p>
           </Alert>
         )}
 
         <Form.Group controlId="formPersonName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control placeholder="Who are you?" value={ this.state.name } className="placeholderInput" onChange={ this.updateName } required />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">Don't forget who you are!</Form.Control.Feedback>
+          <Form.Label>{ Constants.nameLabel() }</Form.Label>
+          <Form.Control placeholder={ Constants.namePlaceholder() } value={ this.state.name } className="placeholderInput" onChange={ this.updateName } required />
+          <Form.Control.Feedback>{ Constants.formGoodFeedback() }</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{ Constants.formInvalidName() }</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group controlId="formAttending">
-          <Form.Check label="Attending" feedback="Check if attending." onChange={ this.updateAttending } />
+          <Form.Check label={ Constants.attendingLabel() } onChange={ this.updateAttending } />
         </Form.Group>
 
         { this.state.attending && (
           <Form.Group controlId="formMeal" >
-            <Form.Label>Dinner Meal</Form.Label>
+            <Form.Label>{ Constants.dinnerMealLabel() }</Form.Label>
             <ListGroup>
               { this.state.mealListGroupItems }
             </ListGroup>
@@ -144,11 +147,11 @@ class RSVPForm extends React.Component {
         )}
 
         <Form.Group controlId="formComments">
-          <Form.Label>Comments</Form.Label>
-          <Form.Control as="textarea" rows="3" placeholder="Anything else we need to know?!" value={ this.state.comments } className="placeholderInput" onChange={ this.updateComments } />
+          <Form.Label>{ Constants.commentsLabel() }</Form.Label>
+          <Form.Control as="textarea" rows="3" placeholder={ Constants.commentsPlaceholder() } value={ this.state.comments } className="placeholderInput" onChange={ this.updateComments } />
         </Form.Group>
 
-        <Button className="rsvpSubmitButton" type="submit">Submit</Button>
+        <Button className="rsvpSubmitButton" type="submit">{ Constants.submit() }</Button>
       </Form>
     );
   }

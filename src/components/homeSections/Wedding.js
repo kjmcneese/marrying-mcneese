@@ -1,22 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-let getTimeUntilWedding = 0;
-let beforeWeddingText = "until I Do";
+import Constants from '../../Constants';
 
 class Wedding extends React.Component {
-  render() {
-    return (
-      <div className="smallText">
-        <p id="timeUntilWedding">{ getTimeUntilWedding }</p>
-        <p id="beforeWeddingText">{ beforeWeddingText }</p>
-      </div>
-    );
+  constructor() {
+    super();
+    
+    this.state = {
+      timeUntilWedding : "",
+      weddingText : Constants.untilIDo()
+    }
   }
 
   componentDidMount() {
     let weddingDate = new Date(this.props.weddingDate + " " + this.props.weddingTime).getTime();
     
+    let self = this;
     this.timer = setInterval(function() {
       let now = Date.now();
       let difference = weddingDate - now;
@@ -25,24 +24,32 @@ class Wedding extends React.Component {
       let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((difference % (1000 * 60)) / 1000);
-      
-      let afterWeddingText = "We tied the knot!";
 
       if (difference < 0) {
-        getTimeUntilWedding = "";
-        beforeWeddingText = afterWeddingText;
-        ReactDOM.render(beforeWeddingText, document.getElementById('beforeWeddingText'));
+        self.setState({ 
+          timeUntilWedding : "",
+          weddingText : Constants.tiedTheKnot()
+        });
       } else {
-        getTimeUntilWedding = days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes";
+        self.setState( { timeUntilWedding : days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes" } );
       }
-    
-      ReactDOM.render(getTimeUntilWedding, document.getElementById('timeUntilWedding'));
     }, 300);  
   }
   
   componentWillUnmount() {
     clearInterval(this.timer);
-  };
+  }
+
+  render() {
+    return (
+      <div className="smallText">
+        { this.state.timeUntilWedding !== "" && (
+          <p id="timeUntilWedding">{ this.state.timeUntilWedding }</p>
+        )}
+        <p id="weddingText">{ this.state.weddingText }</p>
+      </div>
+    );
+  }
 }
 
 export default Wedding;
