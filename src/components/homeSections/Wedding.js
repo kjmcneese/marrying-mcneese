@@ -1,15 +1,18 @@
 import React from 'react';
 
-import Constants from '../../Constants';
-
 class Wedding extends React.Component {
+
   constructor() {
     super();
     
     this.state = {
       timeUntilWedding : "",
-      weddingText : Constants.untilIDo()
+      weddingText : "until I Do"
     }
+  }
+
+  static tiedTheKnot() {
+    return "We tied the knot!";
   }
 
   componentDidMount() {
@@ -28,7 +31,7 @@ class Wedding extends React.Component {
       if (difference < 0) {
         self.setState({ 
           timeUntilWedding : "",
-          weddingText : Constants.tiedTheKnot()
+          weddingText : Wedding.tiedTheKnot()
         });
       } else {
         self.setState( { timeUntilWedding : days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes" } );

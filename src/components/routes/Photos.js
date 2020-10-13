@@ -7,11 +7,18 @@ import Image from 'react-bootstrap/Image';
 import RouteTop from '../reusable/RouteTop';
 import SmallText from '../reusable/SmallText';
 
-import Constants from '../../Constants';
-
 let photos = require('../../json/photos.json');
 
 class Photos extends React.Component {
+
+  static photosPageTitle() {
+    return "Photos";
+  }
+
+  static photosPageNotice() {
+    return "Professional photography by the lovely ";
+  }
+
   render() {
     const photographerName = "Mo Speer";
     const photographerLink = "https://www.mspeerphoto.com";
@@ -36,8 +43,8 @@ class Photos extends React.Component {
 
     return (
       <div>
-        <RouteTop pageTitle={ Constants.photosPageTitle() } />
-        <SmallText regularText={ Constants.photosPageNotice() } linkText={ photographerName } webLink={ photographerLink } />
+        <RouteTop pageTitle={ Photos.photosPageTitle() } />
+        <SmallText regularText={ Photos.photosPageNotice() } linkText={ photographerName } webLink={ photographerLink } />
 
         <Tabs className="photos" defaultActiveKey="engagement">
           {/* <Tab eventKey="proposal" title="Proposal">

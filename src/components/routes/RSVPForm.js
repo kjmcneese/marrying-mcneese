@@ -31,6 +31,18 @@ class RSVPForm extends React.Component {
     this.dismissAlert = this.dismissAlert.bind(this);
   }
 
+  static namePlaceholder() {
+    return "Who are you?";
+  }
+
+  static formInvalidName() {
+    return "Don't forget who you are!";
+  }
+
+  static commentsPlaceholder() {
+    return "Anything else we need to know?!";
+  }
+
   componentDidMount() {
     getMealOptions().then( (results) => {
       let docData = {};
@@ -117,29 +129,29 @@ class RSVPForm extends React.Component {
       <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
         { this.state.submitSuccess === true && (
           <Alert variant="success" onClose={ this.dismissAlert } dismissible>
-            <p className="noMarginBottom">{ Constants.success() }</p>
+            <p className="noMarginBottom">{ Constants.SUCCESS }</p>
           </Alert>
         )}
         { this.state.submitSuccess === false && (
           <Alert variant="danger" onClose={ this.dismissAlert } dismissible>
-            <p className="noMarginBottom">{ Constants.actionFailure() }</p>
+            <p className="noMarginBottom">{ Constants.ACTION_FAILURE }</p>
           </Alert>
         )}
 
         <Form.Group controlId="formPersonName">
-          <Form.Label>{ Constants.nameLabel() }</Form.Label>
-          <Form.Control placeholder={ Constants.namePlaceholder() } value={ this.state.name } className="placeholderInput" onChange={ this.updateName } required />
-          <Form.Control.Feedback>{ Constants.formGoodFeedback() }</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">{ Constants.formInvalidName() }</Form.Control.Feedback>
+          <Form.Label>{ Constants.NAME_LABEL }</Form.Label>
+          <Form.Control placeholder={ RSVPForm.namePlaceholder() } value={ this.state.name } className="placeholderInput" onChange={ this.updateName } required />
+          <Form.Control.Feedback>{ Constants.FORM_GOOD_FEEDBACK }</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{ RSVPForm.formInvalidName() }</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group controlId="formAttending">
-          <Form.Check label={ Constants.attendingLabel() } onChange={ this.updateAttending } />
+          <Form.Check label={ Constants.ATTENDING_LABEL } onChange={ this.updateAttending } />
         </Form.Group>
 
         { this.state.attending && (
           <Form.Group controlId="formMeal" >
-            <Form.Label>{ Constants.dinnerMealLabel() }</Form.Label>
+            <Form.Label>{ Constants.DINNER_MEAL_LABEL }</Form.Label>
             <ListGroup>
               { this.state.mealListGroupItems }
             </ListGroup>
@@ -147,11 +159,11 @@ class RSVPForm extends React.Component {
         )}
 
         <Form.Group controlId="formComments">
-          <Form.Label>{ Constants.commentsLabel() }</Form.Label>
-          <Form.Control as="textarea" rows="3" placeholder={ Constants.commentsPlaceholder() } value={ this.state.comments } className="placeholderInput" onChange={ this.updateComments } />
+          <Form.Label>{ Constants.COMMENTS_LABEL }</Form.Label>
+          <Form.Control as="textarea" rows="3" placeholder={ RSVPForm.commentsPlaceholder() } value={ this.state.comments } className="placeholderInput" onChange={ this.updateComments } />
         </Form.Group>
 
-        <Button className="rsvpSubmitButton" type="submit">{ Constants.submit() }</Button>
+        <Button className="rsvpSubmitButton" type="submit">{ Constants.SUBMIT }</Button>
       </Form>
     );
   }

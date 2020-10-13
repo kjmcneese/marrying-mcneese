@@ -18,7 +18,7 @@ class CustomCard extends React.Component {
             <br/>
             { city }
           </Card.Link>
-          <Card.Link href={ this.props.cardObject.website } target="_blank">{ Constants.goText() }</Card.Link>
+          <Card.Link href={ this.props.cardObject.website } target="_blank">{ Constants.GO_TEXT }</Card.Link>
         </Card.Body>
       </Card>
     );

@@ -5,8 +5,6 @@ import CustomCard from '../reusable/CustomCard';
 
 import indigo from '../../images/indigo.jpg';
 
-import Constants from '../../Constants';
-
 import { getAccommodations } from '../../services/firebaseConfig';
 
 class Accommodations extends React.Component {
@@ -16,6 +14,14 @@ class Accommodations extends React.Component {
     this.state = {
       accommodations : []
     }
+  }
+
+  static accommodationsPageTitle() {
+    return "Accommodations";
+  }
+
+  static accommodationsPageNotice() {
+    return "We've blocked rooms at these hotels. More Coming Soon!";
   }
 
   componentDidMount() {
@@ -46,7 +52,7 @@ class Accommodations extends React.Component {
   render() {
     return (
       <div>
-        <RouteTop pageTitle={ Constants.accommodationsPageTitle() } pageNotice={ Constants.accommodationsPageNotice() } />
+        <RouteTop pageTitle={ Accommodations.accommodationsPageTitle() } pageNotice={ Accommodations.accommodationsPageNotice() } />
         { this.state.accommodations }
       </div>
     );

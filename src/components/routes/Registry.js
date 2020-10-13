@@ -5,8 +5,6 @@ import CustomCard from '../reusable/CustomCard';
 
 import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 
-import Constants from '../../Constants';
-
 import { getRegistries } from '../../services/firebaseConfig';
 
 class Registry extends React.Component {
@@ -16,6 +14,14 @@ class Registry extends React.Component {
     this.state = {
       registries : []
     }
+  }
+
+  static registriesPageTitle() {
+    return "Registries";
+  }
+
+  static registriesPageNotice() {
+    return "We set up registries at these places.";
   }
 
   componentDidMount() {
@@ -45,7 +51,7 @@ class Registry extends React.Component {
   render() {
     return (
       <div>
-        <RouteTop pageTitle={ Constants.registriesPageTitle() } pageNotice={ Constants.registriesPageNotice() } />
+        <RouteTop pageTitle={ Registry.registriesPageTitle() } pageNotice={ Registry.registriesPageNotice() } />
         { this.state.registries }
       </div>
     );
