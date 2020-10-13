@@ -1,28 +1,55 @@
 import React from 'react';
+
 import RouteTop from '../reusable/RouteTop';
 import CustomCard from '../reusable/CustomCard';
+
 import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 
-let registries = require('../../json/registries.json');
+import Constants from '../../Constants';
 
-const pageTitle = "Registries";
-const pageNotice = "We set up registries at these places.";
-const cardLinkText = "Go to Registry";
+import { getRegistries } from '../../services/firebaseConfig';
 
-const registryImages = [bedbathbeyond];
-let registryCards = [];
-let registry = [];
-for (registry of registries.entries()) {
-  registryCards.push(<CustomCard cardObject={ registry[1] } cardImage={ registryImages[registry[0]] } cardLinkText={ cardLinkText } key={ registry[1].name } />);
-}
+class Registry extends React.Component {
+  constructor() {
+    super();
 
-function Registry() {
-  return (
-    <div>
-      <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
-      { registryCards }
-    </div>
-  );
+    this.state = {
+      registries : []
+    }
+  }
+
+  componentDidMount() {
+    getRegistries().then( (results) => {
+      let registryList = [];
+      let counter = 0;
+
+      let docData = {};
+      results.forEach( (doc) => {
+        docData = doc.data();
+
+        registryList.push(
+          <CustomCard cardObject={ docData } cardImage={ Registry.registryImages()[counter] } key={ docData.name } />
+        )
+
+        counter++;
+      })
+
+      this.setState( { registries : registryList } );
+    });
+  }
+
+  static registryImages() {
+    return [ bedbathbeyond ];
+  }
+
+  render() {
+    return (
+      <div>
+        <RouteTop pageTitle={ Constants.registriesPageTitle() } pageNotice={ Constants.registriesPageNotice() } />
+        { this.state.registries }
+      </div>
+    );
+  }
 }
 
 export default Registry;

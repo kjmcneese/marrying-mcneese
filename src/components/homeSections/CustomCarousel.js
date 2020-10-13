@@ -1,4 +1,5 @@
 import React from 'react';
+
 import image1 from '../../images/carousel/Lauren and Kyle _ Madison WI Engagement-142_Cropped.jpg';
 import image2 from '../../images/carousel/Lauren and Kyle _ Madison WI Engagement-174_Cropped.jpg';
 import image3 from '../../images/carousel/Lauren and Kyle _ Madison WI Engagement-10_Cropped.jpg';
@@ -7,6 +8,7 @@ import image5 from '../../images/carousel/Lauren and Kyle _ Madison WI Engagemen
 import image6 from '../../images/carousel/Lauren and Kyle _ Madison WI Engagement-79_Cropped.jpg';
 
 import Carousel from 'react-bootstrap/Carousel';
+
 import CustomCarouselItem from '../reusable/CustomCarouselItem';
 
 class CustomCarousel extends React.Component {

@@ -1,12 +1,13 @@
 import React from 'react';
+
 import SmallText from '../reusable/SmallText';
+
+import Constants from '../../Constants';
 
 let vendors = require('../../json/vendors.json');
 
 class Vendors extends React.Component {
   render() {
-    let notice = "More Coming Soon!";
-
     const vendorItems = [];
     let vendor = {};
     for (vendor of vendors) {
@@ -16,7 +17,7 @@ class Vendors extends React.Component {
     return (
       <div>
         { vendorItems }
-        <SmallText regularText={ notice } />
+        <SmallText regularText={ Constants.vendorsComingSoon() } />
       </div>
     );
   }

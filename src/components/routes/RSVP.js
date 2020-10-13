@@ -1,15 +1,15 @@
 import React from 'react';
-import RouteTop from '../reusable/RouteTop';
-import FormRSVP from './FormRSVP';
 
-const pageTitle = "RSVP";
-const pageNotice = "Please only RSVP if you were invited to the events. If given a +1, please RSVP for them as well.";
+import RouteTop from '../reusable/RouteTop';
+import RSVPForm from './RSVPForm';
+
+import Constants from '../../Constants';
 
 function RSVP() {
   return (
     <div>
-      <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
-      <FormRSVP />
+      <RouteTop pageTitle={ Constants.rsvpPageTitle() } pageNotice={ Constants.rsvpPageNotice() } />
+      <RSVPForm />
     </div>
   );
 }

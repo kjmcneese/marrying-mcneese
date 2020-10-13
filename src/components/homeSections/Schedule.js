@@ -1,12 +1,13 @@
 import React from 'react';
+
 import SmallText from '../reusable/SmallText';
+
+import Constants from '../../Constants';
 
 // let schedule = require('../../json/schedule.json');
 
 class Schedule extends React.Component {
   render() {
-    let notice = "Coming Soon!";
-
     // const scheduleItems = [];
     // let scheduleItem = "";
     // for (scheduleItem in schedule) {
@@ -16,7 +17,7 @@ class Schedule extends React.Component {
     return (
       <div>
         {/* { scheduleItems } */}
-        <SmallText regularText={ notice } />
+        <SmallText regularText={ Constants.comingSoon() } />
       </div>
     );
   }

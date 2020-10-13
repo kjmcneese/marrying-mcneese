@@ -1,5 +1,8 @@
 import React from 'react';
+
 import Card from 'react-bootstrap/Card';
+
+import Constants from '../../Constants';
 
 let city = require('../../json/appData.json').city;
 
@@ -15,7 +18,7 @@ class CustomCard extends React.Component {
             <br/>
             { city }
           </Card.Link>
-          <Card.Link href={ this.props.cardObject.websiteLink } target="_blank">{ this.props.cardLinkText }</Card.Link>
+          <Card.Link href={ this.props.cardObject.website } target="_blank">{ Constants.goText() }</Card.Link>
         </Card.Body>
       </Card>
     );
