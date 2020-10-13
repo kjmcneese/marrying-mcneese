@@ -1,6 +1,8 @@
 import React from 'react';
+
 import RouteTop from '../reusable/RouteTop';
 import CustomCard from '../reusable/CustomCard';
+
 import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 
 import { getRegistries } from '../../services/firebaseConfig';
