@@ -10,11 +10,7 @@ class Accommodations extends React.Component {
     super();
     
     this.state = {
-      pageTitle : "Accommodations",
-      pageNotice : "We've blocked rooms at these hotels. More Coming Soon!",
-      cardLinkText : "Book Room",
-      accommodations : [],
-      accommodationImages : [ indigo ]
+      accommodations : []
     }
   }
 
@@ -24,11 +20,13 @@ class Accommodations extends React.Component {
       // needed this variable or else the state change wouldn't display the accommodations. 
       // see FormRSVP and state variable mealListGroupItems for a contrasting example that also works.
       let accommodationList = [];
+      const cardLinkText = Accommodations.cardLinkText();
+      const accommodationImages = Accommodations.accommodationImages();
       results.forEach( (doc) => {
         let docData = doc.data();
         
         accommodationList.push(
-          <CustomCard cardObject={ docData } cardImage={ this.state.accommodationImages[counter] } cardLinkText={ this.state.cardLinkText } key={ docData.name } />
+          <CustomCard cardObject={ docData } cardImage={ accommodationImages[counter] } cardLinkText={ cardLinkText } key={ docData.name } />
         );
 
         counter++;
@@ -38,10 +36,26 @@ class Accommodations extends React.Component {
     });
   }
 
+  static accommodationImages() {
+    return [ indigo ];
+  }
+
+  static pageTitle() {
+    return "Accommodations";
+  }
+
+  static pageNotice() {
+    return "We've blocked rooms at these hotels. More Coming Soon!";
+  }
+
+  static cardLinkText() {
+    return "Book Room";
+  }
+
   render() {
     return (
       <div>
-        <RouteTop pageTitle={ this.state.pageTitle } pageNotice={ this.state.pageNotice } />
+        <RouteTop pageTitle={ Accommodations.pageTitle() } pageNotice={ Accommodations.pageNotice() } />
         { this.state.accommodations }
       </div>
     );

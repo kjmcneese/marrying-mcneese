@@ -3,26 +3,62 @@ import RouteTop from '../reusable/RouteTop';
 import CustomCard from '../reusable/CustomCard';
 import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 
-let registries = require('../../json/registries.json');
+import { getRegistries } from '../../services/firebaseConfig';
 
-const pageTitle = "Registries";
-const pageNotice = "We set up registries at these places.";
-const cardLinkText = "Go to Registry";
+class Registry extends React.Component {
+  constructor() {
+    super();
 
-const registryImages = [bedbathbeyond];
-let registryCards = [];
-let registry = [];
-for (registry of registries.entries()) {
-  registryCards.push(<CustomCard cardObject={ registry[1] } cardImage={ registryImages[registry[0]] } cardLinkText={ cardLinkText } key={ registry[1].name } />);
-}
+    this.state = {
+      registries : []
+    }
+  }
 
-function Registry() {
-  return (
-    <div>
-      <RouteTop pageTitle={ pageTitle } pageNotice={ pageNotice } />
-      { registryCards }
-    </div>
-  );
+  componentDidMount() {
+    getRegistries().then( (results) => {
+      let registryList = [];
+      const cardLinkText = Registry.cardLinkText();
+      let counter = 0;
+
+      let docData = {};
+      results.forEach( (doc) => {
+        docData = doc.data();
+
+        registryList.push(
+          <CustomCard cardObject={ docData } cardImage={ Registry.registryImages()[counter] } cardLinkText={ cardLinkText } key={ docData.name } />
+        )
+
+        counter++;
+      })
+
+      this.setState( { registries : registryList } );
+    });
+  }
+
+  static registryImages() {
+    return [ bedbathbeyond ];
+  }
+
+  static pageTitle() {
+    return "Registries";
+  }
+
+  static pageNotice() {
+    return "We set up registries at these places.";
+  }
+
+  static cardLinkText() {
+    return "Go to Registry";
+  }
+
+  render() {
+    return (
+      <div>
+        <RouteTop pageTitle={ Registry.pageTitle() } pageNotice={ Registry.pageNotice() } />
+        { this.state.registries }
+      </div>
+    );
+  }
 }
 
 export default Registry;

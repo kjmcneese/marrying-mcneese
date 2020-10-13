@@ -11,11 +11,11 @@ class FormRSVP extends React.Component {
     super();
 
     this.state = {
-      Name : "",
-      Attending : false,
-      Meal : "",
+      name : "",
+      attending : false,
+      meal : "",
       mealListGroupItems : [],
-      Comments : "",
+      comments : "",
       validated : false,
       submitSuccess : ""
     }
@@ -51,19 +51,19 @@ class FormRSVP extends React.Component {
   }
 
   updateName(e) {
-    this.setState({Name : e.target.value});
+    this.setState( { name : e.target.value } );
   }
 
   updateAttending(e) {
-    this.setState({Attending : e.target.checked});
+    this.setState( { attending : e.target.checked } );
   }
 
   updateMeal(e) {
-    this.setState({Meal : e.target.value});
+    this.setState( { meal : e.target.value } );
   }
 
   updateComments(e) {
-    this.setState({Comments : e.target.value});
+    this.setState( { comments : e.target.value } );
   }
 
   submitRSVP(e) {
@@ -71,24 +71,25 @@ class FormRSVP extends React.Component {
     e.preventDefault();
     if (form.checkValidity() === false) {
       e.stopPropagation();
-      this.setState({validated : true});
+      this.setState( { validated : true } );
     }
     
     if (form.checkValidity() === true) {
-      this.setState({validated : false});
+      this.setState( { validated : false } );
       let self = this;
 
       addRSVP({
-        Name : this.state.Name,
-        Attending : this.state.Attending,
-        Meal : this.state.Meal,
-        Comments : this.state.Comments
+        name : this.state.name,
+        attending : this.state.attending,
+        meal : this.state.meal,
+        comments : this.state.comments
       }).then(function() {
         form.reset();
 
         self.setState({
-          Name : "",
-          Attending : false,
+          name : "",
+          attending : false,
+          comments : "",
           submitSuccess : "success"
         });
       }).catch(function() {
@@ -124,7 +125,7 @@ class FormRSVP extends React.Component {
 
         <Form.Group controlId="formPersonName">
           <Form.Label>Name</Form.Label>
-          <Form.Control placeholder="Who are you?" value={ this.state.Name } className="placeholderInput" onChange={ this.updateName } required />
+          <Form.Control placeholder="Who are you?" value={ this.state.name } className="placeholderInput" onChange={ this.updateName } required />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Don't forget who you are!</Form.Control.Feedback>
         </Form.Group>
@@ -133,7 +134,7 @@ class FormRSVP extends React.Component {
           <Form.Check label="Attending" feedback="Check if attending." onChange={ this.updateAttending } />
         </Form.Group>
 
-        { this.state.Attending && (
+        { this.state.attending && (
           <Form.Group controlId="formMeal" >
             <Form.Label>Dinner Meal</Form.Label>
             <ListGroup>
@@ -144,7 +145,7 @@ class FormRSVP extends React.Component {
 
         <Form.Group controlId="formComments">
           <Form.Label>Comments</Form.Label>
-          <Form.Control as="textarea" rows="3" placeholder="Anything else we need to know?!" value={ this.state.Comment } className="placeholderInput" onChange={ this.updateComments } />
+          <Form.Control as="textarea" rows="3" placeholder="Anything else we need to know?!" value={ this.state.comments } className="placeholderInput" onChange={ this.updateComments } />
         </Form.Group>
 
         <Button className="rsvpSubmitButton" type="submit">Submit</Button>
