@@ -109,7 +109,7 @@ class RSVPForm extends React.Component {
   }
 
   dismissAlert() {
-    this.setState( { submitSuccess : false } );
+    this.setState( { submitSuccess : null } );
   }
 
   render() {
