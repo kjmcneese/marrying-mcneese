@@ -8,25 +8,20 @@ import RSVP from './routes/RSVP';
 import Photos from './routes/Photos';
 
 class AppBody extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      routeSections : []
-    }
-
-    this.getRouteSections = this.getRouteSections.bind(this);
-  }
 
   getRouteSections() {
     const routeComponentList = [Accommodations, RSVP, Registry, Photos];
+    let routeSections = [];
     let routeTitle = [];
-    for (routeTitle of this.props.appData.routeTitles.entries()) {
-      this.state.routeSections.push(
-        <Route path={ "/" + routeTitle[1] } component={ routeComponentList[routeTitle[0]] } key={ routeTitle[1] } />
-      );
+    if (this.props.appDataExists) {
+      for (routeTitle of this.props.appData.routeTitles.entries()) {
+        routeSections.push(
+          <Route path={ "/" + routeTitle[1] } component={ routeComponentList[routeTitle[0]] } key={ routeTitle[1] } />
+        );
+      }  
     }
 
-    return this.state.routeSections;
+    return routeSections;
   }
 
   render() {

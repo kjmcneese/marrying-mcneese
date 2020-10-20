@@ -13,6 +13,10 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 
+function getAppInfo() {
+  return db.collection( "info" ).get();
+}
+
 function getVendors() {
   return db.collection( "vendors" ).get();
 }
@@ -33,4 +37,4 @@ function getRegistries() {
   return db.collection( "registries" ).get();
 }
 
-export { getVendors, getAccommodations, getMealOptions, addRSVP, getRegistries };
+export { getAppInfo, getVendors, getAccommodations, getMealOptions, addRSVP, getRegistries };

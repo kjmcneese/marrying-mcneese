@@ -4,41 +4,37 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 class AppHeader extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      anchorLinks : [],
-      routeLinks : []
-    }
-
-    this.getAnchorLinks = this.getAnchorLinks.bind(this);
-    this.getRouteLinks = this.getRouteLinks.bind(this);
-  }
 
   getAnchorLinks() {
+    let homeSectionLinks = [];
     let homeSectionTitle = "";
-    for (homeSectionTitle of this.props.appData.homeSectionTitles) {
-      this.state.anchorLinks.push(
-        <Nav.Link href={ "/#" + homeSectionTitle } className="navLink" key={ homeSectionTitle }>
-          <div className="headerText">{ homeSectionTitle }</div>
-        </Nav.Link>
-      );
+    if (this.props.appDataExists) {
+      for (homeSectionTitle of this.props.appData.homeSectionTitles) {
+        homeSectionLinks.push(
+          <Nav.Link href={ "/#" + homeSectionTitle } className="navLink" key={ homeSectionTitle }>
+            <div className="headerText">{ homeSectionTitle }</div>
+          </Nav.Link>
+        );
+      }  
     }
 
-    return this.state.anchorLinks;
+    return homeSectionLinks;
   }
 
   getRouteLinks() {
+    let routeLinks = [];
     let routeTitle = "";
-    for (routeTitle of this.props.appData.routeTitles) {
-      this.state.routeLinks.push(
-        <Nav.Link href={ "/" + routeTitle } className="navLink" key={ routeTitle }>
-          <div className="headerText">{ routeTitle }</div>
-        </Nav.Link>
-      );
+    if (this.props.appDataExists) {
+      for (routeTitle of this.props.appData.routeTitles) {
+        routeLinks.push(
+          <Nav.Link href={ "/" + routeTitle } className="navLink" key={ routeTitle }>
+            <div className="headerText">{ routeTitle }</div>
+          </Nav.Link>
+        );
+      }
     }
 
-    return this.state.routeLinks;
+    return routeLinks;
   }
 
   render() {
@@ -47,7 +43,7 @@ class AppHeader extends React.Component {
         <Navbar className="navigationBar mr-auto" expand="lg">
           <div className="navBrandDuringToggle">
             <Navbar.Brand href={ "/" }>
-              <div className="navBrand">{ this.props.appData.siteTitle }</div>
+              <div className="navBrand">{ this.props.appData.couple }</div>
             </Navbar.Brand>
           </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -55,7 +51,7 @@ class AppHeader extends React.Component {
             <Nav className="navOptions mr-auto">
               { this.getAnchorLinks() }
               <Navbar.Brand href={ "/" } className="hideNavOption">
-                <div className="navBrand">{ this.props.appData.siteTitle }</div>
+                <div className="navBrand">{ this.props.appData.couple }</div>
               </Navbar.Brand>
               { this.getRouteLinks() }
             </Nav>
