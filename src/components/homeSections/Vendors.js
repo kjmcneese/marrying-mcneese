@@ -4,25 +4,40 @@ import SmallText from '../reusable/SmallText';
 
 import Constants from '../../Constants';
 
-let vendors = require('../../json/vendors.json');
+import { getVendors } from '../../services/firebaseConfig';
 
 class Vendors extends React.Component {
   constructor() {
     super();
 
+    this.state = {
+      vendors : []
+    }
+
     this.COMING_SOON = "More " + Constants.COMING_SOON;
   }
 
-  render() {
-    const vendorItems = [];
-    let vendor = {};
-    for (vendor of vendors) {
-      vendorItems.push(<SmallText linkText={ vendor.name } webLink={ vendor.link } key={ vendor.name } />);
-    }
+  componentDidMount() {
+    getVendors().then( (results) => {
+      // needed this variable or else the state change wouldn't display the accommodations. 
+      // see FormRSVP and state variable mealListGroupItems for a contrasting example that also works.
+      let vendorsList = [];
+      results.forEach( (doc) => {
+        let docData = doc.data();
+        
+        vendorsList.push(
+          <SmallText linkText={ docData.name } webLink={ docData.website } key={ docData.name } />
+        );
+      })
 
+      this.setState( { vendors : vendorsList } );
+    });
+  }
+
+  render() {
     return (
       <div>
-        { vendorItems }
+        { this.state.vendors }
         <SmallText regularText={ this.COMING_SOON } />
       </div>
     );
