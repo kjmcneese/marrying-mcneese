@@ -1,4 +1,5 @@
 import React from 'react';
+
 import SmallText from '../reusable/SmallText';
 
 let venue = require('../../json/venue.json');

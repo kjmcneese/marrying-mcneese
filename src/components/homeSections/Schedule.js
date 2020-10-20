@@ -17,7 +17,7 @@ class Schedule extends React.Component {
     return (
       <div>
         {/* { scheduleItems } */}
-        <SmallText regularText={ Constants.comingSoon() } />
+        <SmallText regularText={ Constants.COMING_SOON } />
       </div>
     );
   }

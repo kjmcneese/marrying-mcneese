@@ -7,6 +7,12 @@ import Constants from '../../Constants';
 let vendors = require('../../json/vendors.json');
 
 class Vendors extends React.Component {
+  constructor() {
+    super();
+
+    this.COMING_SOON = "More " + Constants.COMING_SOON;
+  }
+
   render() {
     const vendorItems = [];
     let vendor = {};
@@ -17,7 +23,7 @@ class Vendors extends React.Component {
     return (
       <div>
         { vendorItems }
-        <SmallText regularText={ Constants.vendorsComingSoon() } />
+        <SmallText regularText={ this.COMING_SOON } />
       </div>
     );
   }
