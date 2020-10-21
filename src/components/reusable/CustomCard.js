@@ -7,6 +7,7 @@ import Constants from '../../Constants';
 let city = require('../../json/appData.json').city;
 
 class CustomCard extends React.Component {
+
   render() {
     return (
       <Card>
