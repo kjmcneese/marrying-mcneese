@@ -11,9 +11,7 @@ class Wedding extends React.Component {
     }
   }
 
-  static tiedTheKnot() {
-    return "We tied the knot!";
-  }
+  static tiedTheKnot = "We tied the knot!";
 
   componentDidMount() {
     let weddingDate = new Date(this.props.weddingDate + " " + this.props.weddingTime).getTime();
@@ -31,7 +29,7 @@ class Wedding extends React.Component {
       if (difference < 0) {
         self.setState({ 
           timeUntilWedding : "",
-          weddingText : Wedding.tiedTheKnot()
+          weddingText : Wedding.tiedTheKnot
         });
       } else {
         self.setState( { timeUntilWedding : days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes" } );

@@ -8,13 +8,24 @@ import Schedule from './sections/Schedule';
 import Vendors from './sections/Vendors';
 
 class HomeSection extends React.Component {
-  render() {
-    let classNames = 'homeSection';
+
+  constructor() {
+    super();
+    
+    // initialize section as array instead of object because React children cannot be objects
+    // this empty array will get rendered initially when appInfo isn't loaded in App.js
+    this.state = {
+      classNames : "homeSection",
+      section : []
+    }
+  }
+
+  componentDidMount() {
     if (this.props.sectionIndex % 2 !== 0) {
-      classNames += ' colorBackground';
+      this.setState( { classNames : this.state.classNames + ' colorBackground' } );
     }
 
-    let section = "";
+    let section = {};
     switch (this.props.sectionIndex) {
       case 0:
         section = <Wedding weddingDate={ this.props.appData.weddingDate } weddingTime={ this.props.appData.weddingTime } />;
@@ -31,11 +42,15 @@ class HomeSection extends React.Component {
       default:
     }
 
+    this.setState( { section : section } );
+  }
+
+  render() {
     return (
-      <div id={ this.props.sectionTitle } className={ classNames }>
+      <div id={ this.props.sectionTitle } className={ this.state.classNames }>
         <h4 className="sectionTitle">{ this.props.sectionTitle }</h4>
         <Image className="homepageImage" src={ this.props.sectionImage } roundedCircle />
-        <div className="homeSectionContent">{ section }</div>
+        <div className="homeSectionContent">{ this.state.section }</div>
       </div>
     );
   }

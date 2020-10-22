@@ -12,33 +12,21 @@ import image5 from '../../../images/carousel/Lauren and Kyle _ Madison WI Engage
 import image6 from '../../../images/carousel/Lauren and Kyle _ Madison WI Engagement-79_Cropped.jpg';
 
 class CustomCarousel extends React.Component {
-  constructor() {
-    super();
 
-    this.state = {
-      carouselItems : []
-    }
+  getCarouselItems() {
+    const imageList = [ image1, image2, image3, image4, image5, image6 ];
 
-    this.imageList = [image1, image2, image3, image4, image5, image6];
-  }
-
-  componentDidMount() {    
-    let image = {};
-    for (image of this.imageList.entries()) {
-      this.state.carouselItems.push(
-        <Carousel.Item key={ "carouselItem" + image[0] }>
-          <CustomCarouselItem hashtag={ this.props.hashtag } weddingDate={ this.props.weddingDate } image={ image[1] } />
-        </Carousel.Item>
-      );
-    }
-
-    this.setState( { carouselItems : this.state.carouselItems } );
+    return imageList.map( (image, index) =>
+      <Carousel.Item key={ "carouselItem" + index }>
+        <CustomCarouselItem hashtag={ this.props.hashtag } weddingDate={ this.props.weddingDate } image={ image } />
+      </Carousel.Item>
+    );
   }
 
   render() {
     return (
       <Carousel>
-        { this.state.carouselItems }
+        { this.getCarouselItems() }
       </Carousel>
     );
   }
