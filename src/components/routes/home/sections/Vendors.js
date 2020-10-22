@@ -1,10 +1,10 @@
 import React from 'react';
 
-import SmallText from '../reusable/SmallText';
+import SmallText from '../../../reusable/SmallText';
 
-import Constants from '../../Constants';
+import Constants from '../../../../Constants';
 
-import { getVendors } from '../../services/firebaseConfig';
+import { getVendors } from '../../../../services/firebaseConfig';
 
 class Vendors extends React.Component {
   constructor() {

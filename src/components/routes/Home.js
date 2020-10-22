@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CustomCarousel from '../homeSections/CustomCarousel';
-import HomeSection from '../reusable/HomeSection';
+import CustomCarousel from './home/CustomCarousel';
+import HomeSection from './home/HomeSection';
 
 import weddingSectionImage from '../../images/homepage/Lauren and Kyle _ Madison WI Engagement-103_Cropped.jpg';
 import venueSectionImage from '../../images/homepage/tinsmith_Cropped.jpg';

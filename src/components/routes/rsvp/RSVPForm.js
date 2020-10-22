@@ -5,9 +5,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 
-import Constants from '../../Constants';
+import Constants from '../../../Constants';
 
-import { getMealOptions, addRSVP } from '../../services/firebaseConfig';
+import { getMealOptions, addRSVP } from '../../../services/firebaseConfig';
 
 class RSVPForm extends React.Component {
   constructor() {

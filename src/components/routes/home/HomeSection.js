@@ -2,10 +2,10 @@ import React from 'react';
 
 import Image from 'react-bootstrap/Image';
 
-import Wedding from '../homeSections/Wedding';
-import Venue from '../homeSections/Venue';
-import Schedule from '../homeSections/Schedule';
-import Vendors from '../homeSections/Vendors';
+import Wedding from './sections/Wedding';
+import Venue from './sections/Venue';
+import Schedule from './sections/Schedule';
+import Vendors from './sections/Vendors';
 
 class HomeSection extends React.Component {
   render() {

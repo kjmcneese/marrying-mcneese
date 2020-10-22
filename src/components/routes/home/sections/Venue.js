@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SmallText from '../reusable/SmallText';
+import SmallText from '../../../reusable/SmallText';
 
-import { getVenue } from '../../services/firebaseConfig';
+import { getVenue } from '../../../../services/firebaseConfig';
 
 class Venue extends React.Component {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import RouteTop from '../reusable/RouteTop';
-import RSVPForm from './RSVPForm';
+import RSVPForm from './rsvp/RSVPForm';
 
 class RSVP extends React.Component {
 

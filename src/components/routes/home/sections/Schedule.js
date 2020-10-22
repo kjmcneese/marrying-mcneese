@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SmallText from '../reusable/SmallText';
+import SmallText from '../../../reusable/SmallText';
 
-import { getSchedule } from '../../services/firebaseConfig';
+import { getSchedule } from '../../../../services/firebaseConfig';
 
 class Schedule extends React.Component {
 
