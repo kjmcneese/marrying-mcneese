@@ -23,9 +23,9 @@ class App extends React.Component {
     });
   }
 
-  // appData prop does not have data in first render
-  // parent loads appData from DB and rerenders
-  // created this method to check data before each data loop begins
+  // appInfo does not have data in first render
+  // this component loads appData from DB and rerenders
+  // created this method to send to children to check if appInfo was loaded on each rerender
   appDataExists() {
     if (Object.keys(this.state.appInfo).length > 0) {
       return true;
