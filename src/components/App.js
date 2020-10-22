@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    getAppInfo().then( (results) => {
+    getAppInfo().then( results => {
       this.setState( { appInfo : results.docs.map(doc => doc.data())[0] } );
     });
   }

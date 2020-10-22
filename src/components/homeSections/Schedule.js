@@ -15,10 +15,10 @@ class Schedule extends React.Component {
   }
 
   componentDidMount() {
-    getSchedule().then( (results) => {
+    getSchedule().then( results => {
       let item = {};
-      this.setState({ 
-        schedule : results.docs.map( function(doc) {
+      this.setState({
+        schedule : results.docs.map( doc => {
           item = doc.data();
           return <SmallText regularText={ item.name + " " + item.time} key={ item.name } />;
         })
