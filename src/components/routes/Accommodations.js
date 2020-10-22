@@ -15,14 +15,9 @@ class Accommodations extends React.Component {
       accommodations : []
     }
   }
-
-  static accommodationsPageTitle() {
-    return "Accommodations";
-  }
-
-  static accommodationsPageNotice() {
-    return "We've blocked rooms at these hotels. More Coming Soon!";
-  }
+  
+  static accommodationsPageTitle = "Accommodations";
+  static accommodationsPageNotice = "We've blocked rooms at these hotels. More Coming Soon!";
 
   componentDidMount() {
     getAccommodations().then( (results) => {
@@ -52,7 +47,7 @@ class Accommodations extends React.Component {
   render() {
     return (
       <div>
-        <RouteTop pageTitle={ Accommodations.accommodationsPageTitle() } pageNotice={ Accommodations.accommodationsPageNotice() } />
+        <RouteTop pageTitle={ Accommodations.accommodationsPageTitle } pageNotice={ Accommodations.accommodationsPageNotice } />
         { this.state.accommodations }
       </div>
     );

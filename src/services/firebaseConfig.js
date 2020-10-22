@@ -13,24 +13,20 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 
-function getVendors() {
-  return db.collection( "vendors" ).get();
-}
+const getAppInfo = () => db.collection( "info" ).get();
 
-function getAccommodations() {
-  return db.collection( "accommodations" ).get();
-}
+const getVenue = () => db.collection( "venue" ).get();
 
-function getMealOptions() {
-  return db.collection( "meals" ).orderBy( "Order", "asc" ).get();
-}
+const getSchedule = () => db.collection( "events" ).orderBy( "order", "asc" ).get();
 
-function addRSVP(formObject) {
-  return db.collection( "rsvps" ).add(formObject);
-}
+const getVendors = () => db.collection( "vendors" ).get();
 
-function getRegistries() {
-  return db.collection( "registries" ).get();
-}
+const getAccommodations = () => db.collection( "accommodations" ).get();
 
-export { getVendors, getAccommodations, getMealOptions, addRSVP, getRegistries };
+const getMealOptions = () => db.collection( "meals" ).orderBy( "order", "asc" ).get();
+
+const addRSVP = formObject => db.collection( "rsvps" ).add(formObject);
+
+const getRegistries = () => db.collection( "registries" ).get();
+
+export { getAppInfo, getVenue, getSchedule, getVendors, getAccommodations, getMealOptions, addRSVP, getRegistries };

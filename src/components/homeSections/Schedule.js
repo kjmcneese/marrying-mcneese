@@ -2,22 +2,34 @@ import React from 'react';
 
 import SmallText from '../reusable/SmallText';
 
-import Constants from '../../Constants';
-
-// let schedule = require('../../json/schedule.json');
+import { getSchedule } from '../../services/firebaseConfig';
 
 class Schedule extends React.Component {
-  render() {
-    // const scheduleItems = [];
-    // let scheduleItem = "";
-    // for (scheduleItem in schedule) {
-    //     scheduleItems.push(<SmallText regularText={ scheduleItem + " " + schedule[scheduleItem]} key={ scheduleItem } />);
-    // }
 
+  constructor() {
+    super();
+
+    this.state = {
+      schedule : []
+    }
+  }
+
+  componentDidMount() {
+    getSchedule().then( results => {
+      let item = {};
+      this.setState({
+        schedule : results.docs.map( doc => {
+          item = doc.data();
+          return <SmallText regularText={ item.name + " " + item.time} key={ item.name } />;
+        })
+      });
+    });
+  }
+
+  render() {
     return (
       <div>
-        {/* { scheduleItems } */}
-        <SmallText regularText={ Constants.COMING_SOON } />
+        { this.state.schedule }
       </div>
     );
   }

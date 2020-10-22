@@ -9,21 +9,23 @@ import scheduleSectionImage from '../../images/homepage/Lauren and Kyle _ Madiso
 import vendorsSectionImage from '../../images/homepage/Lauren and Kyle _ Madison WI Engagement-197_Cropped.jpg';
 
 class Home extends React.Component {
-  render() {
-    const sectionImages = [weddingSectionImage, venueSectionImage, scheduleSectionImage, vendorsSectionImage];
-    const homeSections = [];
 
-    let homeSectionEntry = [];
-    for (homeSectionEntry of this.props.appData.homeSectionTitles.entries()) {
-      homeSections.push(
-        <HomeSection appData={ this.props.appData } sectionEntry={ homeSectionEntry } sectionImage = { sectionImages[homeSectionEntry[0]] } key={ homeSectionEntry[1] } />
+  getHomeSections() {
+    if (this.props.appDataExists) {
+      const sectionImages = [ weddingSectionImage, venueSectionImage, scheduleSectionImage, vendorsSectionImage ];
+      return this.props.appData.homeSectionTitles.map( (homeSectionTitle, index) => 
+        <HomeSection appData={ this.props.appData } sectionTitle={ homeSectionTitle } sectionIndex={ index } sectionImage={ sectionImages[index] } key={ homeSectionTitle } />
       );
     }
 
+    return [];
+  }
+
+  render() {
     return (
       <div>
         <CustomCarousel hashtag={ this.props.appData.hashtag } weddingDate={ this.props.appData.weddingDate }/>
-        { homeSections }
+        { this.getHomeSections() }
       </div>
     );
   }
