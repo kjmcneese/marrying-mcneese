@@ -22,19 +22,15 @@ class AppHeader extends React.Component {
   }
 
   getRouteLinks() {
-    let routeLinks = [];
-    let routeTitle = "";
     if (this.props.appDataExists) {
-      for (routeTitle of this.props.appData.routeTitles) {
-        routeLinks.push(
-          <Nav.Link href={ "/" + routeTitle } className="navLink" key={ routeTitle }>
-            <div className="headerText">{ routeTitle }</div>
-          </Nav.Link>
-        );
-      }
+      return this.props.appData.routeTitles.map( routeTitle => 
+        <Nav.Link href={ "/" + routeTitle } className="navLink" key={ routeTitle }>
+          <div className="headerText">{ routeTitle }</div>
+        </Nav.Link>
+      );
     }
 
-    return routeLinks;
+    return [];
   }
 
   render() {
