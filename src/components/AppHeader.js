@@ -6,19 +6,15 @@ import Nav from 'react-bootstrap/Nav';
 class AppHeader extends React.Component {
 
   getAnchorLinks() {
-    let homeSectionLinks = [];
-    let homeSectionTitle = "";
     if (this.props.appDataExists) {
-      for (homeSectionTitle of this.props.appData.homeSectionTitles) {
-        homeSectionLinks.push(
-          <Nav.Link href={ "/#" + homeSectionTitle } className="navLink" key={ homeSectionTitle }>
-            <div className="headerText">{ homeSectionTitle }</div>
-          </Nav.Link>
-        );
-      }  
+      return this.props.appData.homeSectionTitles.map( homeSectionTitle => 
+        <Nav.Link href={ "/#" + homeSectionTitle } className="navLink" key={ homeSectionTitle }>
+          <div className="headerText">{ homeSectionTitle }</div>
+        </Nav.Link>
+      );
     }
 
-    return homeSectionLinks;
+    return [];
   }
 
   getRouteLinks() {
