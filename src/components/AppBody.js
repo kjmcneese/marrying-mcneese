@@ -11,7 +11,7 @@ class AppBody extends React.Component {
 
   getRouteSections() {
     if (this.props.appDataExists) {
-      const routeComponentList = [Accommodations, RSVP, Registry, Photos];
+      const routeComponentList = [ Accommodations, RSVP, Registry, Photos ];
       return this.props.appData.routeTitles.map( (routeTitle, index) =>
         <Route path={ "/" + routeTitle } component={ routeComponentList[index] } key={ routeTitle } />
       );

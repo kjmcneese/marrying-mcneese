@@ -15,7 +15,7 @@ class Venue extends React.Component {
   }
   
   componentDidMount() {
-    getVenue().then( (results) => {
+    getVenue().then( results => {
       this.setState( { venue : results.docs.map(doc => doc.data())[0] } );
     });
   }
