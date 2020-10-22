@@ -2,18 +2,29 @@ import React from 'react';
 
 import SmallText from '../reusable/SmallText';
 
-let venue = require('../../json/venue.json');
+import { getVenue } from '../../services/firebaseConfig';
 
 class Venue extends React.Component {
-  render() {
-    // let notice = "All events take place at ";
 
+  constructor() {
+    super();
+
+    this.state = {
+      venue : {}
+    }
+  }
+  
+  componentDidMount() {
+    getVenue().then( (results) => {
+      this.setState( { venue : results.docs.map(doc => doc.data())[0] } );
+    });
+  }
+
+  render() {
     return (
       <div>
-        {/* Can't say all events are at Tinsmith until we know they are for sure */}
-        {/* <SmallText regularText={ notice } linkText={ venue.name } webLink={ venue.website } /> */}
-        <SmallText linkText={ venue.name } webLink={ venue.website } />
-        <SmallText linkText={ venue.address + ", " + this.props.city } webLink={ venue.addressLink } />
+        <SmallText linkText={ this.state.venue.name } webLink={ this.state.venue.website } />
+        <SmallText linkText={ this.state.venue.address + ", " + this.state.venue.city } webLink={ this.state.venue.addressLink } />
       </div>
     );
   }

@@ -10,10 +10,11 @@ import Photos from './routes/Photos';
 class AppBody extends React.Component {
 
   getRouteSections() {
-    const routeComponentList = [Accommodations, RSVP, Registry, Photos];
     let routeSections = [];
-    let routeTitle = [];
     if (this.props.appDataExists) {
+      const routeComponentList = [Accommodations, RSVP, Registry, Photos];
+      let routeTitle = [];
+
       for (routeTitle of this.props.appData.routeTitles.entries()) {
         routeSections.push(
           <Route path={ "/" + routeTitle[1] } component={ routeComponentList[routeTitle[0]] } key={ routeTitle[1] } />
@@ -28,7 +29,7 @@ class AppBody extends React.Component {
     return (
       <div className="appBody">
         <Switch>
-          <Route path='/' render={(props) => ( <Home { ...this.props } isAuthed={ true } /> )} exact />
+          <Route path='/' render={ (props) => ( <Home { ...this.props } isAuthed={ true } /> ) } exact />
           { this.getRouteSections() }
         </Switch>
       </div>

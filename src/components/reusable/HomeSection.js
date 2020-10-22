@@ -20,7 +20,7 @@ class HomeSection extends React.Component {
         section = <Wedding weddingDate={ this.props.appData.weddingDate } weddingTime={ this.props.appData.weddingTime } />;
         break;
       case 1:
-        section = <Venue city={ this.props.appData.city } />;
+        section = <Venue />;
         break;
       case 2:
         section = <Schedule />;

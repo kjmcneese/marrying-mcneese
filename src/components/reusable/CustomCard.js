@@ -4,8 +4,6 @@ import Card from 'react-bootstrap/Card';
 
 import Constants from '../../Constants';
 
-let city = require('../../json/appData.json').city;
-
 class CustomCard extends React.Component {
 
   render() {
@@ -17,7 +15,7 @@ class CustomCard extends React.Component {
           <Card.Link href={ this.props.cardObject.addressLink } className={ this.props.cardObject.address ? "addressLinkText" : "hideCity" } target="_blank">
             { this.props.cardObject.address }
             <br/>
-            { city }
+            { this.props.cardObject.addressCity }
           </Card.Link>
           <Card.Link href={ this.props.cardObject.website } target="_blank">{ Constants.GO_TEXT }</Card.Link>
         </Card.Body>
