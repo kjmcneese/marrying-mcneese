@@ -13,9 +13,8 @@ class Home extends React.Component {
   getHomeSections() {
     if (this.props.appDataExists) {
       const sectionImages = [ weddingSectionImage, venueSectionImage, scheduleSectionImage, vendorsSectionImage ];
-
       return this.props.appData.homeSectionTitles.map( (homeSectionTitle, index) => 
-        <HomeSection appData={ this.props.appData } sectionTitle={ homeSectionTitle } sectionIndex={ index } sectionImage = { sectionImages[index] } key={ homeSectionTitle } />
+        <HomeSection appData={ this.props.appData } sectionTitle={ homeSectionTitle } sectionIndex={ index } sectionImage={ sectionImages[index] } key={ homeSectionTitle } />
       );
     }
 
