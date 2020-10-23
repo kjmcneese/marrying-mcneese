@@ -11,10 +11,8 @@ class Countdown extends React.Component {
   }
 
   componentDidMount() {
-    let weddingDate = new Date(this.props.weddingDate + " " + this.props.weddingTime).getTime();
-    
-    let self = this;
     this.timer = setInterval(function() {
+      let weddingDate = new Date(this.props.weddingDate + " " + this.props.weddingTime).getTime();
       let now = Date.now();
       let difference = weddingDate - now;
         
@@ -24,13 +22,13 @@ class Countdown extends React.Component {
       let seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
       if (difference < 0) {
-        self.stopInterval();
-        self.setState( { timeUntilWedding : "" } );
-        self.props.checkCountdown();
+        this.stopInterval();
+        this.setState( { timeUntilWedding : "" } );
+        this.props.checkCountdown();
       } else {
-        self.setState( { timeUntilWedding : days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes" } );
+        this.setState( { timeUntilWedding : days + " Days, " + hours + " Hours, " + minutes + ":" + seconds + " Minutes" } );
       }
-    }, 300);  
+    }.bind(this), 300);  
   }
   
   componentWillUnmount() {
@@ -43,7 +41,7 @@ class Countdown extends React.Component {
     return (
       <div>
         { this.state.timeUntilWedding !== "" && (
-          <p id="timeUntilWedding">{ this.state.timeUntilWedding }</p>
+          <p>{ this.state.timeUntilWedding }</p>
         )}
       </div>
     );
