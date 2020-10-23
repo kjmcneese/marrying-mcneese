@@ -13,32 +13,27 @@ class Vendors extends React.Component {
     this.state = {
       vendors : []
     }
-
-    this.COMING_SOON = "More " + Constants.COMING_SOON;
   }
+
+  static comingSoon = "More " + Constants.COMING_SOON;
 
   componentDidMount() {
     getVendors().then( (results) => {
-      // needed this variable or else the state change wouldn't display the accommodations. 
-      // see FormRSVP and state variable mealListGroupItems for a contrasting example that also works.
-      let vendorsList = [];
-      results.forEach( (doc) => {
-        let docData = doc.data();
-        
-        vendorsList.push(
-          <SmallText linkText={ docData.name } webLink={ docData.website } key={ docData.name } />
-        );
-      })
-
-      this.setState( { vendors : vendorsList } );
-    });
+      let item = {};
+      this.setState({
+        vendors : results.docs.map( doc => {
+          item = doc.data();
+          return <SmallText linkText={ item.name } webLink={ item.website } key={ item.name } />;
+        })
+      });
+    })
   }
 
   render() {
     return (
       <div>
         { this.state.vendors }
-        <SmallText regularText={ this.COMING_SOON } />
+        <SmallText regularText={ Vendors.comingSoon } />
       </div>
     );
   }
