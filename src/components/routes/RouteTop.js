@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SmallText from './SmallText';
+import SmallText from '../reusable/SmallText';
 
 class RouteTop extends React.Component {
   render() {
