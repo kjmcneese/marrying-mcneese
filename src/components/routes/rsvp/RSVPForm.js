@@ -3,7 +3,8 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-import Alert from 'react-bootstrap/Alert';
+
+import CustomAlert from '../../reusable/CustomAlert';
 
 import Constants from '../../../Constants';
 
@@ -20,7 +21,9 @@ class RSVPForm extends React.Component {
       mealListGroupItems : [],
       comments : "",
       validated : false,
-      submitSuccess : null
+      submitSuccess : null,
+      alertVariant : "",
+      alertMessage : ""
     }
 
     this.updateName = this.updateName.bind(this);
@@ -98,12 +101,14 @@ class RSVPForm extends React.Component {
           attending : false,
           meal : "",
           comments : "",
-          submitSuccess : true
+          alertVariant : Constants.VARIANT_SUCCESS,
+          alertMessage : Constants.SUCCESS
         });
       }.bind(this)).catch(
       function() {
         this.setState({
-          submitSuccess : false
+          alertVariant : Constants.VARIANT_DANGER,
+          alertMessage : Constants.ACTION_FAILURE
         });
       }.bind(this));
 
@@ -116,23 +121,20 @@ class RSVPForm extends React.Component {
 
   dismissAlert() {
     clearInterval(this.closeAlertTimer);
-    this.setState( { submitSuccess : null } );
+    this.setState({
+      alertVariant : "",
+      alertMessage : ""
+    });
   }
 
   render() {
     return (
       <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
-        { this.state.submitSuccess === true && (
-          <Alert variant="success" onClose={ this.dismissAlert } dismissible>
-            <p className="noMarginBottom">{ Constants.SUCCESS }</p>
-          </Alert>
-        )}
-        { this.state.submitSuccess === false && (
-          <Alert variant="danger" onClose={ this.dismissAlert } dismissible>
-            <p className="noMarginBottom">{ Constants.ACTION_FAILURE }</p>
-          </Alert>
-        )}
 
+        { this.state.alertVariant !== "" && (
+          <CustomAlert variant={ this.state.alertVariant } message={ this.state.alertMessage } dismissAlert={ this.dismissAlert } />
+        )}
+ 
         <Form.Group controlId="formPersonName">
           <Form.Label>{ Constants.NAME_LABEL }</Form.Label>
           <Form.Control placeholder={ RSVPForm.namePlaceholder } value={ this.state.name } className="placeholderInput" onChange={ this.updateName } required />
