@@ -8,6 +8,7 @@ import bedbathbeyond from '../../images/bedbathbeyond.jpg';
 import { getRegistries } from '../../services/firebaseConfig';
 
 class Registry extends React.Component {
+
   constructor() {
     super();
 
@@ -16,42 +17,27 @@ class Registry extends React.Component {
     }
   }
 
-  static registriesPageTitle() {
-    return "Registries";
-  }
-
-  static registriesPageNotice() {
-    return "We set up registries at these places.";
-  }
+  static registriesPageTitle = "Registries";
+  static registriesPageNotice = "We set up registries at these places.";
 
   componentDidMount() {
     getRegistries().then( (results) => {
-      let registryList = [];
-      let counter = 0;
+      const registryImages = [ bedbathbeyond ];
 
-      let docData = {};
-      results.forEach( (doc) => {
-        docData = doc.data();
-
-        registryList.push(
-          <CustomCard cardObject={ docData } cardImage={ Registry.registryImages()[counter] } key={ docData.name } />
-        )
-
-        counter++;
-      })
-
-      this.setState( { registries : registryList } );
+      let item = {};
+      this.setState({
+        registries : results.docs.map( (doc, index) => {
+          item = doc.data();
+          return <CustomCard cardObject={ item } cardImage={ registryImages[index] } key={ item.name } />;
+        })
+      });
     });
-  }
-
-  static registryImages() {
-    return [ bedbathbeyond ];
   }
 
   render() {
     return (
       <div>
-        <RouteTop pageTitle={ Registry.registriesPageTitle() } pageNotice={ Registry.registriesPageNotice() } />
+        <RouteTop pageTitle={ Registry.registriesPageTitle } pageNotice={ Registry.registriesPageNotice } />
         { this.state.registries }
       </div>
     );

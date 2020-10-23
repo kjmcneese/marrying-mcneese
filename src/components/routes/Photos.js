@@ -11,51 +11,39 @@ let photos = require('../../json/photos.json');
 
 class Photos extends React.Component {
 
-  static photosPageTitle() {
-    return "Photos";
+  static photosPageTitle = "Photos";
+  static photosPageNotice = "Professional photography by the lovely ";
+  static photographerName = "Mo Speer";
+  static photographerLink = "https://www.mspeerphoto.com";
+
+  getProposalPhotos() {
+    return photos.Proposal.map( proposalImageName => <Image src={require(`../../images/proposal/${ proposalImageName }.JPG`)} className="photo" key={ proposalImageName } rounded />);
   }
 
-  static photosPageNotice() {
-    return "Professional photography by the lovely ";
+  getEngagementPhotos() {
+    return photos.Engagement.map( engagementImageName => <Image src={require(`../../images/engagement/${ engagementImageName }.jpg`)} className="photo" key={ engagementImageName } rounded />);
+  }
+
+  getWeddingPhotos() {
+    return photos.Wedding.map( weddingImageName => <Image src={require(`../../images/wedding/${ weddingImageName }.jpg`)} className="photo" key={ weddingImageName } rounded />);
   }
 
   render() {
-    const photographerName = "Mo Speer";
-    const photographerLink = "https://www.mspeerphoto.com";
-
-    // let proposalImages = [];
-    // let proposalImageName = "";
-    // for (proposalImageName of photos.Proposal) {
-    //     proposalImages.push(<Image src={require(`../../images/proposal/${ proposalImageName }.JPG`)} className="photo" key={ proposalImageName } rounded />);
-    // }
-
-    let engagementImages = [];
-    let engagementImageName = "";
-    for (engagementImageName of photos.Engagement) {
-      engagementImages.push(<Image src={require(`../../images/engagement/${ engagementImageName }.jpg`)} className="photo" key={ engagementImageName } rounded />);
-    }
-
-    // let weddingImages = [];
-    // let weddingImageName = "";
-    // for (weddingImageName of photos.Wedding) {
-    //     weddingImages.push(<Image src={require(`../../images/wedding/${ weddingImageName }.jpg`)} className="photo" key={ weddingImageName } rounded />);
-    // }
-
     return (
       <div>
-        <RouteTop pageTitle={ Photos.photosPageTitle() } />
-        <SmallText regularText={ Photos.photosPageNotice() } linkText={ photographerName } webLink={ photographerLink } />
+        <RouteTop pageTitle={ Photos.photosPageTitle } />
+        <SmallText regularText={ Photos.photosPageNotice } linkText={ Photos.photographerName } webLink={ Photos.photographerLink } />
 
         <Tabs className="photos" defaultActiveKey="engagement">
-          {/* <Tab eventKey="proposal" title="Proposal">
-            { proposalImages }
-          </Tab> */}
-          <Tab eventKey="engagement" title="Engagement">
-            { engagementImages }
+          <Tab eventKey="proposal" title="Proposal">
+            { this.getProposalPhotos() }
           </Tab>
-          {/* <Tab eventKey="wedding" title="Wedding" disabled>
-            { weddingImages }
-          </Tab> */}
+          <Tab eventKey="engagement" title="Engagement">
+            { this.getEngagementPhotos() }
+          </Tab>
+          <Tab eventKey="wedding" title="Wedding">
+            { this.getWeddingPhotos() }
+          </Tab>
         </Tabs>
       </div>
     );
