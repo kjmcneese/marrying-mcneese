@@ -71,6 +71,7 @@ class RSVPForm extends React.Component {
   submitRSVP(e) {
     const form = e.currentTarget;
     e.preventDefault();
+
     if (form.checkValidity() === false) {
       e.stopPropagation();
       this.setState( { validated : true } );
@@ -84,31 +85,33 @@ class RSVPForm extends React.Component {
         attending : this.state.attending,
         meal : this.state.meal,
         comments : this.state.comments
-      }).then(
-      function() {
-        form.reset();
-
-        this.setState({
-          name : "",
-          attending : false,
-          meal : "",
-          comments : "",
-          alertVariant : Constants.VARIANT_SUCCESS,
-          alertMessage : Constants.SUCCESS
-        });
-      }.bind(this)).catch(
-      function() {
-        this.setState({
-          alertVariant : Constants.VARIANT_DANGER,
-          alertMessage : Constants.ACTION_FAILURE
-        });
-      }.bind(this));
+      }).then(this.addRSVPSuccess(form)).catch(addRSVPFailure());
 
       this.closeAlertTimer = setInterval(
         function() {
           this.dismissAlert();
       }.bind(this), 10000);
     }
+  }
+
+  addRSVPSuccess(form) {
+    form.reset();
+
+    this.setState({
+      name : "",
+      attending : false,
+      meal : "",
+      comments : "",
+      alertVariant : Constants.VARIANT_SUCCESS,
+      alertMessage : Constants.SUCCESS
+    });
+  }
+
+  addRSVPFailure() {
+    this.setState({
+      alertVariant : Constants.VARIANT_DANGER,
+      alertMessage : Constants.ACTION_FAILURE
+    });
   }
 
   dismissAlert() {
