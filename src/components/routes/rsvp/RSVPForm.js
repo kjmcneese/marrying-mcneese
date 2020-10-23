@@ -85,7 +85,7 @@ class RSVPForm extends React.Component {
         attending : this.state.attending,
         meal : this.state.meal,
         comments : this.state.comments
-      }).then(this.addRSVPSuccess(form)).catch(addRSVPFailure());
+      }).then(this.addRSVPSuccess(form)).catch(this.addRSVPFailure());
 
       this.closeAlertTimer = setInterval(
         function() {
