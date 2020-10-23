@@ -83,36 +83,39 @@ class RSVPForm extends React.Component {
     
     if (form.checkValidity() === true) {
       this.setState( { validated : false } );
-      let self = this;
 
       addRSVP({
         name : this.state.name,
         attending : this.state.attending,
         meal : this.state.meal,
         comments : this.state.comments
-      }).then(function() {
+      }).then(
+      function() {
         form.reset();
 
-        self.setState({
+        this.setState({
           name : "",
           attending : false,
+          meal : "",
           comments : "",
           submitSuccess : true
         });
-      }).catch(function() {
-        self.setState({
+      }.bind(this)).catch(
+      function() {
+        this.setState({
           submitSuccess : false
         });
-      }).then(function() {
-        self.closeAlertTimer = setInterval(function() {
-          self.setState( { submitSuccess : null } );
-          clearInterval(self.closeAlertTimer);
-        }, 10000);
-      });
+      }.bind(this));
+
+      this.closeAlertTimer = setInterval(
+        function() {
+          this.dismissAlert();
+      }.bind(this), 10000);
     }
   }
 
   dismissAlert() {
+    clearInterval(this.closeAlertTimer);
     this.setState( { submitSuccess : null } );
   }
 
@@ -138,7 +141,7 @@ class RSVPForm extends React.Component {
         </Form.Group>
 
         <Form.Group controlId="formAttending">
-          <Form.Check label={ Constants.ATTENDING_LABEL } onChange={ this.updateAttending } />
+          <Form.Check label={ Constants.ATTENDING_LABEL } checked={ this.state.attending } onChange={ this.updateAttending } />
         </Form.Group>
 
         { this.state.attending && (
