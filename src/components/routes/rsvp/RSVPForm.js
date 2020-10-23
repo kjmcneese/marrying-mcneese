@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 
 import CustomAlert from '../../reusable/CustomAlert';
+import MealOption from './MealOption';
 
 import Constants from '../../../Constants';
 
@@ -40,23 +41,14 @@ class RSVPForm extends React.Component {
 
   componentDidMount() {
     getMealOptions().then( (results) => {
-      let docData = {};
-      results.forEach( (doc) => {
-        docData = doc.data();
-        this.state.mealListGroupItems.push(
-          <ListGroup.Item key={ docData.shortName }>
-            <div className="formMealCheck">
-              <Form.Check type="radio" id={ docData.shortName } name="meal" label={ docData.name } value={ docData.shortName } onChange={ this.updateMeal } required />
-            </div>
-            <div className="mealDescriptionSides smallText">
-              <p className="noMarginBottom">{ docData.description }</p>
-              { docData.sides && ( <p className="noMarginBottom">Sides: { docData.sides }</p> ) }
-            </div>
-          </ListGroup.Item>
-        )
-      })
 
-      this.setState( { mealListGroupItems : this.state.mealListGroupItems } );
+      let item = {};
+      this.setState({
+        mealListGroupItems : results.docs.map( (doc, index) => {
+          item = doc.data();
+          return <MealOption mealOption={ item } updateMeal={ this.updateMeal } key={ item.name } />;
+        })
+      });
     });
   }
 
@@ -68,8 +60,8 @@ class RSVPForm extends React.Component {
     this.setState( { attending : e.target.checked } );
   }
 
-  updateMeal(e) {
-    this.setState( { meal : e.target.value } );
+  updateMeal(mealChecked) {
+    this.setState( { meal : mealChecked } );
   }
 
   updateComments(e) {
