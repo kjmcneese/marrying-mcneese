@@ -1,8 +1,6 @@
 import React from 'react';
 
-import SmallText from '../reusable/SmallText';
-
-import { getVenue } from '../../services/firebaseConfig';
+import { getVenue } from '../../../../services/firebaseConfig';
 
 class Venue extends React.Component {
 
@@ -13,7 +11,7 @@ class Venue extends React.Component {
       venue : {}
     }
   }
-  
+
   componentDidMount() {
     getVenue().then( results => {
       this.setState( { venue : results.docs.map(doc => doc.data())[0] } );
@@ -22,9 +20,9 @@ class Venue extends React.Component {
 
   render() {
     return (
-      <div>
-        <SmallText linkText={ this.state.venue.name } webLink={ this.state.venue.website } />
-        <SmallText linkText={ this.state.venue.address + ", " + this.state.venue.city } webLink={ this.state.venue.addressLink } />
+      <div className="smallText">
+        <a href={ this.state.venue.website } className="regularLinkText blockLinkText">{ this.state.venue.name }</a>
+        <a href={ this.state.venue.addressLink } className="regularLinkText">{ this.state.venue.address + ", " + this.state.venue.city }</a>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RouteTop from '../reusable/RouteTop';
+import RouteTop from './reusable/RouteTop';
 import CustomCard from '../reusable/CustomCard';
 
 import indigo from '../../images/indigo.jpg';
@@ -21,27 +21,16 @@ class Accommodations extends React.Component {
 
   componentDidMount() {
     getAccommodations().then( (results) => {
-      let counter = 0;
-      // needed this variable or else the state change wouldn't display the accommodations. 
-      // see FormRSVP and state variable mealListGroupItems for a contrasting example that also works.
-      let accommodationList = [];
-      const accommodationImages = Accommodations.accommodationImages();
-      results.forEach( (doc) => {
-        let docData = doc.data();
-        
-        accommodationList.push(
-          <CustomCard cardObject={ docData } cardImage={ accommodationImages[counter] } key={ docData.name } />
-        );
+      const accommodationImages = [ indigo ];
 
-        counter++;
-      })
-
-      this.setState( { accommodations : accommodationList } );
+      let item = {};
+      this.setState({
+        accommodations : results.docs.map( (doc, index) => {
+          item = doc.data();
+          return <CustomCard cardObject={ item } cardImage={ accommodationImages[index] } key={ item.name } />;
+        })
+      });
     });
-  }
-
-  static accommodationImages() {
-    return [ indigo ];
   }
 
   render() {

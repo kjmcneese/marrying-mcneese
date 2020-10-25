@@ -48,6 +48,7 @@
 
 .placeholderInput::placeholder {
   opacity: .65;
+  font-size: .9rem;
 }
 
 // AppHeader.js
@@ -213,14 +214,20 @@
 // Wedding.js, SmallText.js
 .smallText {
   font-size: .9rem;
+  margin: .35rem 0;
 }
 
 .regularLinkText {
+  margin: .35rem 0;
   color: $header-color-hover;
 }
 
 .regularLinkText:hover {
   color: $header-color;
+}
+
+.blockLinkText {
+  display: block;
 }
 
 // FormRSVP.js

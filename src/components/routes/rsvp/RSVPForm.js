@@ -3,11 +3,13 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-import Alert from 'react-bootstrap/Alert';
 
-import Constants from '../../Constants';
+import CustomAlert from '../../reusable/CustomAlert';
+import MealOption from './MealOption';
 
-import { getMealOptions, addRSVP } from '../../services/firebaseConfig';
+import Constants from '../../../Constants';
+
+import { getMealOptions, addRSVP } from '../../../services/firebaseConfig';
 
 class RSVPForm extends React.Component {
   constructor() {
@@ -20,7 +22,9 @@ class RSVPForm extends React.Component {
       mealListGroupItems : [],
       comments : "",
       validated : false,
-      submitSuccess : null
+      submitSuccess : null,
+      alertVariant : "",
+      alertMessage : ""
     }
 
     this.updateName = this.updateName.bind(this);
@@ -37,23 +41,14 @@ class RSVPForm extends React.Component {
 
   componentDidMount() {
     getMealOptions().then( (results) => {
-      let docData = {};
-      results.forEach( (doc) => {
-        docData = doc.data();
-        this.state.mealListGroupItems.push(
-          <ListGroup.Item key={ docData.shortName }>
-            <div className="formMealCheck">
-              <Form.Check type="radio" id={ docData.shortName } name="meal" label={ docData.name } value={ docData.shortName } onChange={ this.updateMeal } required />
-            </div>
-            <div className="mealDescriptionSides smallText">
-              <p className="noMarginBottom">{ docData.description }</p>
-              { docData.sides && ( <p className="noMarginBottom">Sides: { docData.sides }</p> ) }
-            </div>
-          </ListGroup.Item>
-        )
-      })
 
-      this.setState( { mealListGroupItems : this.state.mealListGroupItems } );
+      let item = {};
+      this.setState({
+        mealListGroupItems : results.docs.map( (doc, index) => {
+          item = doc.data();
+          return <MealOption mealOption={ item } updateMeal={ this.updateMeal } key={ item.name } />;
+        })
+      });
     });
   }
 
@@ -65,8 +60,8 @@ class RSVPForm extends React.Component {
     this.setState( { attending : e.target.checked } );
   }
 
-  updateMeal(e) {
-    this.setState( { meal : e.target.value } );
+  updateMeal(mealChecked) {
+    this.setState( { meal : mealChecked } );
   }
 
   updateComments(e) {
@@ -76,6 +71,7 @@ class RSVPForm extends React.Component {
   submitRSVP(e) {
     const form = e.currentTarget;
     e.preventDefault();
+
     if (form.checkValidity() === false) {
       e.stopPropagation();
       this.setState( { validated : true } );
@@ -83,53 +79,57 @@ class RSVPForm extends React.Component {
     
     if (form.checkValidity() === true) {
       this.setState( { validated : false } );
-      let self = this;
 
       addRSVP({
         name : this.state.name,
         attending : this.state.attending,
         meal : this.state.meal,
         comments : this.state.comments
-      }).then(function() {
-        form.reset();
+      }).then(this.addRSVPSuccess(form)).catch(this.addRSVPFailure());
 
-        self.setState({
-          name : "",
-          attending : false,
-          comments : "",
-          submitSuccess : true
-        });
-      }).catch(function() {
-        self.setState({
-          submitSuccess : false
-        });
-      }).then(function() {
-        self.closeAlertTimer = setInterval(function() {
-          self.setState( { submitSuccess : null } );
-          clearInterval(self.closeAlertTimer);
-        }, 10000);
-      });
+      this.closeAlertTimer = setInterval(
+        function() {
+          this.dismissAlert();
+      }.bind(this), 10000);
     }
   }
 
+  addRSVPSuccess(form) {
+    form.reset();
+
+    this.setState({
+      name : "",
+      attending : false,
+      meal : "",
+      comments : "",
+      alertVariant : Constants.VARIANT_SUCCESS,
+      alertMessage : Constants.SUCCESS
+    });
+  }
+
+  addRSVPFailure() {
+    this.setState({
+      alertVariant : Constants.VARIANT_DANGER,
+      alertMessage : Constants.ACTION_FAILURE
+    });
+  }
+
   dismissAlert() {
-    this.setState( { submitSuccess : null } );
+    clearInterval(this.closeAlertTimer);
+    this.setState({
+      alertVariant : "",
+      alertMessage : ""
+    });
   }
 
   render() {
     return (
       <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
-        { this.state.submitSuccess === true && (
-          <Alert variant="success" onClose={ this.dismissAlert } dismissible>
-            <p className="noMarginBottom">{ Constants.SUCCESS }</p>
-          </Alert>
-        )}
-        { this.state.submitSuccess === false && (
-          <Alert variant="danger" onClose={ this.dismissAlert } dismissible>
-            <p className="noMarginBottom">{ Constants.ACTION_FAILURE }</p>
-          </Alert>
-        )}
 
+        { this.state.alertVariant !== "" && (
+          <CustomAlert variant={ this.state.alertVariant } message={ this.state.alertMessage } dismissAlert={ this.dismissAlert } />
+        )}
+ 
         <Form.Group controlId="formPersonName">
           <Form.Label>{ Constants.NAME_LABEL }</Form.Label>
           <Form.Control placeholder={ RSVPForm.namePlaceholder } value={ this.state.name } className="placeholderInput" onChange={ this.updateName } required />
@@ -138,7 +138,7 @@ class RSVPForm extends React.Component {
         </Form.Group>
 
         <Form.Group controlId="formAttending">
-          <Form.Check label={ Constants.ATTENDING_LABEL } onChange={ this.updateAttending } />
+          <Form.Check label={ Constants.ATTENDING_LABEL } checked={ this.state.attending } onChange={ this.updateAttending } />
         </Form.Group>
 
         { this.state.attending && (
