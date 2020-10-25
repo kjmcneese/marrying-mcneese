@@ -5,7 +5,6 @@ import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
 
 import RouteTop from './reusable/RouteTop';
-import SmallText from '../reusable/SmallText';
 
 let photos = require('../../json/photos.json');
 
@@ -32,7 +31,10 @@ class Photos extends React.Component {
     return (
       <div>
         <RouteTop pageTitle={ Photos.photosPageTitle } />
-        <SmallText regularText={ Photos.photosPageNotice } linkText={ Photos.photographerName } webLink={ Photos.photographerLink } />
+        <div className="smallText">
+          { Photos.photosPageNotice }
+          <a href={ Photos.photographerLink } className="regularLinkText">{ Photos.photographerName }</a>
+        </div>
 
         <Tabs className="photos" defaultActiveKey="engagement">
           <Tab eventKey="proposal" title="Proposal">

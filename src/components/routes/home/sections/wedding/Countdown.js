@@ -41,7 +41,7 @@ class Countdown extends React.Component {
     return (
       <div>
         { this.state.timeUntilWedding !== "" && (
-          <p>{ this.state.timeUntilWedding }</p>
+          <p className="smallText">{ this.state.timeUntilWedding }</p>
         )}
       </div>
     );

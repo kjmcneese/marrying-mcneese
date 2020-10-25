@@ -1,7 +1,5 @@
 import React from 'react';
 
-import SmallText from '../../../reusable/SmallText';
-
 import { getSchedule } from '../../../../services/firebaseConfig';
 
 class Schedule extends React.Component {
@@ -20,7 +18,7 @@ class Schedule extends React.Component {
       this.setState({
         schedule : results.docs.map( doc => {
           item = doc.data();
-          return <SmallText regularText={ item.name + " " + item.time} key={ item.name } />;
+          return <div className="smallText" key={ item.name }>{ item.name + " " + item.time }</div>;
         })
       });
     });
