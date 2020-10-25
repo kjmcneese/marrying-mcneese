@@ -23,9 +23,9 @@ class Photos extends React.Component {
     return photos.Engagement.map( engagementImageName => <Image src={require(`../../images/engagement/${ engagementImageName }.jpg`)} className="photo" key={ engagementImageName } rounded />);
   }
 
-  getWeddingPhotos() {
-    return photos.Wedding.map( weddingImageName => <Image src={require(`../../images/wedding/${ weddingImageName }.jpg`)} className="photo" key={ weddingImageName } rounded />);
-  }
+  // getWeddingPhotos() {
+  //   return photos.Wedding.map( weddingImageName => <Image src={require(`../../images/wedding/${ weddingImageName }.jpg`)} className="photo" key={ weddingImageName } rounded />);
+  // }
 
   render() {
     return (
@@ -43,9 +43,9 @@ class Photos extends React.Component {
           <Tab eventKey="engagement" title="Engagement">
             { this.getEngagementPhotos() }
           </Tab>
-          <Tab eventKey="wedding" title="Wedding">
+          {/* <Tab eventKey="wedding" title="Wedding">
             { this.getWeddingPhotos() }
-          </Tab>
+          </Tab> */}
         </Tabs>
       </div>
     );
