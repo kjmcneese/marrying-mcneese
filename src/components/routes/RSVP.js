@@ -18,9 +18,7 @@ class RSVP extends React.Component {
     this.state = {
       mealOptions : [],
 
-      rsvp : {},
-      plusOneExists : false,
-      plusOne : {},
+      rsvp : { plusOne : null },
 
       validated : false,
       submitSuccess : null,
@@ -29,7 +27,7 @@ class RSVP extends React.Component {
     }
 
     this.updateRSVP = this.updateRSVP.bind(this);
-    this.updatePlusOneExists = this.updatePlusOneExists.bind(this);
+    this.updatePlusOne = this.updatePlusOne.bind(this);
     this.submitRSVP = this.submitRSVP.bind(this);
     this.dismissAlert = this.dismissAlert.bind(this);
   }
@@ -43,17 +41,36 @@ class RSVP extends React.Component {
     });
   }
 
-  updateRSVP(rsvpObj, isPlusOne) {
+  updateRSVP(obj, isPlusOne) {
     if (isPlusOne) {
-      this.setState( { plusOne : rsvpObj } );
+      this.setState(prev => ({
+        rsvp : {
+          ...prev.rsvp,
+          plusOne : obj
+        }
+      }));
     } else {
-      this.setState( { rsvp : rsvpObj } );
+      this.setState(prev => ({
+        rsvp : {
+          ...prev.rsvp,
+          name : obj.name,
+          attending : obj.attending,
+          meal : obj.meal,
+          comments : obj.comments
+        }
+      }));
     }
   }
   
-  updatePlusOneExists(e) {
+  // used only for hiding and showing elements based on the checkbox input
+  updatePlusOne(e) {
     const newValue = e.target.checked;
-    this.setState( { plusOneExists : newValue } );
+    this.setState(prev => ({
+      rsvp : {
+        ...prev.rsvp,
+        plusOne : newValue ? {} : null
+      }
+    }));
   }
 
   submitRSVP(e) {
@@ -67,13 +84,10 @@ class RSVP extends React.Component {
     
     if (form.checkValidity() === true) {
       this.setState( { validated : false } );
+      
+      addRSVP(this.state.rsvp).then(this.addRSVPSuccess()).catch(this.addRSVPFailure());
 
-      addRSVP({
-        name : this.state.name,
-        attending : this.state.attending,
-        meal : this.state.meal,
-        comments : this.state.comments
-      }).then(this.addRSVPSuccess(form)).catch(this.addRSVPFailure());
+      form.reset();
 
       this.closeAlertTimer = setInterval(
         function() {
@@ -82,14 +96,9 @@ class RSVP extends React.Component {
     }
   }
 
-  addRSVPSuccess(form) {
-    form.reset();
-
+  addRSVPSuccess() {
     this.setState({
-      name : "",
-      attending : false,
-      meal : "",
-      comments : "",
+      rsvp : { plusOne : null },
       alertVariant : Constants.VARIANT_SUCCESS,
       alertMessage : Constants.SUCCESS
     });
@@ -124,11 +133,11 @@ class RSVP extends React.Component {
 
           { this.state.rsvp.attending && (
             <Form.Group controlId="formPlusOneExists">
-              <Form.Check label={ Constants.PLUS_ONE_LABEL } checked={ this.state.plusOneExists } onChange={ this.updatePlusOneExists } />
+              <Form.Check label={ Constants.PLUS_ONE_LABEL } checked={ this.state.rsvp.plusOne !== null } onChange={ this.updatePlusOne } />
             </Form.Group>
           )}
 
-          { this.state.plusOneExists && (
+          { this.state.rsvp.plusOne !== null && (
             <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ true } mealOptions={ this.state.mealOptions } />
           )}
 

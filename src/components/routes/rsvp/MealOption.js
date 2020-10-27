@@ -9,7 +9,7 @@ class MealOption extends React.Component {
     return (
       <ListGroup.Item key={ this.props.mealOption.shortName }>
         <div className="formMealCheck">
-          <Form.Check type="radio" id={ this.props.mealOption.shortName } name="meal" label={ this.props.mealOption.name } value={ this.props.mealOption.shortName } onChange={ () => this.props.updateMeal(this.props.mealOption.name) } required />
+          <Form.Check type="radio" id={ this.props.mealOption.shortName } name={ "meal" + this.props.isPlusOne } label={ this.props.mealOption.name } value={ this.props.mealOption.shortName } onChange={ () => this.props.updateMeal(this.props.mealOption.name) } required />
         </div>
         <div className="mealDescriptionSides smallText">
           <p className="noMarginBottom">{ this.props.mealOption.description }</p>

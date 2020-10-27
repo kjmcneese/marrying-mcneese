@@ -45,7 +45,7 @@ class RSVPForm extends React.Component {
     if (this.props.mealOptions !== []) {
       return this.props.mealOptions.docs.map(doc => {
         let item = doc.data();
-        return <MealOption mealOption={ item } updateMeal={ this.updateMeal } key={ item.name } />;
+        return <MealOption mealOption={ item } updateMeal={ this.updateMeal } isPlusOne={ this.props.isPlusOne } key={ item.name } />;
       });
     }
 
@@ -123,7 +123,7 @@ class RSVPForm extends React.Component {
         )}
 
         { this.state.rsvp.attending && (
-          <Form.Group controlId="formMeal" >
+          <Form.Group controlId={ "formMeal" } >
             <Form.Label>{ Constants.DINNER_MEAL_LABEL }</Form.Label>
             <ListGroup>
               { this.getMealListGroupItems() }
