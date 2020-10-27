@@ -52,7 +52,8 @@ class RSVP extends React.Component {
   }
   
   updatePlusOneExists(e) {
-    this.setState( { plusOneExists : e.target.checked } );
+    const newValue = e.target.checked;
+    this.setState( { plusOneExists : newValue } );
   }
 
   submitRSVP(e) {
@@ -121,9 +122,11 @@ class RSVP extends React.Component {
         <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
           <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ false } mealOptions={ this.state.mealOptions } />
 
-          <Form.Group controlId="formPlusOneExists">
-            <Form.Check label={ Constants.PLUS_ONE_LABEL } checked={ this.state.plusOneExists } onChange={ this.updatePlusOneExists } />
-          </Form.Group>
+          { this.state.rsvp.attending && (
+            <Form.Group controlId="formPlusOneExists">
+              <Form.Check label={ Constants.PLUS_ONE_LABEL } checked={ this.state.plusOneExists } onChange={ this.updatePlusOneExists } />
+            </Form.Group>
+          )}
 
           { this.state.plusOneExists && (
             <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ true } mealOptions={ this.state.mealOptions } />

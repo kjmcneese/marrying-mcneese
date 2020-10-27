@@ -30,6 +30,17 @@ class RSVPForm extends React.Component {
   static formInvalidName = "Don't forget who you are!";
   static commentsPlaceholder = "Anything else we need to know?!";
 
+  componentDidMount() {
+    this.setState(prev => ({
+      rsvp : {
+        ...prev.rsvp,
+        attending : this.props.isPlusOne
+      }
+    }),
+    this.updateRSVP
+    );  
+  }
+
   getMealListGroupItems() {
     if (this.props.mealOptions !== []) {
       return this.props.mealOptions.docs.map(doc => {
@@ -55,10 +66,12 @@ class RSVPForm extends React.Component {
 
   updateAttending(e) {
     const newValue = e.target.checked;
+    const newMeal = newValue ? this.state.rsvp.meal : "";
     this.setState(prev => ({
       rsvp : {
         ...prev.rsvp,
-        attending : newValue
+        attending : newValue,
+        meal : newMeal
       }
     }),
     this.updateRSVP
@@ -103,9 +116,11 @@ class RSVPForm extends React.Component {
           <Form.Control.Feedback type="invalid">{ RSVPForm.formInvalidName }</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formAttending">
-          <Form.Check label={ Constants.ATTENDING_LABEL } checked={ this.state.rsvp.attending } onChange={ this.updateAttending } />
-        </Form.Group>
+        { !this.props.isPlusOne && (
+          <Form.Group controlId="formAttending">
+            <Form.Check label={ Constants.ATTENDING_LABEL } checked={ this.state.rsvp.attending } onChange={ this.updateAttending } />
+          </Form.Group>
+        )}
 
         { this.state.rsvp.attending && (
           <Form.Group controlId="formMeal" >
