@@ -116,11 +116,6 @@ class RSVPForm extends React.Component {
     });
   }
 
-  // TODO: Parent (RSVP) should pass rsvp object to child (RSVPForm)
-  //       Child should use props.rsvp object to display info in their form
-  //       When change occurs in child, call parent function to update rsvp object
-  //       The reason is because child would easily clear its form when parent submits
-
   render() {
     return (
       <div>
@@ -139,7 +134,7 @@ class RSVPForm extends React.Component {
         )}
 
         { this.state.rsvp.attending && (
-          <Form.Group controlId={ "formMeal" } >
+          <Form.Group controlId="formMeal" >
             <Form.Label>{ Constants.DINNER_MEAL_LABEL }</Form.Label>
             <ListGroup>
               { this.getMealListGroupItems() }
