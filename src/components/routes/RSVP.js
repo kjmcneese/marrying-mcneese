@@ -21,7 +21,6 @@ class RSVP extends React.Component {
       rsvp : { plusOne : null },
 
       validated : false,
-      shouldClearForm : false,
       alertVariant : "",
       alertMessage : ""
     }
@@ -101,7 +100,6 @@ class RSVP extends React.Component {
       rsvp : {
         plusOne : null
       },
-      shouldClearForm : true,
       alertVariant : Constants.VARIANT_SUCCESS,
       alertMessage : Constants.SUCCESS
     });
