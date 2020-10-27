@@ -12,7 +12,6 @@ class Constants {
   static DINNER_MEAL_LABEL = "Dinner Meal";
   static COMMENTS_LABEL = "Comments";
   static FORM_GOOD_FEEDBACK = "Looks good!";
-  static PLUS_ONE_LABEL = "Bringing +1? (only consider if allowed in your invite)";
   static SUBMIT = "Submit";
     
 }

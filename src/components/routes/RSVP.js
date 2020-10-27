@@ -36,6 +36,7 @@ class RSVP extends React.Component {
 
   static rsvpPageTitle = "RSVP";
   static rsvpPageNotice = "Please only RSVP if you were invited to the events. If given a +1, please RSVP for them as well.";
+  static plusOneLabel = "Bringing +1? (only consider if allowed in your invite)";
 
   componentDidMount() {
     getMealOptions().then( (results) => {
@@ -153,7 +154,7 @@ class RSVP extends React.Component {
 
           { this.state.rsvp.attending && (
             <Form.Group controlId="formPlusOneExists">
-              <Form.Check label={ Constants.PLUS_ONE_LABEL } checked={ this.state.rsvp.plusOne !== null } onChange={ this.updatePlusOne } />
+              <Form.Check label={ RSVP.plusOneLabel } checked={ this.state.rsvp.plusOne !== null } onChange={ this.updatePlusOne } />
             </Form.Group>
           )}
 
