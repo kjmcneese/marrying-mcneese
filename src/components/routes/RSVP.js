@@ -15,6 +15,9 @@ class RSVP extends React.Component {
   constructor() {
     super();
 
+    this.rsvpElement = React.createRef();
+    this.plusOneElement = React.createRef();
+
     this.state = {
       mealOptions : [],
 
@@ -49,15 +52,28 @@ class RSVP extends React.Component {
         }
       }));
     } else {
-      this.setState(prev => ({
-        rsvp : {
-          ...prev.rsvp,
-          name : obj.name,
-          attending : obj.attending,
-          meal : obj.meal,
-          comments : obj.comments
-        }
-      }));
+      if (obj.attending) {
+        this.setState(prev => ({
+          rsvp : {
+            ...prev.rsvp,
+            name : obj.name,
+            attending : obj.attending,
+            meal : obj.meal,
+            comments : obj.comments
+          }
+        }));
+      } else {
+        this.setState({
+          rsvp : {
+            name : obj.name,
+            attending : obj.attending,
+            meal : obj.meal,
+            comments : obj.comments,
+            plusOne : null
+          }
+        });
+      }
+      
     }
   }
   
@@ -84,7 +100,7 @@ class RSVP extends React.Component {
     if (form.checkValidity() === true) {
       this.setState( { validated : false } );
       
-      addRSVP(this.state.rsvp).then(this.addRSVPSuccess(form)).catch(() => this.addRSVPFailure());
+      addRSVP(this.state.rsvp).then(this.addRSVPSuccess()).catch(() => this.addRSVPFailure());
 
       this.closeAlertTimer = setInterval(
         function() {
@@ -93,8 +109,11 @@ class RSVP extends React.Component {
     }
   }
 
-  addRSVPSuccess(form) {
-    form.reset();
+  addRSVPSuccess() {
+    this.rsvpElement.current.clearForm();
+    if (this.state.rsvp.plusOne !== null) {
+      this.plusOneElement.current.clearForm();
+    }
 
     this.setState({
       rsvp : {
@@ -130,7 +149,7 @@ class RSVP extends React.Component {
         )}
 
         <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
-          <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ false } mealOptions={ this.state.mealOptions } shouldClearForm={ this.state.shouldClearForm } />
+          <RSVPForm ref={ this.rsvpElement } updateRSVP={ this.updateRSVP } isPlusOne={ false } mealOptions={ this.state.mealOptions } shouldClearForm={ this.state.shouldClearForm } />
 
           { this.state.rsvp.attending && (
             <Form.Group controlId="formPlusOneExists">
@@ -138,8 +157,8 @@ class RSVP extends React.Component {
             </Form.Group>
           )}
 
-          { this.state.rsvp.plusOne !== null && (
-            <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ true } mealOptions={ this.state.mealOptions } shouldClearForm={ this.state.shouldClearForm } />
+          { this.state.rsvp.attending && this.state.rsvp.plusOne !== null && (
+            <RSVPForm ref={ this.plusOneElement } updateRSVP={ this.updateRSVP } isPlusOne={ true } mealOptions={ this.state.mealOptions } shouldClearForm={ this.state.shouldClearForm } />
           )}
 
           <Button className="rsvpSubmitButton" type="submit">{ Constants.SUBMIT }</Button>

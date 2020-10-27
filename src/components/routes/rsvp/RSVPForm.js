@@ -105,6 +105,17 @@ class RSVPForm extends React.Component {
     this.props.updateRSVP(this.state.rsvp, this.props.isPlusOne);
   }
 
+  clearForm() {
+    this.setState({
+      rsvp : {
+        name : "",
+        attending : false,
+        meal : "",
+        comments : ""  
+      }
+    });
+  }
+
   // TODO: Parent (RSVP) should pass rsvp object to child (RSVPForm)
   //       Child should use props.rsvp object to display info in their form
   //       When change occurs in child, call parent function to update rsvp object
