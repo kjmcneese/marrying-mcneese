@@ -2,161 +2,152 @@ import React from 'react';
 
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button';
 
-import CustomAlert from '../../reusable/CustomAlert';
 import MealOption from './MealOption';
 
 import Constants from '../../../Constants';
-
-import { getMealOptions, addRSVP } from '../../../services/firebaseConfig';
 
 class RSVPForm extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      name : "",
-      attending : false,
-      meal : "",
-      mealListGroupItems : [],
-      comments : "",
-      validated : false,
-      submitSuccess : null,
-      alertVariant : "",
-      alertMessage : ""
+      rsvp : {
+        name : "",
+        attending : false,
+        meal : "",
+        comments : ""
+      }
     }
 
     this.updateName = this.updateName.bind(this);
     this.updateAttending = this.updateAttending.bind(this);
     this.updateMeal = this.updateMeal.bind(this);
     this.updateComments = this.updateComments.bind(this);
-    this.submitRSVP = this.submitRSVP.bind(this);
-    this.dismissAlert = this.dismissAlert.bind(this);
   }
 
-  static namePlaceholder = "Who are you?";
+  static namePlaceholder = "Who?";
   static formInvalidName = "Don't forget who you are!";
   static commentsPlaceholder = "Anything else we need to know?!";
 
   componentDidMount() {
-    getMealOptions().then( (results) => {
+    this.setState(prev => ({
+      rsvp : {
+        ...prev.rsvp,
+        attending : this.props.isPlusOne
+      }
+    }),
+    this.updateRSVP
+    );
+  }
 
-      let item = {};
-      this.setState({
-        mealListGroupItems : results.docs.map( (doc, index) => {
-          item = doc.data();
-          return <MealOption mealOption={ item } updateMeal={ this.updateMeal } key={ item.name } />;
-        })
+  getMealListGroupItems() {
+    if (this.props.mealOptions !== []) {
+      return this.props.mealOptions.docs.map(doc => {
+        let item = doc.data();
+        return <MealOption mealOption={ item } updateMeal={ this.updateMeal } isPlusOne={ this.props.isPlusOne } key={ item.name } />;
       });
-    });
+    }
+
+    return [];
   }
 
   updateName(e) {
-    this.setState( { name : e.target.value } );
+    const newValue = e.target.value;
+    this.setState(prev => ({
+      rsvp : {
+        ...prev.rsvp,
+        name : newValue
+      }
+    }),
+    this.updateRSVP
+    );
   }
 
   updateAttending(e) {
-    this.setState( { attending : e.target.checked } );
+    const newValue = e.target.checked;
+    const newMeal = newValue ? this.state.rsvp.meal : "";
+    this.setState(prev => ({
+      rsvp : {
+        ...prev.rsvp,
+        attending : newValue,
+        meal : newMeal
+      }
+    }),
+    this.updateRSVP
+    );
   }
 
   updateMeal(mealChecked) {
-    this.setState( { meal : mealChecked } );
+    this.setState(prev => ({
+      rsvp : {
+        ...prev.rsvp,
+        meal : mealChecked
+      }
+    }),
+    this.updateRSVP
+    );
   }
 
   updateComments(e) {
-    this.setState( { comments : e.target.value } );
+    const newValue = e.target.value;
+    this.setState(prev => ({
+      rsvp : {
+        ...prev.rsvp,
+        comments : newValue
+      }
+    }),
+    this.updateRSVP
+    );
   }
 
-  submitRSVP(e) {
-    const form = e.currentTarget;
-    e.preventDefault();
-
-    if (form.checkValidity() === false) {
-      e.stopPropagation();
-      this.setState( { validated : true } );
-    }
-    
-    if (form.checkValidity() === true) {
-      this.setState( { validated : false } );
-
-      addRSVP({
-        name : this.state.name,
-        attending : this.state.attending,
-        meal : this.state.meal,
-        comments : this.state.comments
-      }).then(this.addRSVPSuccess(form)).catch(this.addRSVPFailure());
-
-      this.closeAlertTimer = setInterval(
-        function() {
-          this.dismissAlert();
-      }.bind(this), 10000);
-    }
+  updateRSVP() {
+    this.props.updateRSVP(this.state.rsvp, this.props.isPlusOne);
   }
 
-  addRSVPSuccess(form) {
-    form.reset();
-
+  clearForm() {
     this.setState({
-      name : "",
-      attending : false,
-      meal : "",
-      comments : "",
-      alertVariant : Constants.VARIANT_SUCCESS,
-      alertMessage : Constants.SUCCESS
-    });
-  }
-
-  addRSVPFailure() {
-    this.setState({
-      alertVariant : Constants.VARIANT_DANGER,
-      alertMessage : Constants.ACTION_FAILURE
-    });
-  }
-
-  dismissAlert() {
-    clearInterval(this.closeAlertTimer);
-    this.setState({
-      alertVariant : "",
-      alertMessage : ""
+      rsvp : {
+        name : "",
+        attending : false,
+        meal : "",
+        comments : ""  
+      }
     });
   }
 
   render() {
     return (
-      <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
-
-        { this.state.alertVariant !== "" && (
-          <CustomAlert variant={ this.state.alertVariant } message={ this.state.alertMessage } dismissAlert={ this.dismissAlert } />
-        )}
+      <div>
  
         <Form.Group controlId="formPersonName">
           <Form.Label>{ Constants.NAME_LABEL }</Form.Label>
-          <Form.Control placeholder={ RSVPForm.namePlaceholder } value={ this.state.name } className="placeholderInput" onChange={ this.updateName } required />
+          <Form.Control placeholder={ RSVPForm.namePlaceholder } value={ this.state.rsvp.name } className="placeholderInput" onChange={ this.updateName } required />
           <Form.Control.Feedback>{ Constants.FORM_GOOD_FEEDBACK }</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">{ RSVPForm.formInvalidName }</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formAttending">
-          <Form.Check label={ Constants.ATTENDING_LABEL } checked={ this.state.attending } onChange={ this.updateAttending } />
-        </Form.Group>
+        { !this.props.isPlusOne && (
+          <Form.Group controlId="formAttending">
+            <Form.Check label={ Constants.ATTENDING_LABEL } checked={ this.state.rsvp.attending } onChange={ this.updateAttending } />
+          </Form.Group>
+        )}
 
-        { this.state.attending && (
+        { this.state.rsvp.attending && (
           <Form.Group controlId="formMeal" >
             <Form.Label>{ Constants.DINNER_MEAL_LABEL }</Form.Label>
             <ListGroup>
-              { this.state.mealListGroupItems }
+              { this.getMealListGroupItems() }
             </ListGroup>
           </Form.Group>
         )}
 
         <Form.Group controlId="formComments">
           <Form.Label>{ Constants.COMMENTS_LABEL }</Form.Label>
-          <Form.Control as="textarea" rows="3" placeholder={ RSVPForm.commentsPlaceholder } value={ this.state.comments } className="placeholderInput" onChange={ this.updateComments } />
+          <Form.Control as="textarea" rows="3" placeholder={ RSVPForm.commentsPlaceholder } value={ this.state.rsvp.comments } className="placeholderInput" onChange={ this.updateComments } />
         </Form.Group>
 
-        <Button className="rsvpSubmitButton" type="submit">{ Constants.SUBMIT }</Button>
-      </Form>
+      </div>
     );
   }
 }
