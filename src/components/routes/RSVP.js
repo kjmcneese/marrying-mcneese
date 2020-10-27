@@ -21,7 +21,7 @@ class RSVP extends React.Component {
       rsvp : { plusOne : null },
 
       validated : false,
-      submitSuccess : null,
+      shouldClearForm : false,
       alertVariant : "",
       alertMessage : ""
     }
@@ -85,9 +85,7 @@ class RSVP extends React.Component {
     if (form.checkValidity() === true) {
       this.setState( { validated : false } );
       
-      addRSVP(this.state.rsvp).then(this.addRSVPSuccess()).catch(this.addRSVPFailure());
-
-      form.reset();
+      addRSVP(this.state.rsvp).then(this.addRSVPSuccess(form)).catch(() => this.addRSVPFailure());
 
       this.closeAlertTimer = setInterval(
         function() {
@@ -96,9 +94,14 @@ class RSVP extends React.Component {
     }
   }
 
-  addRSVPSuccess() {
+  addRSVPSuccess(form) {
+    form.reset();
+
     this.setState({
-      rsvp : { plusOne : null },
+      rsvp : {
+        plusOne : null
+      },
+      shouldClearForm : true,
       alertVariant : Constants.VARIANT_SUCCESS,
       alertMessage : Constants.SUCCESS
     });
@@ -129,7 +132,7 @@ class RSVP extends React.Component {
         )}
 
         <Form id="rsvpForm" noValidate validated={ this.state.validated } onSubmit={ this.submitRSVP }>
-          <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ false } mealOptions={ this.state.mealOptions } />
+          <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ false } mealOptions={ this.state.mealOptions } shouldClearForm={ this.state.shouldClearForm } />
 
           { this.state.rsvp.attending && (
             <Form.Group controlId="formPlusOneExists">
@@ -138,7 +141,7 @@ class RSVP extends React.Component {
           )}
 
           { this.state.rsvp.plusOne !== null && (
-            <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ true } mealOptions={ this.state.mealOptions } />
+            <RSVPForm updateRSVP={ this.updateRSVP } isPlusOne={ true } mealOptions={ this.state.mealOptions } shouldClearForm={ this.state.shouldClearForm } />
           )}
 
           <Button className="rsvpSubmitButton" type="submit">{ Constants.SUBMIT }</Button>
