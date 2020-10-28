@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 firebase.initializeApp({
   apiKey : "AIzaSyAofLfDy82Mtb5VOd94X5rPLidRI_PhQpw",
@@ -13,7 +14,25 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 
-const getAppInfo = () => db.collection( "info" ).get();
+function authenticateUser() {
+  firebase.auth().signInAnonymously().catch(function(error) {
+    // Handle Errors here.
+    console.log(error);
+
+  });
+
+  firebase.auth().onAuthStateChanged(user => {
+    console.log("the user is");
+    console.log(user);
+  });
+}
+
+function getAppInfo() {
+  authenticateUser();
+  db.collection( "info" ).get();
+}
+
+// const getAppInfo = () => db.collection( "info" ).get();
 
 const getVenue = () => db.collection( "venue" ).get();
 
