@@ -31,7 +31,7 @@ class RSVP extends React.Component {
       <div>
         <RouteTop pageTitle={ RSVP.rsvpPageTitle } pageNotice={ RSVP.rsvpPageNotice } />
         <CustomAlert variant={ this.state.alertVariant } message={ this.state.alertMessage } updateAlert={ this.updateAlert } />
-        {/* <RSVPForm updateAlert={ this.updateAlert } /> */}
+        <RSVPForm updateAlert={ this.updateAlert } />
       </div>
     );
   }
