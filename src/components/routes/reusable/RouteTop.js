@@ -1,14 +1,12 @@
 import React from 'react';
 
-class RouteTop extends React.Component {
-  render() {
-    return (
-      <div className="routeTop">
-        <h4>{ this.props.pageTitle }</h4>
-        { this.props.pageNotice && (<div className="smallText">{ this.props.pageNotice }</div>)}
-      </div>
-    );
-  }
+function RouteTop(props) {
+  return (
+    <div className="routeTop">
+      <h4>{ props.pageTitle }</h4>
+      { props.pageNotice && (<div className="smallText">{ props.pageNotice }</div>)}
+    </div>
+  );
 }
 
 export default RouteTop;
